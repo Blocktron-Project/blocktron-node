@@ -1,0 +1,55 @@
+{
+  "name": "blocktron-node",
+  "version": "0.0.1",
+  "description": "blocktron node of the distributed blocktron system",
+  "main": "dist/main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node ./bin/server.js",
+    "precommit": "pretty-quick --staged",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-dev": "webpack --config=webpack.dev.config.js",
+    "build": "webpack --config=webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blocktron-Project/blocktron-node.git"
+  },
+  "keywords": [
+    "blocktron",
+    "blocktron-node",
+    "cryptocurrency",
+    "blockchain",
+    "javascript",
+    "node",
+    "framework"
+  ],
+  "author": "Sandeep Vattapparambil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Blocktron-Project/blocktron-node/issues"
+  },
+  "homepage": "https://github.com/Blocktron-Project/blocktron-node#readme",
+  "dependencies": {
+    "debug": "^3.1.0",
+    "express": "^4.16.3",
+    "http-errors": "^1.6.3",
+    "path": "^0.12.7",
+    "pino": "^4.17.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.5",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^5.0.0",
+    "jest": "^23.2.0",
+    "prettier": "^1.13.6",
+    "prettier-webpack-plugin": "^1.0.0",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8"
+  }
+}

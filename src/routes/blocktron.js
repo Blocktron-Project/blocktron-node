@@ -7,11 +7,11 @@ const router = express.Router();
 /**
  * GET blocktron listing.
  */
-router.get('/', function (req, res, next) {
-  let response = {
-    message: 'Hello blocktron'
-  };
-  res.json(response);
+router.get('/', function(req, res, next) {
+   let response = {
+      message: 'Hello blocktron'
+   };
+   res.json(response);
 });
 
 module.exports = router;

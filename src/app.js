@@ -25,7 +25,7 @@ const createError = require('http-errors');
 const express = require('express');
 
 /**
- * Extremely fast node.js logger, inspired by Bunyan. 
+ * Extremely fast node.js logger, inspired by Bunyan.
  * It also includes a shell utility to pretty-print its log files.
  */
 const log = require('pino')(require('../config/pino'));
@@ -57,9 +57,11 @@ app.disable('x-powered-by');
  * Set-up and use middlewares
  */
 app.use(express.json());
-app.use(express.urlencoded({
-  extended: false
-}));
+app.use(
+   express.urlencoded({
+      extended: false
+   })
+);
 log.info('Blocktron middlewares initialized');
 
 /**
@@ -72,28 +74,28 @@ log.info('Blocktron routes chained to middlewares');
 /**
  * catch 404 and forward to error handler
  */
-app.use(function (req, res, next) {
-  log.error('Error caught');
-  next(createError(404));
+app.use(function(req, res, next) {
+   log.error('Error caught');
+   next(createError(404));
 });
 
 /**
  * error handler
  */
-app.use(function (err, req, res, next) {
-  /**
-   * render the error 
-   */
-  res.status(err.status || 500);
-  log.error(req);
-  let errorData = {
-    status: err.status || 500,
-    message: err.message
-  };
-  if (env === 'development'){
-    errorData.stack = err.stack;
-  }
-  res.json(errorData);
+app.use(function(err, req, res, next) {
+   /**
+    * render the error
+    */
+   res.status(err.status || 500);
+   log.error(req);
+   let errorData = {
+      status: err.status || 500,
+      message: err.message
+   };
+   if (env === 'development') {
+      errorData.stack = err.stack;
+   }
+   res.json(errorData);
 });
 
 module.exports = app;

@@ -1,11 +1,17 @@
+/**
+ * blocktron route and controller
+ */
 const express = require('express');
 const router = express.Router();
 
 /**
- * GET users listing.
+ * GET blocktron listing.
  */
 router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
+  let response = {
+    message: 'Hello blocktron'
+  };
+  res.json(response);
 });
 
 module.exports = router;

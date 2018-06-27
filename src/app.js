@@ -39,7 +39,7 @@ global.log = log;
  * Set-up routes
  */
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const blocktronRouter = require('./routes/blocktron');
 log.info('Blocktron routes initialized');
 
 /**
@@ -66,7 +66,7 @@ log.info('Blocktron middlewares initialized');
  * Add routes to the middleware chain
  */
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/blocktron', blocktronRouter);
 log.info('Blocktron routes chained to middlewares');
 
 /**
@@ -82,21 +82,17 @@ app.use(function (req, res, next) {
  */
 app.use(function (err, req, res, next) {
   /**
-   * set locals, only providing error in development
-   */
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  /**
    * render the error 
    */
   res.status(err.status || 500);
   log.error(req);
   let errorData = {
     status: err.status || 500,
-    message: err.message,
-    stack: err.stack
+    message: err.message
   };
+  if (env === 'development'){
+    errorData.stack = err.stack;
+  }
   res.json(errorData);
 });
 

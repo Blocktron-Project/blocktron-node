@@ -8,6 +8,13 @@
  */
 
 /**
+ * Set up process
+ */
+const env = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
+process.title = 'Blocktron Node';
+global.env = env;
+
+/**
  * Create HTTP errors for Express, Koa, Connect, etc. with ease.
  */
 const createError = require('http-errors');

@@ -18,11 +18,6 @@ const createError = require('http-errors');
 const express = require('express');
 
 /**
- * The NodeJS ’path’ module published to the NPM registry.
- */
-const path = require('path');
-
-/**
  * Extremely fast node.js logger, inspired by Bunyan. 
  * It also includes a shell utility to pretty-print its log files.
  */
@@ -58,7 +53,6 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: false
 }));
-app.use(express.static(path.join(__dirname, 'public')));
 log.info('Blocktron middlewares initialized');
 
 /**

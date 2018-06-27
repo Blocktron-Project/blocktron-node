@@ -7,11 +7,13 @@
     "test": "test"
   },
   "scripts": {
-    "start": "node ./bin/server.js",
     "precommit": "pretty-quick --staged",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-dev": "webpack --config=webpack.dev.config.js",
-    "build": "webpack --config=webpack.config.js"
+    "build-prod": "webpack --config=webpack.config.js",
+    "start-dev": "node ./bin/server.js",
+    "start-prod": "node ./dist/main.js",
+    "start": "node ./dist/main.min.js"
   },
   "repository": {
     "type": "git",

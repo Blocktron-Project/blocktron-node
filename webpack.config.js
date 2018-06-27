@@ -27,6 +27,10 @@ module.exports = {
     target: 'node',
     //Configuration settings
     plugins: [
+        new webpack.BannerPlugin({
+            banner: '#!/usr/bin/env node',
+            raw: true
+        }),
         new PrettierPlugin({
             'parser': 'flow',
             'singleQuote': true,

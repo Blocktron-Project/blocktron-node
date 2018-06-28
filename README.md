@@ -8,7 +8,9 @@ blocktron-node is the single server node of the entire **distributed blocktron s
 ## Motivation
 
 ## Build status
+This project has been set up with Travis-CI and Circle-CI where the continuous integration and continuous deployment tests are being run on every code commits to ensure code quality. These badges shows the tests and builds passing or failing.
 ![CircleCI](https://circleci.com/gh/Blocktron-Project/blocktron-node.svg?style=svg)
+![TravisCI](https://travis-ci.org/Blocktron-Project/blocktron-node.svg?branch=master)
 
 ## Technology Stack
 

@@ -38,7 +38,7 @@ install:
   - npm install
 
 script:
-  - npm run build
+  - npm run build-prod
   - npm test
 ```
 Here's the [Travis build page for this project](https://travis-ci.org/Blocktron-Project/blocktron-node), which shows the tests passing.

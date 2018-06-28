@@ -8,6 +8,7 @@ blocktron-node is the single server node of the entire **distributed blocktron s
 ## Motivation
 
 ## Build status
+![CircleCI](https://circleci.com/gh/Blocktron-Project/blocktron-node.svg?style=svg)
 
 ## Technology Stack
 

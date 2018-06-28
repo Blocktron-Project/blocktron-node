@@ -1,7 +1,6 @@
 ![logo](blocktron.png)
 # Blocktron
 
-
 [![GitHub license](https://img.shields.io/github/license/Blocktron-Project/blocktron-node.svg)](https://github.com/Blocktron-Project/blocktron-node/blob/master/LICENSE) ![made with](https://img.shields.io/badge/made%20with-JavaScript-green.svg) ![dependencies](https://david-dm.org/Blocktron-Project/blocktron-node.svg) ![blocktron-lib](https://img.shields.io/badge/blocktron--lib-0.0.1-green.svg) ![CircleCI](https://circleci.com/gh/Blocktron-Project/blocktron-node.svg?style=svg) ![TravisCI](https://travis-ci.org/Blocktron-Project/blocktron-node.svg?branch=master) [![GitHub issues](https://img.shields.io/github/issues/Blocktron-Project/blocktron-node.svg)](https://github.com/Blocktron-Project/blocktron-node/issues) ![GitHub forks](https://img.shields.io/github/forks/Blocktron-Project/blocktron-node.svg) ![GitHub stars](https://img.shields.io/github/stars/Blocktron-Project/blocktron-node.svg) ![Twitter](https://img.shields.io/twitter/url/https/github.com/Blocktron-Project/blocktron-node.svg?style=social)
 
 **Blocktron** is a simple yet elegant and efficient **blockchain framework** written in **Javascript** for **Node.js** environment. Blocktron is aimed at developing generic, multipurpose blockchain platforms and softwares for various application use-cases, and also for educational and awareness purposes. This library is built from the ground up using only **opensource** technologies.
@@ -21,6 +20,17 @@ This project has been set up with Travis-CI and Circle-CI where the continuous i
 - Travis-CI - ![TravisCI](https://travis-ci.org/Blocktron-Project/blocktron-node.svg?branch=master)
 
 ## Technology Stack
+Blocktron project is built with the following technologies:
+- JavaScript
+- Node.js
+- blocktron-lib
+- Git
+- Github
+- Travis-CI
+- CircleCI
+- Jest
+
+![techstack](techstack.png)
 
 ## Getting Started
 

@@ -40,6 +40,8 @@ global.log = log;
  */
 const indexRouter = require('./routes/index');
 const blocktronRouter = require('./routes/blocktron');
+const transactionRouter = require('./routes/transaction');
+const mineRouter = require('./routes/mine');
 log.info('Blocktron routes initialized');
 
 /**
@@ -58,9 +60,9 @@ app.disable('x-powered-by');
  */
 app.use(express.json());
 app.use(
-   express.urlencoded({
-      extended: false
-   })
+    express.urlencoded({
+        extended: false
+    })
 );
 log.info('Blocktron middlewares initialized');
 
@@ -68,34 +70,36 @@ log.info('Blocktron middlewares initialized');
  * Add routes to the middleware chain
  */
 app.use('/', indexRouter);
-app.use('/blocktron', blocktronRouter);
+app.use('/blockchain', blocktronRouter);
+app.use('/transaction', transactionRouter);
+app.use('/mine', mineRouter);
 log.info('Blocktron routes chained to middlewares');
 
 /**
  * catch 404 and forward to error handler
  */
-app.use(function(req, res, next) {
-   log.error('Error caught');
-   next(createError(404));
+app.use((req, res, next) => {
+    log.error('Error caught');
+    next(createError(404));
 });
 
 /**
  * error handler
  */
-app.use(function(err, req, res, next) {
-   /**
-    * render the error
-    */
-   res.status(err.status || 500);
-   log.error(req);
-   let errorData = {
-      status: err.status || 500,
-      message: err.message
-   };
-   if (env === 'development') {
-      errorData.stack = err.stack;
-   }
-   res.json(errorData);
+app.use((err, req, res, next) => {
+    /**
+     * render the error
+     */
+    res.status(err.status || 500);
+    log.error(req);
+    let errorData = {
+        status: err.status || 500,
+        message: err.message
+    };
+    if (env === 'development') {
+        errorData.stack = err.stack;
+    }
+    res.json(errorData);
 });
 
 module.exports = app;

@@ -32,6 +32,8 @@ Blocktron project is built with the following technologies:
 
 ![techstack](techstack.png)
 
+## Why JavaScript & Node.js
+
 ## Getting Started
 
 ## Installation

@@ -1,11 +1,11 @@
 /**
- * blocktron route and controller
+ * blocktron mine route and controller
  */
 const express = require('express');
 const router = express.Router();
 
 /**
- * GET blocktron listing.
+ * Mine a block.
  */
 router.get('/', function(req, res, next) {
    let response = {

@@ -1,13 +1,13 @@
 /**
- * blocktron route and controller
+ * blocktron transaction route and controller
  */
 const express = require('express');
 const router = express.Router();
 
 /**
- * GET blocktron listing.
+ * POST transaction
  */
-router.get('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
    let response = {
       message: 'Hello blocktron'
    };

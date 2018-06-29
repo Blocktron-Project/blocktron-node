@@ -1,0 +1,2 @@
+# Circle CI
+Circle CI is an online continuous distribution and continuous deployment service. Blocktron project uses Circle CI as one of its tool. This folder contains the configuration files for Circle CI.

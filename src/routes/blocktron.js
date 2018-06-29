@@ -1,25 +1,18 @@
 /**
  * blocktron route and controller
+ * @module router
  */
 const express = require('express');
 const router = express.Router();
 
 /**
- * blocktron-lib datastructure library
+ * GET blocktron blockchain listing.
  */
-const BlocktronLib  = require('blocktron-lib');
-
-class Blocktron extends BlocktronLib{
-    constructor(chain, pendingTransactions ){
-        super(chain, pendingTransactions);
-    }
-}
-
-let blocktron = new Blocktron;
-/**
- * GET blocktron listing.
- */
-router.get('/', function(req, res, next) {
-   res.send(blocktron);
+router.get('/', (req, res, next) => {
+    /**
+     * Send the JSON representation of blockchain to the client.
+     */
+    res.json(blocktron);
 });
+
 module.exports = router;

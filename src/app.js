@@ -8,6 +8,11 @@
  */
 
 /**
+ * The blocktron-node express application object
+ * @module app
+ */
+
+/**
  * Set up process
  */
 const env = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
@@ -29,6 +34,17 @@ const express = require('express');
  * It also includes a shell utility to pretty-print its log files.
  */
 const log = require('pino')(require('../config/pino'));
+
+/**
+ * Include the blocktron library 
+ */
+const Blocktron = require('./lib/blocktron');
+
+/**
+ * Create an instance of the Blocktron class and globalize it.
+ */
+let blocktron = new Blocktron;
+global.blocktron = blocktron;
 
 /**
  * Set up global logging

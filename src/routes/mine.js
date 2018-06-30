@@ -8,10 +8,50 @@ const router = express.Router();
 /**
  * Mine a block.
  */
-router.get('/', function(req, res, next) {
-   let response = {
-      message: 'Hello blocktron'
-   };
-   res.json(response);
+router.get('/', function (req, res, next) {
+
+    /**
+     * Get the last block from the chain
+     */
+    const lastBlock = blocktron.getLastBlock();
+
+    /**
+     * Get th hash of the that block (previousBlock)
+     */
+    const previousBlockHash = lastBlock['hash'];
+
+    /**
+     * Build the current block's data
+     */
+    const currentBlockData = {
+        transactions: blocktron.pendingTransactions,
+        index: lastBlock['index'] + 1
+    };
+
+    /**
+     * Get the valid nonce value using the Proof Of Work Algorithm
+     */
+    const nonce = blocktron.proofOfWork(previousBlockHash, currentBlockData);
+
+    /**
+     * Generate the hash of the block data
+     */
+    const blockHash = blocktron.hashBlock(previousBlockHash, currentBlockData, nonce);
+
+    /**
+     * Create the new block (Mining the new block to the blockchain)
+     */
+    const newBlock = blocktron.createNewBlock(nonce, previousBlockHash, blockHash);
+
+    /**
+     * Construct the response object and send it
+     */
+    let response = {
+        status: 'success',
+        code: res.statusCode,
+        message: 'New block mined successfully',
+        blockData: newBlock
+    };
+    res.json(response);
 });
 module.exports = router;

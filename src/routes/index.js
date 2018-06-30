@@ -16,6 +16,7 @@ router.get('/', function(req, res, next) {
       configuration: {
          process_title: process.title,
          process_pid: process.pid,
+         node_address: _bt_config.blocktronNodeAddress,
          environment: env,
          os: process.platform,
          cpu_arch: process.arch,

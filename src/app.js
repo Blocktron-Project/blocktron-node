@@ -15,14 +15,14 @@
 /**
  * Global blocktron configuration
  */
-const blocktronConfig = require('../config/blocktron');
-global.blocktronConfig = blocktronConfig;
+const _bt_config = require('../config/blocktron');
+global._bt_config = _bt_config;
 
 /**
  * Set up process
  */
 const env = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
-process.title = blocktronConfig.appTitle;
+process.title = _bt_config.appTitle;
 global.env = env;
 
 /**

@@ -1,9 +1,11 @@
 /**
  * Blocktron global configuration 
  */
-const blocktronConfig = {
+const _bt_config = {
     appTitle: 'Blocktron Node',
+    defaultAppPort: 3000,
+    rewardSenderAddress: '00BLOCKTRON',
     rewardValue: 12.5
 };
 
-module.exports = blocktronConfig;
+module.exports = _bt_config;

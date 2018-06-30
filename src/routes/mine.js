@@ -6,6 +6,20 @@ const express = require('express');
 const router = express.Router();
 
 /**
+ * A node module for simple, fast generation of RFC4122 UUIDS.
+ * Here v1 is used.
+ * @see {@link https://www.ietf.org/rfc/rfc4122.txt|RFC4122} 
+ */
+const uuid = require('uuid/v1');
+
+/**
+ * Generate an RFC4122 compatible unique distributed-system node identifier.
+ * Using uuid generate a unique string, then remove the dashes in the string and rejoin them.
+ * The string generated is guarenteed to be unique at a very high percentage.
+ */
+const blocktronNodeAddress = uuid().split('-').join('');
+
+/**
  * Mine a block.
  */
 router.get('/', function (req, res, next) {
@@ -41,7 +55,7 @@ router.get('/', function (req, res, next) {
     /**
      * Reward the miner with the standard reward value
      */
-    blocktron.createNewTransaction(blocktronConfig.rewardValue, '00BLOCKTRON', );
+    blocktron.createNewTransaction(blocktronConfig.rewardValue, blocktronConfig.rewardSenderAddress, blocktronNodeAddress);
 
     /**
      * Create the new block (Mining the new block to the blockchain)

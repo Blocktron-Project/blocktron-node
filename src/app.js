@@ -9,14 +9,20 @@
 
 /**
  * The blocktron-node express application object
- * @module app
+ * @module blocktronApp
  */
+
+/**
+ * Global blocktron configuration
+ */
+const blocktronConfig = require('../config/blocktron');
+global.blocktronConfig = blocktronConfig;
 
 /**
  * Set up process
  */
 const env = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
-process.title = 'Blocktron Node';
+process.title = blocktronConfig.appTitle;
 global.env = env;
 
 /**
@@ -61,21 +67,21 @@ const mineRouter = require('./routes/mine');
 log.info('Blocktron routes initialized');
 
 /**
- * Instantiate express app object
+ * Instantiate the blocktron express app object
  */
-const app = express();
+const blocktronApp = express();
 log.info('Blocktron initialized');
 
 /**
  * disable x-powered-by to deceive hackers
  */
-app.disable('x-powered-by');
+blocktronApp.disable('x-powered-by');
 
 /**
  * Set-up and use middlewares
  */
-app.use(express.json());
-app.use(
+blocktronApp.use(express.json());
+blocktronApp.use(
     express.urlencoded({
         extended: false
     })
@@ -85,16 +91,16 @@ log.info('Blocktron middlewares initialized');
 /**
  * Add routes to the middleware chain
  */
-app.use('/', indexRouter);
-app.use('/blockchain', blocktronRouter);
-app.use('/transaction', transactionRouter);
-app.use('/mine', mineRouter);
+blocktronApp.use('/', indexRouter);
+blocktronApp.use('/blockchain', blocktronRouter);
+blocktronApp.use('/transaction', transactionRouter);
+blocktronApp.use('/mine', mineRouter);
 log.info('Blocktron routes chained to middlewares');
 
 /**
  * catch 404 and forward to error handler
  */
-app.use((req, res, next) => {
+blocktronApp.use((req, res, next) => {
     log.error('Error caught');
     next(createError(404));
 });
@@ -102,7 +108,7 @@ app.use((req, res, next) => {
 /**
  * error handler
  */
-app.use((err, req, res, next) => {
+blocktronApp.use((err, req, res, next) => {
     /**
      * render the error
      */
@@ -118,4 +124,4 @@ app.use((err, req, res, next) => {
     res.json(errorData);
 });
 
-module.exports = app;
+module.exports = blocktronApp;

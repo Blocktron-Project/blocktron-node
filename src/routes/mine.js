@@ -16,7 +16,7 @@ router.get('/', function (req, res, next) {
     const lastBlock = blocktron.getLastBlock();
 
     /**
-     * Get th hash of the that block (previousBlock)
+     * Get the hash of the that block (previousBlock)
      */
     const previousBlockHash = lastBlock['hash'];
 
@@ -37,6 +37,11 @@ router.get('/', function (req, res, next) {
      * Generate the hash of the block data
      */
     const blockHash = blocktron.hashBlock(previousBlockHash, currentBlockData, nonce);
+
+    /**
+     * Reward the miner with the standard reward value
+     */
+    blocktron.createNewTransaction(blocktronConfig.rewardValue, '00BLOCKTRON', );
 
     /**
      * Create the new block (Mining the new block to the blockchain)

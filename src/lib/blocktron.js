@@ -13,8 +13,8 @@ class Blocktron extends BlocktronLib {
 
     /**
      * The constructor for the class
-     * @param {*} chain - The blockchain array
-     * @param {*} pendingTransactions - The pending transactions array
+     * @param {Array} chain - The blockchain array
+     * @param {Array} pendingTransactions - The pending transactions array
      */
     constructor(chain, pendingTransactions) {
 

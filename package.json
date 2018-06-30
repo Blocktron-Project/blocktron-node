@@ -40,7 +40,8 @@
     "express": "^4.16.3",
     "http-errors": "^1.6.3",
     "path": "^0.12.7",
-    "pino": "^4.17.3"
+    "pino": "^4.17.3",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

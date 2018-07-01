@@ -84,6 +84,7 @@ blocktronNode.disable('x-powered-by');
 
 /**
  * Set-up and use middlewares
+ * @memberof blocktronNode
  */
 blocktronNode.use(express.json());
 blocktronNode.use(
@@ -95,6 +96,7 @@ log.info('Blocktron middlewares initialized');
 
 /**
  * Add routes to the middleware chain
+ * @memberof blocktronNode
  */
 blocktronNode.use('/', indexRouter);
 blocktronNode.use('/blockchain', blocktronRouter);
@@ -103,7 +105,10 @@ blocktronNode.use('/mine', mineRouter);
 log.info('Blocktron routes chained to middlewares');
 
 /**
- * catch 404 and forward to error handler
+ * Catch 404 and forward to error handler
+ * @memberof blocktronNode
+ * @function
+ * @param {Callback} middleware - Callback to catch 404 error 
  */
 blocktronNode.use((req, res, next) => {
     log.error('Error caught');
@@ -111,7 +116,10 @@ blocktronNode.use((req, res, next) => {
 });
 
 /**
- * error handler
+ * Error handler
+ * @memberof blocktronNode
+ * @function
+ * @param {Callback} middleware - Callback to render the error
  */
 blocktronNode.use((err, req, res, next) => {
     /**

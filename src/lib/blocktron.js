@@ -10,19 +10,17 @@ const BlocktronLib = require('blocktron-lib');
  * @extends BlocktronLib
  */
 class Blocktron extends BlocktronLib {
-
-    /**
-     * The constructor for the class
-     * @param {Array} chain - The blockchain array
-     * @param {Array} pendingTransactions - The pending transactions array
-     */
-    constructor(chain, pendingTransactions) {
-
-        /**
-         * Call the parent class constructor with the given parameters.
-         */
-        super(chain, pendingTransactions);
-    }
+   /**
+    * The constructor for the class
+    * @param {Array} chain - The blockchain array
+    * @param {Array} pendingTransactions - The pending transactions array
+    */
+   constructor(chain, pendingTransactions) {
+      /**
+       * Call the parent class constructor with the given parameters.
+       */
+      super(chain, pendingTransactions);
+   }
 }
 
 module.exports = Blocktron;

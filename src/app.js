@@ -53,7 +53,7 @@ const Blocktron = require('./lib/blocktron');
 /**
  * Create an instance of the Blocktron class and globalize it.
  */
-let blocktron = new Blocktron;
+let blocktron = new Blocktron();
 global.blocktron = blocktron;
 
 /**
@@ -87,9 +87,9 @@ blocktronNode.disable('x-powered-by');
  */
 blocktronNode.use(express.json());
 blocktronNode.use(
-    express.urlencoded({
-        extended: false
-    })
+   express.urlencoded({
+      extended: false
+   })
 );
 log.info('Blocktron application middlewares initialized');
 
@@ -114,11 +114,11 @@ log.info('Blocktron routes chained to middlewares');
  * Catch 404 and forward to error handler
  * @memberof blocktronNode
  * @function
- * @param {Callback} middleware - Callback to catch 404 error 
+ * @param {Callback} middleware - Callback to catch 404 error
  */
 blocktronNode.use((req, res, next) => {
-    log.error('Error caught');
-    next(createError(404));
+   log.error('Error caught');
+   next(createError(404));
 });
 
 /**
@@ -128,19 +128,19 @@ blocktronNode.use((req, res, next) => {
  * @param {Callback} middleware - Callback to render the error
  */
 blocktronNode.use((err, req, res, next) => {
-    /**
-     * render the error
-     */
-    res.status(err.status || 500);
-    log.error(req);
-    let errorData = {
-        status: err.status || 500,
-        message: err.message
-    };
-    if (env === 'development') {
-        errorData.stack = err.stack;
-    }
-    res.json(errorData);
+   /**
+    * render the error
+    */
+   res.status(err.status || 500);
+   log.error(req);
+   let errorData = {
+      status: err.status || 500,
+      message: err.message
+   };
+   if (env === 'development') {
+      errorData.stack = err.stack;
+   }
+   res.json(errorData);
 });
 
 module.exports = blocktronNode;

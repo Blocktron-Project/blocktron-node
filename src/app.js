@@ -92,7 +92,14 @@ blocktronNode.use(
         extended: false
     })
 );
-log.info('Blocktron middlewares initialized');
+log.info('Blocktron application middlewares initialized');
+
+/**
+ * Custom Middlewares
+ * @memberof blocktronNode
+ */
+blocktronNode.use(require('./middlewares'));
+log.info('Blocktron custom middlewares initialized');
 
 /**
  * Add routes to the middleware chain

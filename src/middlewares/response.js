@@ -1,9 +1,15 @@
 /**
  * The res object represents the HTTP response that an Express app sends when it gets an HTTP request.
+ * @module enhanceResponse
+ * @namespace res
  */
 
 /**
  * Helper function to enhance the response object
+ * @function enhanceResponse
+ * @param {req} req - The request object
+ * @param {res} res - The response object
+ * @param {function} next - The next function in the middleware chain
  */
 const enhanceResponse = (req, res, next) => {
     /**

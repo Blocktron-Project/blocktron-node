@@ -22,8 +22,13 @@ global._bt_config = _bt_config;
  * Set up process
  */
 const env = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
-process.title = _bt_config.appTitle;
 global.env = env;
+
+/**
+ * Set up process title (useful for debugging)
+ */
+process.title = _bt_config.appTitle;
+
 
 /**
  * Create HTTP errors for Express, Koa, Connect, etc. with ease.

@@ -12,6 +12,7 @@
  * @param {function} next - The next function in the middleware chain
  */
 const enhanceResponse = (req, res, next) => {
+
     /**
      * Helper function to append the specified value to the HTTP response header field. 
      * If the header is not already set, it creates the header with the specified value. 
@@ -29,4 +30,5 @@ const enhanceResponse = (req, res, next) => {
     }());
     next();
 };
+
 module.exports = enhanceResponse;

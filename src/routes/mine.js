@@ -1,14 +1,19 @@
 /**
  * blocktron mine route and controller
- * @module router
+ * @module routers:mineRoute
  */
 const express = require('express');
-const router = express.Router();
+const mineRoute = express.Router();
 
 /**
  * Mine a block.
+ * @function
+ * @name get/mine
+ * @memberof routers:mineRoute 
+ * @param {String} path - Express route path
+ * @param {Callback} middleware - Express middleware callback
  */
-router.get('/', function (req, res, next) {
+mineRoute.get('/', function (req, res, next) {
 
     /**
      * Get the last block from the chain
@@ -59,4 +64,5 @@ router.get('/', function (req, res, next) {
     };
     res.json(response);
 });
-module.exports = router;
+
+module.exports = mineRoute;

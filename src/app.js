@@ -29,7 +29,6 @@ global.env = env;
  */
 process.title = _bt_config.appTitle;
 
-
 /**
  * Create HTTP errors for Express, Koa, Connect, etc. with ease.
  */

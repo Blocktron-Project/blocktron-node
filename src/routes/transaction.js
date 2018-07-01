@@ -1,14 +1,19 @@
 /**
  * blocktron transaction route and controller
- * @module router
+ * @module routers:transactionRoute
  */
 const express = require('express');
-const router = express.Router();
+const transactionRoute = express.Router();
 
 /**
  * POST a transaction
+ * @function
+ * @name post/transaction
+ * @memberof routers:transactionRoute 
+ * @param {String} path - Express route path
+ * @param {Callback} middleware - Express middleware callback
  */
-router.post('/', function (req, res, next) {
+transactionRoute.post('/', function (req, res, next) {
     /**
      * Validate the transaction parameters
      */
@@ -19,7 +24,7 @@ router.post('/', function (req, res, next) {
      * Create a transaction with the request parameters.
      */
     const blockIndex = blocktron.createNewTransaction(req.body.amount, req.body.sender, req.body.receiver);
-    
+
     /**
      * Construct the response object and send it
      */
@@ -30,4 +35,4 @@ router.post('/', function (req, res, next) {
     };
     res.send(response);
 });
-module.exports = router;
+module.exports = transactionRoute;

@@ -9,7 +9,7 @@
 
 /**
  * The blocktron-node express application object
- * @module blocktronApp
+ * @module blocktronNode
  */
 
 /**
@@ -47,7 +47,7 @@ const express = require('express');
 const log = require('pino')(require('../config/pino'));
 
 /**
- * Include the blocktron library 
+ * Include the blocktron library (after it has been extended)
  */
 const Blocktron = require('./lib/blocktron');
 
@@ -74,19 +74,19 @@ log.info('Blocktron routes initialized');
 /**
  * Instantiate the blocktron express app object
  */
-const blocktronApp = express();
+const blocktronNode = express();
 log.info('Blocktron initialized');
 
 /**
  * disable x-powered-by to deceive hackers
  */
-blocktronApp.disable('x-powered-by');
+blocktronNode.disable('x-powered-by');
 
 /**
  * Set-up and use middlewares
  */
-blocktronApp.use(express.json());
-blocktronApp.use(
+blocktronNode.use(express.json());
+blocktronNode.use(
     express.urlencoded({
         extended: false
     })
@@ -96,16 +96,16 @@ log.info('Blocktron middlewares initialized');
 /**
  * Add routes to the middleware chain
  */
-blocktronApp.use('/', indexRouter);
-blocktronApp.use('/blockchain', blocktronRouter);
-blocktronApp.use('/transaction', transactionRouter);
-blocktronApp.use('/mine', mineRouter);
+blocktronNode.use('/', indexRouter);
+blocktronNode.use('/blockchain', blocktronRouter);
+blocktronNode.use('/transaction', transactionRouter);
+blocktronNode.use('/mine', mineRouter);
 log.info('Blocktron routes chained to middlewares');
 
 /**
  * catch 404 and forward to error handler
  */
-blocktronApp.use((req, res, next) => {
+blocktronNode.use((req, res, next) => {
     log.error('Error caught');
     next(createError(404));
 });
@@ -113,7 +113,7 @@ blocktronApp.use((req, res, next) => {
 /**
  * error handler
  */
-blocktronApp.use((err, req, res, next) => {
+blocktronNode.use((err, req, res, next) => {
     /**
      * render the error
      */
@@ -129,4 +129,4 @@ blocktronApp.use((err, req, res, next) => {
     res.json(errorData);
 });
 
-module.exports = blocktronApp;
+module.exports = blocktronNode;

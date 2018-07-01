@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-const blocktronApp = require('../src/app');
+const blocktronNode = require('../src/app');
 const debug = require('debug')('blocktron-node:server');
 const http = require('http');
 
@@ -10,12 +10,12 @@ const http = require('http');
  */
 const port = normalizePort(process.env.PORT || _bt_config.defaultAppPort);
 global.port = port;
-blocktronApp.set('port', port);
+blocktronNode.set('port', port);
 
 /**
  * Create HTTP server.
  */
-const server = http.createServer(blocktronApp);
+const server = http.createServer(blocktronNode);
 
 /**
  * Listen on provided port, on all network interfaces.

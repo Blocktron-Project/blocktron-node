@@ -18,7 +18,7 @@ const blocktronNode = require('../src/app');
  * @param {Number} port - The port to listen on
  * @param {Function} Callback - The callback function 
  */
-const server = blocktronNode.listen(3000, function () {
+const server = blocktronNode.listen(3001, function () {
     const port = server.address().port;
     global.port = port;
     console.log('Test server app listening at port %s', port);

@@ -30,12 +30,6 @@ describe('Test the blockchain path -> get/blockchain', () => {
             done();
         });
     });
-    test('It should respond with blockchain data', (done) => {
-        request(app).get('/blockchain').then((response) => {
-//            expect(typeof response.body.chain).toBe('Array');
-            done();
-        });
-    });
 });
 
 afterAll(() => {

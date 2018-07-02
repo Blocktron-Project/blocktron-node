@@ -132,7 +132,6 @@ blocktronNode.use((err, req, res, next) => {
     * render the error
     */
    res.status(err.status || 500);
-   log.error(req);
    let errorData = {
       status: err.status || 500,
       message: err.message
@@ -140,6 +139,7 @@ blocktronNode.use((err, req, res, next) => {
    if (env === 'development') {
       errorData.stack = err.stack;
    }
+   log.error(req, res);
    res.json(errorData);
 });
 

@@ -5,19 +5,24 @@
  */
 
 /**
- * Setup supertest to request app routes
+ * Import the server stub
+ */
+const app = require('./serverStub.js');
+
+/**
+ * Set up supertest
  */
 const request = require('supertest');
 
-/**
- * Import the latest dev build 
- */
-const app = require('../dist/main.js');
-
-describe('Test the root path', () => {
-    test('It should response the GET method', () => {
-        return request(app).get('/').then(response => {
+describe('Test the root path -> get/', () => {
+    test('It should respond with 200 OK', (done) => {
+        request(app).get('/').then((response) => {
             expect(response.statusCode).toBe(200);
+            done();
         });
     });
+});
+
+afterAll(() => {
+    app.close();
 });

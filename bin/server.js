@@ -21,7 +21,7 @@ const http = require('http');
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(process.env.PORT || _bt_config.defaultAppPort);
+const port = normalizePort(process.argv[2] || _bt_config.defaultAppPort);
 global.port = port;
 blocktronNode.set('port', port);
 

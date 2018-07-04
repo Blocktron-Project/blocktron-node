@@ -12,6 +12,7 @@
  * @param {function} next - The next function in the middleware chain
  */
 const enhanceResponse = (req, res, next) => {
+
     /**
      * Helper function to append the specified value to the HTTP response header field.
      * If the header is not already set, it creates the header with the specified value.
@@ -25,7 +26,7 @@ const enhanceResponse = (req, res, next) => {
             res.append('x-blocktron-response-timestamp', `${Date.now()}`);
             res.append('x-blocktron-host-uuid', `${_bt_config.blocktronNodeAddress}`);
         } catch (error) {
-            throw new Error(error);
+            log.error(`Header appendage failed due to: ${error}`);
         }
     })();
     next();

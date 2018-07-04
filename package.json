@@ -45,6 +45,7 @@
     "http-errors": "^1.6.3",
     "path": "^0.12.7",
     "pino": "^4.17.3",
+    "request-promise": "^4.2.2",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

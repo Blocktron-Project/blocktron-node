@@ -3,7 +3,7 @@
  * @module routers:registerAndBroadcastRoute
  */
 const express = require('express');
-const registerAndBroadcastRoute = express.Router();
+const registerAndBroadcastRouter = express.Router();
 
 /**
  * POST a url to register and broadcast it to other nodes
@@ -13,8 +13,8 @@ const registerAndBroadcastRoute = express.Router();
  * @param {String} path - Express route path
  * @param {Callback} middleware - Express middleware callback
  */
-registerAndBroadcastRoute.post('/', (req, res, next) => {
+registerAndBroadcastRouter.post('/', (req, res, next) => {
     const newNodeUrl = req.body.newNodeUrl;
     res.json(newNodeUrl);
 });
-module.exports = registerAndBroadcastRoute;
+module.exports = registerAndBroadcastRouter;

@@ -3,7 +3,7 @@
  * @module routers:indexRoute
  */
 const express = require('express');
-const indexRoute = express.Router();
+const indexRouter = express.Router();
 
 /**
  * GET home page.
@@ -13,7 +13,7 @@ const indexRoute = express.Router();
  * @param {String} path - Express route path
  * @param {Callback} middleware - Express middleware callback
  */
-indexRoute.get('/', function(req, res, next) {
+indexRouter.get('/', function(req, res, next) {
    let response = {
       message: 'Blocktron Node is running',
       port: port,
@@ -34,4 +34,4 @@ indexRoute.get('/', function(req, res, next) {
    res.json(response);
 });
 
-module.exports = indexRoute;
+module.exports = indexRouter;

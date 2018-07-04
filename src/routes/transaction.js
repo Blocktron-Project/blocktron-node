@@ -3,7 +3,7 @@
  * @module routers:transactionRoute
  */
 const express = require('express');
-const transactionRoute = express.Router();
+const transactionRouter = express.Router();
 
 /**
  * POST a transaction
@@ -13,7 +13,7 @@ const transactionRoute = express.Router();
  * @param {String} path - Express route path
  * @param {Callback} middleware - Express middleware callback
  */
-transactionRoute.post('/', function(req, res, next) {
+transactionRouter.post('/', function(req, res, next) {
    /**
     * Validate the transaction parameters
     */
@@ -39,4 +39,4 @@ transactionRoute.post('/', function(req, res, next) {
    };
    res.send(response);
 });
-module.exports = transactionRoute;
+module.exports = transactionRouter;

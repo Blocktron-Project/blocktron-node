@@ -3,9 +3,9 @@
  * @module Blocktron
  */
 
- /**
-  * Import the original blocktron-lib
-  */
+/**
+ * Import the original blocktron-lib
+ */
 const BlocktronLib = require('blocktron-lib');
 
 /**
@@ -19,27 +19,42 @@ const currentNodeUrl = process.argv[3];
  * @extends BlocktronLib
  */
 class Blocktron extends BlocktronLib {
-   /**
-    * The constructor for the class
-    * @param {Array} chain - The blockchain array
-    * @param {Array} pendingTransactions - The pending transactions array
-    */
-   constructor(chain, pendingTransactions) {
-      /**
-       * Call the parent class constructor with the given parameters.
-       */
-      super(chain, pendingTransactions);
 
-      /**
-       * Add the current node's url as a property
-       */
-      this.currentNodeUrl = currentNodeUrl;
+  /**
+   * The constructor for the class
+   * @param {Array} chain - The blockchain array
+   * @param {Array} pendingTransactions - The pending transactions array
+   */
+  constructor(chain, pendingTransactions) {
 
-      /**
-       * Add url's of all other nodes in the distributed system
-       */
-      this.networkNodes = [];
-   }
+    /**
+     * Call the parent class constructor with the given parameters.
+     */
+    super(chain, pendingTransactions);
+
+    /**
+     * Add the current node's url as a property
+     */
+    this.currentNodeUrl = currentNodeUrl;
+
+    /**
+     * Add url's of all other nodes in the distributed system
+     */
+    this.networkNodes = [];
+  }
+
+  /**
+   * Helper prototype to check whether a node url already exists in the networkNodes array.
+   * @param {String} nodeUrl - The rul of the new node to register
+   * @returns {Boolean} - Returns true if url present or else false
+   */
+  isNewNode(nodeUrl) {
+    if (this.networkNodes.indexOf(nodeUrl) === -1) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 }
 
 module.exports = Blocktron;

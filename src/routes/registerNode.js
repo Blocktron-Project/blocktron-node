@@ -30,32 +30,56 @@ registerNodeRouter.post('/', (req, res, next) => {
 
     /**
      * Check whether node url already exists in data structure, and 
-     * also check whether current node's url is equal to new node url,
-     * then push the new url to networkNodes array
+     * also check whether current node's url is equal to new node url
      */
     if (blocktron.isNewNode(newNodeUrl) && notCurrentNode) {
+
+        /**
+         * then push the new url to networkNodes array
+         */
         blocktron.networkNodes.push(newNodeUrl);
+
+        /**
+         * Set appropriate response status code
+         */
+        res.status(201);
+
+        /**
+         * Construct the reponse and send it
+         * @const response
+         * @type {Object}
+         * @param {String} status - The status of the operation 
+         * @param {Number} code - The HTTP response status code
+         * @param {String} message - The message string
+         */
+        let response = {
+            status: 'success',
+            code: res.statusCode,
+            message: 'New node registered successfully'
+        };
+        res.json(response);
+    } else {
+
+        /**
+         * Set response status to 409 to represent resource conflict
+         */
+        res.status(409);
+
+        /**
+         * Construct the reponse and send it
+         * @const response
+         * @type {Object}
+         * @param {String} status - The status of the operation 
+         * @param {Number} code - The HTTP response status code
+         * @param {String} message - The message string
+         */
+        let response = {
+            status: 'resource conflict',
+            code: res.statusCode,
+            message: `Given node url: ${newNodeUrl}, is a conflicting value`
+        };
+        res.json(response);
     }
-
-    /**
-     * Set appropriate response status code
-     */
-    res.status(201);
-
-    /**
-     * Construct the reponse and send it
-     * @const response
-     * @type {Object}
-     * @param {String} status - The status of the operation 
-     * @param {Number} code - The HTTP response status code
-     * @param {String} message - The message string
-     */
-    let response = {
-        status: 'success',
-        code: res.statusCode,
-        message: 'New node registered successfully'
-    };
-    res.json(response);
 });
 
 module.exports = registerNodeRouter;

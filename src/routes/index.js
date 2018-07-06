@@ -13,25 +13,33 @@ const indexRouter = express.Router();
  * @param {String} path - Express route path
  * @param {Callback} middleware - Express middleware callback
  */
-indexRouter.get('/', function(req, res, next) {
-   let response = {
-      message: 'Blocktron Node is running',
-      port: port,
-      status_code: res.statusCode,
-      configuration: {
-         process_title: process.title,
-         process_pid: process.pid,
-         node_address: _bt_config.blocktronNodeAddress,
-         environment: env,
-         os: process.platform,
-         cpu_arch: process.arch,
-         process_versions: {
-            node_version: process.versions.node,
-            v8_version: process.versions.v8
-         }
-      }
-   };
-   res.json(response);
+indexRouter.get('/', function (req, res, next) {
+
+    /**
+     * Construct response and send it
+     * This object contains information about various environment 
+     * and configuration details of blocktron node
+     * @const response
+     * @type {Object}
+     */
+    let response = {
+        message: 'Blocktron Node is running',
+        port: port,
+        status_code: res.statusCode,
+        configuration: {
+            process_title: process.title,
+            process_pid: process.pid,
+            node_address: _bt_config.blocktronNodeAddress,
+            environment: env,
+            os: process.platform,
+            cpu_arch: process.arch,
+            process_versions: {
+                node_version: process.versions.node,
+                v8_version: process.versions.v8
+            }
+        }
+    };
+    res.json(response);
 });
 
 module.exports = indexRouter;

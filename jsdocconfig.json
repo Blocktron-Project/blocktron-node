@@ -1,0 +1,8 @@
+{
+    "source": {
+        "include": ["bin", "config", "src"],
+        "exclude": [".circleci", ".github", ".vscode", "dist", "node_modules", "test"],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    }
+}

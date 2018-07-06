@@ -1,5 +1,5 @@
 /**
- * blocktron transaction route and controller
+ * register and broadcast nodes route and controller
  * @module routers:registerAndBroadcastRoute
  */
 const express = require('express');

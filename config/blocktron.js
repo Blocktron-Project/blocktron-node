@@ -1,5 +1,6 @@
 /**
  * Blocktron global configuration
+ * @module _bt_config
  */
 
 /**

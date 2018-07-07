@@ -47,7 +47,7 @@ class Blocktron extends BlocktronLib {
    * Helper prototype to check whether a node url already exists in the networkNodes array.
    * @function isNewNode
    * @memberof Blocktron
-   * @param {String} nodeUrl - The rul of the new node to register
+   * @param {String} nodeUrl - The url of the new node to register
    * @returns {Boolean} - Returns true if url present or else false
    */
   isNewNode(nodeUrl) {

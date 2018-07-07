@@ -12,12 +12,13 @@
     "build-dev": "webpack --config=webpack.dev.config.js",
     "build-prod": "webpack --config=webpack.config.js",
     "build-docs": "jsdoc -c jsdocconfig.json -R README.md",
+    "debug": "node --nolazy --inspect-brk=9229 ./bin/server.js",
     "run-dev": "nodemon ./bin/server.js",
-    "node_1": "nodemon ./bin/server.js 3001 http://127.0.0.1:3001/",
-    "node_2": "nodemon ./bin/server.js 3002 http://127.0.0.1:3002/",
-    "node_3": "nodemon ./bin/server.js 3003 http://127.0.0.1:3003/",
-    "node_4": "nodemon ./bin/server.js 3004 http://127.0.0.1:3004/",
-    "node_5": "nodemon ./bin/server.js 3005 http://127.0.0.1:3005/",
+    "node_1": "nodemon ./bin/server.js 3001 http://127.0.0.1:3001",
+    "node_2": "nodemon ./bin/server.js 3002 http://127.0.0.1:3002",
+    "node_3": "nodemon ./bin/server.js 3003 http://127.0.0.1:3003",
+    "node_4": "nodemon ./bin/server.js 3004 http://127.0.0.1:3004",
+    "node_5": "nodemon ./bin/server.js 3005 http://127.0.0.1:3005",
     "start": "node ./dist/main.min.js"
   },
   "repository": {

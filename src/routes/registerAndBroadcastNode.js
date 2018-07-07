@@ -130,6 +130,26 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
                  * Catch promise reject error
                  */
                 log.error(`Nodes registration failed due to: ${error}`);
+
+                /**
+                 * Set response status to 409 to represent resource conflict
+                 */
+                res.status(409);
+
+                /**
+                 * Construct response and send it
+                 * @const response
+                 * @type {Object}
+                 * @param {String} status - The status of the operation 
+                 * @param {Number} code - The HTTP response status code
+                 * @param {String} message - The message string
+                 */
+                let response = {
+                    status: 'resource conflict',
+                    code: res.statusCode,
+                    message: `Given node url: ${newNodeUrl}, is a conflicting value`
+                };
+                res.json(response);
             });
     } else {
 

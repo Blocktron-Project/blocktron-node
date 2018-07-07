@@ -108,6 +108,7 @@ log.info('Blocktron custom middlewares initialized');
  * @memberof blocktronNode
  */
 blocktronNode.use('/', indexRouter);
+blocktronNode.use('/docs', express.static('docs'));
 blocktronNode.use('/blockchain', blocktronRouter);
 blocktronNode.use('/transaction', transactionRouter);
 blocktronNode.use('/mine', mineRouter);

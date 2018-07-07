@@ -1,7 +1,10 @@
 /**
  * The res object represents the HTTP response that an Express app sends when it gets an HTTP request.
- * @module enhanceResponse
  * @namespace res
+ */
+
+/**
+ * @module enhanceResponse
  */
 
 /**
@@ -17,6 +20,7 @@ const enhanceResponse = (req, res, next) => {
      * Helper function to append the specified value to the HTTP response header field.
      * If the header is not already set, it creates the header with the specified value.
      * The value parameter can be a string or an array.
+     * @function appendHeader
      */
     (function appendHeader() {
         try {

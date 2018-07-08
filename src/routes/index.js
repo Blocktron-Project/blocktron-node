@@ -21,6 +21,7 @@ indexRouter.get('/', function (req, res, next) {
      * and configuration details of blocktron node
      * @const response
      * @type {Object}
+     * @memberof routers:indexRoute
      */
     let response = {
         message: 'Blocktron Node is running',

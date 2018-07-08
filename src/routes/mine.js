@@ -26,6 +26,11 @@ mineRouter.get('/', function (req, res, next) {
 
     /**
      * Build the current block's data
+     * @constant currentBlockData
+     * @type {Object}
+     * @memberof routers:mineRoute
+     * @param {Array} transactions - List of pending transactions
+     * @param {Number} index - The chronological position of this block on the chain
      */
     const currentBlockData = {
         transactions: blocktron.pendingTransactions,
@@ -58,6 +63,13 @@ mineRouter.get('/', function (req, res, next) {
 
     /**
      * Construct the response object and send it
+     * @const response
+     * @type {Object}
+     * @memberof routers:mineRoute
+     * @param {String} status - The status of the operation 
+     * @param {Number} code - The HTTP response status code
+     * @param {String} message - The message string
+     * @param {Object} blockData - The newly mined block's data
      */
     let response = {
         status: 'success',

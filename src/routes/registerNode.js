@@ -48,6 +48,7 @@ registerNodeRouter.post('/', (req, res, next) => {
          * Construct the reponse and send it
          * @const response
          * @type {Object}
+         * @memberof routers:registerNodeRouter
          * @param {String} status - The status of the operation 
          * @param {Number} code - The HTTP response status code
          * @param {String} message - The message string
@@ -69,6 +70,7 @@ registerNodeRouter.post('/', (req, res, next) => {
          * Construct the reponse and send it
          * @const response
          * @type {Object}
+         * @memberof routers:registerNodeRouter
          * @param {String} status - The status of the operation 
          * @param {Number} code - The HTTP response status code
          * @param {String} message - The message string

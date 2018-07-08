@@ -53,6 +53,7 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
              * Construct the options for request-promise
              * @const requestOptions
              * @type {Object}
+             * @memberof routers:registerAndBroadcastRoute
              * @param {String} uri - The uri to request to
              * @param {String} method - The HTTP method to use
              * @param {Object} body - The request body object
@@ -83,6 +84,7 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
                  * Construct the bulk registration request and send it
                  * @const bulkRegisterOptions
                  * @type {Object}
+                 * @memberof routers:registerAndBroadcastRoute
                  * @param {String} uri - The uri to request to
                  * @param {String} method - The HTTP method to use
                  * @param {Object} body - The request body object
@@ -113,6 +115,7 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
                  * Construct the reponse and send it
                  * @const response
                  * @type {Object}
+                 * @memberof routers:registerAndBroadcastRoute
                  * @param {String} status - The status of the operation 
                  * @param {Number} code - The HTTP response status code
                  * @param {String} message - The message string
@@ -140,6 +143,7 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
                  * Construct response and send it
                  * @const response
                  * @type {Object}
+                 * @memberof routers:registerAndBroadcastRoute
                  * @param {String} status - The status of the operation 
                  * @param {Number} code - The HTTP response status code
                  * @param {String} message - The message string
@@ -162,6 +166,7 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
          * Construct response and send it
          * @const response
          * @type {Object}
+         * @memberof routers:registerAndBroadcastRoute
          * @param {String} status - The status of the operation 
          * @param {Number} code - The HTTP response status code
          * @param {String} message - The message string

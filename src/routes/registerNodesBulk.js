@@ -16,62 +16,96 @@ const registerNodesBulkRouter = express.Router();
 registerNodesBulkRouter.post('/', (req, res, next) => {
 
     /**
-     * Get the network nodes url list from the request body
+     * Validate the request for invalid data
      */
-    const allNetworkNodes = req.body.allNetworkNodes;
-
-    /**
-     * Iterate and add each node url to networkNodes array
-     * also validate each url for duplication
-     */
-    allNetworkNodes.forEach(networkNodeUrl => {
+    if (!req.body || !req.body.allNetworkNodes) {
 
         /**
-         * Check whether current node's url is equal to network node url
-         * if not equal, constant holds a 'true'
-         * @const notCurrentNode
-         * @type {Boolean}
+         * log error 
          */
-        const notCurrentNode = blocktron.currentNodeUrl !== networkNodeUrl;
-        
+        log.error('Bad request, given request body is either empty or conatins invalid data');
+
         /**
-         * Check whether node url already exists in data structure, and 
-         * also check whether current node's url is equal to network node url
+         * Set appropriate status code for response
          */
-        if (blocktron.isNewNode(networkNodeUrl) && notCurrentNode) {
+        res.status(400);
+
+        /**
+         * Construct the reponse and send it
+         * @const response
+         * @type {Object}
+         * @memberof routers:registerNodesBulkRouter
+         * @param {String} status - The status of the operation 
+         * @param {Number} code - The HTTP response status code
+         * @param {String} message - The message string
+         */
+        let response = {
+            status: 'Bad request',
+            code: res.statusCode,
+            message: 'Invalid data type or missing data'
+        };
+        res.json(response);
+    } else {
+
+        /**
+         * Get the network nodes url list from the request body
+         */
+        const allNetworkNodes = req.body.allNetworkNodes;
+
+        /**
+         * Iterate and add each node url to networkNodes array
+         * also validate each url for duplication
+         */
+        allNetworkNodes.forEach(networkNodeUrl => {
 
             /**
-             * then push the new url to networkNodes array
+             * Check whether current node's url is equal to network node url
+             * if not equal, constant holds a 'true'
+             * @const notCurrentNode
+             * @type {Boolean}
              */
-            blocktron.networkNodes.push(networkNodeUrl);
-        } else {
+            const notCurrentNode = blocktron.currentNodeUrl !== networkNodeUrl;
 
             /**
-             * log error denoting the duplication or conflicting value
+             * Check whether node url already exists in data structure, and 
+             * also check whether current node's url is equal to network node url
              */
-            log.error(`${networkNodeUrl} is already present or is a conflicting value`);
-        }
-    });
+            if (blocktron.isNewNode(networkNodeUrl) && notCurrentNode) {
 
-    /**
-     * Set appropriate status code for response
-     */
-    res.status(201);
+                /**
+                 * then push the new url to networkNodes array
+                 */
+                blocktron.networkNodes.push(networkNodeUrl);
+            } else {
 
-    /**
-     * Construct the reponse and send it
-     * @const response
-     * @type {Object}
-     * @param {String} status - The status of the operation 
-     * @param {Number} code - The HTTP response status code
-     * @param {String} message - The message string
-     */
-    let response = {
-        status: 'success',
-        code: res.statusCode,
-        message: 'Bulk registration of nodes successful'
-    };
-    res.json(response);
+                /**
+                 * log error denoting the duplication or conflicting value
+                 */
+                log.error(`Given url: ${networkNodeUrl} rejected, it is already present or is a conflicting value`);
+            }
+        });
+
+        /**
+         * Set appropriate status code for response
+         */
+        res.status(201);
+
+        /**
+         * Construct the reponse and send it
+         * @const response
+         * @type {Object}
+         * @memberof routers:registerNodesBulkRouter
+         * @param {String} status - The status of the operation 
+         * @param {Number} code - The HTTP response status code
+         * @param {String} message - The message string
+         */
+        let response = {
+            status: 'success',
+            code: res.statusCode,
+            message: 'Bulk registration of nodes successful'
+        };
+        res.json(response);
+    }
 });
 
 module.exports = registerNodesBulkRouter;

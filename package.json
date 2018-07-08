@@ -11,7 +11,7 @@
     "test": "jest test/blocktron-node.spec.js --forceExit",
     "build-dev": "webpack --config=webpack.dev.config.js",
     "build-prod": "webpack --config=webpack.config.js",
-    "build-docs": "jsdoc -c jsdocconfig.json -R README.md",
+    "build-docs": "jsdoc -c .jsdocrc -R README.md",
     "debug": "node --nolazy --inspect-brk=9229 ./bin/server.js",
     "run-dev": "nodemon ./bin/server.js",
     "node_1": "nodemon ./bin/server.js 3001 http://127.0.0.1:3001",

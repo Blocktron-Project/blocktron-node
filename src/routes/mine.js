@@ -13,7 +13,7 @@ const mineRouter = express.Router();
  * @param {String} path - Express route path
  * @param {Callback} middleware - Express middleware callback
  */
-mineRouter.get('/', function (req, res, next) {
+mineRouter.get('/', (req, res, next) => {
     /**
      * Get the last block from the chain
      */

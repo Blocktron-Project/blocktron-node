@@ -40,27 +40,6 @@ registerNodeRouter.post('/', (req, res, next) => {
         blocktron.networkNodes.push(newNodeUrl);
     } else {
 
-        // /**
-        //  * Set response status to 409 to represent resource conflict
-        //  */
-        // res.status(409);
-
-        // /**
-        //  * Construct the reponse and send it
-        //  * @const response
-        //  * @type {Object}
-        //  * @memberof routers:registerNodeRouter
-        //  * @param {String} status - The status of the operation 
-        //  * @param {Number} code - The HTTP response status code
-        //  * @param {String} message - The message string
-        //  */
-        // let response = {
-        //     status: 'resource conflict',
-        //     code: res.statusCode,
-        //     message: `Given node url: ${newNodeUrl}, is a conflicting value`
-        // };
-        // res.json(response);
-
         /**
          * log error denoting the duplication or conflicting value
          */

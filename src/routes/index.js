@@ -13,7 +13,7 @@ const indexRouter = express.Router();
  * @param {String} path - Express route path
  * @param {Callback} middleware - Express middleware callback
  */
-indexRouter.get('/', function (req, res, next) {
+indexRouter.get('/', (req, res, next) => {
 
     /**
      * Construct response and send it

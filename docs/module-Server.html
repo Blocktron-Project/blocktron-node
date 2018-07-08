@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: routers:registerNodeRouter</title>
+    <title>JSDoc: Module: Server</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: routers:registerNodeRouter</h1>
+    <h1 class="page-title">Module: Server</h1>
 
     
 
@@ -28,16 +28,34 @@
 
 <header>
     
+        
+            
+        
+    
 </header>
 
 <article>
     <div class="container-overview">
     
         
-            <div class="description"><p>register node route and controller</p></div>
+            <div class="description"><p>Module dependencies.</p></div>
         
 
         
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <dl class="details">
@@ -69,7 +87,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_registerNode.js.html">src/routes/registerNode.js</a>, <a href="src_routes_registerNode.js.html#line1">line 1</a>
+        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -79,6 +97,22 @@
 
     
 </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         
@@ -102,322 +136,15 @@
 
         
             
-<h4 class="name" id=".response"><span class="type-signature">(static, constant) </span>response<span class="type-signature"> :Object</span></h4>
+<h4 class="name" id="~blocktronNode"><span class="type-signature">(inner, constant) </span>blocktronNode<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>Construct the reponse and send it</p>
+    <p>The blocktronNode instance</p>
 </div>
 
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_registerNode.js.html">src/routes/registerNode.js</a>, <a href="src_routes_registerNode.js.html#line69">line 69</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id=".response"><span class="type-signature">(static, constant) </span>response<span class="type-signature"> :Object</span></h4>
-
-
-
-
-<div class="description">
-    <p>Construct the reponse and send it</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_registerNode.js.html">src/routes/registerNode.js</a>, <a href="src_routes_registerNode.js.html#line47">line 47</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="~notCurrentNode"><span class="type-signature">(inner, constant) </span>notCurrentNode<span class="type-signature"> :Boolean</span></h4>
-
-
-
-
-<div class="description">
-    <p>Check whether current node's url is equal to new node url
-if not equal, constant holds a 'true'</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Boolean</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_registerNode.js.html">src/routes/registerNode.js</a>, <a href="src_routes_registerNode.js.html#line23">line 23</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id=".post/registerNode"><span class="type-signature">(static) </span>post/registerNode<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>POST a url to register it with node</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Express route path</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>middleware</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Callback</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Express middleware callback</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -453,7 +180,7 @@ if not equal, constant holds a 'true'</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_registerNode.js.html">src/routes/registerNode.js</a>, <a href="src_routes_registerNode.js.html#line8">line 8</a>
+        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line9">line 9</a>
     </li></ul></dd>
     
 
@@ -469,12 +196,63 @@ if not equal, constant holds a 'true'</p>
 
 
 
+        
+            
+<h4 class="name" id="~debug"><span class="type-signature">(inner, constant) </span>debug<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A tiny JavaScript debugging utility modelled after Node.js core's debugging technique.
+Works in Node.js and web browsers.</p>
+</div>
 
 
 
 
 
 
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
@@ -482,6 +260,194 @@ if not equal, constant holds a 'true'</p>
 
 
         
+            
+<h4 class="name" id="~http"><span class="type-signature">(inner, constant) </span>http<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Node module housing the traditional complex http interfaces.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~port"><span class="type-signature">(inner, constant) </span>port<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Get port from environment and store in Express.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~server"><span class="type-signature">(inner, constant) </span>server<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Create HTTP server.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
     
 
     

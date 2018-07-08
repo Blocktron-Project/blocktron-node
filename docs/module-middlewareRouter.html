@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: src/lib/blocktron.js</title>
+    <title>JSDoc: Module: middlewareRouter</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,79 +17,130 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: src/lib/blocktron.js</h1>
+    <h1 class="page-title">Module: middlewareRouter</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * A module to enhance the blocktron-lib data structure library
- */
+        
+            
+        
+    
+</header>
 
-/**
- * Import the original blocktron-lib
- */
-const BlocktronLib = require('blocktron-lib');
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Custom middlewares can be augmented here</p></div>
+        
 
-/**
- * Get the current node's url from command-line args array position 3
- */
-const currentNodeUrl = process.argv[3];
+        
+            
 
-/**
- * The blocktron-lib class enhanced
- * @class Blocktron
- * @extends BlocktronLib
- */
-class Blocktron extends BlocktronLib {
 
-  /**
-   * The constructor for the class
-   * @param {Array} chain - The blockchain array
-   * @param {Array} pendingTransactions - The pending transactions array
-   */
-  constructor(chain, pendingTransactions) {
 
-    /**
-     * Call the parent class constructor with the given parameters.
-     */
-    super(chain, pendingTransactions);
 
-    /**
-     * Add the current node's url as a property
-     */
-    this.currentNodeUrl = currentNodeUrl;
 
-    /**
-     * Add url's of all other nodes in the distributed system
-     */
-    this.networkNodes = [];
-  }
 
-  /**
-   * Helper prototype to check whether a node url already exists in the networkNodes array.
-   * @function isNewNode
-   * @memberof Blocktron
-   * @param {String} nodeUrl - The url of the new node to register
-   * @returns {Boolean} - Returns true if url present or else false
-   */
-  isNewNode(nodeUrl) {
-    if (this.networkNodes.indexOf(nodeUrl) === -1) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-}
 
-module.exports = Blocktron;
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_middlewares_index.js.html">src/middlewares/index.js</a>, <a href="src_middlewares_index.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

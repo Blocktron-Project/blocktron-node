@@ -98,6 +98,130 @@
 
         
             
+<h4 class="name" id="_bt_config"><span class="type-signature">(constant) </span>_bt_config<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Global blocktron configuration</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_app.js.html">src/app.js</a>, <a href="src_app.js.html#line19">line 19</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="blocktron"><span class="type-signature"></span>blocktron<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Create an instance of the Blocktron class and globalize it.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_app.js.html">src/app.js</a>, <a href="src_app.js.html#line65">line 65</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="BlocktronLib"><span class="type-signature">(constant) </span>BlocktronLib<span class="type-signature"></span></h4>
 
 
@@ -142,69 +266,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_lib_blocktron.js.html">src/lib/blocktron.js</a>, <a href="src_lib_blocktron.js.html#line9">line 9</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="blocktronNode"><span class="type-signature">(constant) </span>blocktronNode<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>The blocktronNode instance</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line8">line 8</a>
+        <a href="src_lib_blocktron.js.html">src/lib/blocktron.js</a>, <a href="src_lib_blocktron.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -266,7 +328,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_lib_blocktron.js.html">src/lib/blocktron.js</a>, <a href="src_lib_blocktron.js.html#line14">line 14</a>
+        <a href="src_lib_blocktron.js.html">src/lib/blocktron.js</a>, <a href="src_lib_blocktron.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -284,14 +346,13 @@
 
         
             
-<h4 class="name" id="debug"><span class="type-signature">(constant) </span>debug<span class="type-signature"></span></h4>
+<h4 class="name" id="env"><span class="type-signature">(constant) </span>env<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>A tiny JavaScript debugging utility modelled after Node.js core's debugging technique.
-Works in Node.js and web browsers.</p>
+    <p>Set up process environment</p>
 </div>
 
 
@@ -329,7 +390,7 @@ Works in Node.js and web browsers.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line14">line 14</a>
+        <a href="src_app.js.html">src/app.js</a>, <a href="src_app.js.html#line26">line 26</a>
     </li></ul></dd>
     
 
@@ -347,13 +408,14 @@ Works in Node.js and web browsers.</p>
 
         
             
-<h4 class="name" id="express"><span class="type-signature">(constant) </span>express<span class="type-signature"></span></h4>
+<h4 class="name" id="log"><span class="type-signature">(constant) </span>log<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>Custom middlewares can be augmented here</p>
+    <p>Pino instance: Extremely fast node.js logger, inspired by Bunyan.
+It also includes a shell utility to pretty-print its log files.</p>
 </div>
 
 
@@ -391,255 +453,7 @@ Works in Node.js and web browsers.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_middlewares_index.js.html">src/middlewares/index.js</a>, <a href="src_middlewares_index.js.html#line4">line 4</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="http"><span class="type-signature">(constant) </span>http<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Node module housing the traditional complex http interfaces.</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line19">line 19</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="pinoConfig"><span class="type-signature">(constant) </span>pinoConfig<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Pino Logger configuration</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="config_pino.js.html">config/pino.js</a>, <a href="config_pino.js.html#line4">line 4</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="port"><span class="type-signature">(constant) </span>port<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Get port from environment and store in Express.</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line24">line 24</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="server"><span class="type-signature">(constant) </span>server<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Create HTTP server.</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line31">line 31</a>
+        <a href="src_app.js.html">src/app.js</a>, <a href="src_app.js.html#line49">line 49</a>
     </li></ul></dd>
     
 
@@ -658,268 +472,6 @@ Works in Node.js and web browsers.</p>
         
     
 
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="normalizePort"><span class="type-signature"></span>normalizePort<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>Normalize a port into a number, string, or false.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line45">line 45</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="onError"><span class="type-signature"></span>onError<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>Event listener for HTTP server &quot;error&quot; event.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line64">line 64</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="onListening"><span class="type-signature"></span>onListening<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>Event listener for HTTP server &quot;listening&quot; event.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line89">line 89</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
     
 
     
@@ -935,13 +487,13 @@ Works in Node.js and web browsers.</p>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_bt_config.html">_bt_config</a></li><li><a href="module-blocktronNode.html">blocktronNode</a></li><li><a href="module-enhanceResponse.html">enhanceResponse</a></li><li><a href="routers_blocktronRoute.html">routers:blocktronRoute</a></li><li><a href="routers_indexRoute.html">routers:indexRoute</a></li><li><a href="routers_mineRoute.html">routers:mineRoute</a></li><li><a href="routers_registerAndBroadcastRoute.html">routers:registerAndBroadcastRoute</a></li><li><a href="routers_registerNodeRouter.html">routers:registerNodeRouter</a></li><li><a href="routers_registerNodesBulkRouter.html">routers:registerNodesBulkRouter</a></li><li><a href="routers_transactionRoute.html">routers:transactionRoute</a></li></ul><h3>Classes</h3><ul><li><a href="Blocktron.html">Blocktron</a></li></ul><h3>Namespaces</h3><ul><li><a href="res.html">res</a></li></ul><h3>Global</h3><ul><li><a href="global.html#BlocktronLib">BlocktronLib</a></li><li><a href="global.html#blocktronNode">blocktronNode</a></li><li><a href="global.html#currentNodeUrl">currentNodeUrl</a></li><li><a href="global.html#debug">debug</a></li><li><a href="global.html#express">express</a></li><li><a href="global.html#http">http</a></li><li><a href="global.html#normalizePort">normalizePort</a></li><li><a href="global.html#onError">onError</a></li><li><a href="global.html#onListening">onListening</a></li><li><a href="global.html#pinoConfig">pinoConfig</a></li><li><a href="global.html#port">port</a></li><li><a href="global.html#server">server</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_bt_config.html">_bt_config</a></li><li><a href="module-blocktronNode.html">blocktronNode</a></li><li><a href="module-enhanceResponse.html">enhanceResponse</a></li><li><a href="module-middlewareRouter.html">middlewareRouter</a></li><li><a href="module-pinoConfig.html">pinoConfig</a></li><li><a href="module-Server.html">Server</a></li><li><a href="routers_blocktronRoute.html">routers:blocktronRoute</a></li><li><a href="routers_indexRoute.html">routers:indexRoute</a></li><li><a href="routers_mineRoute.html">routers:mineRoute</a></li><li><a href="routers_registerAndBroadcastRoute.html">routers:registerAndBroadcastRoute</a></li><li><a href="routers_registerNodeRouter.html">routers:registerNodeRouter</a></li><li><a href="routers_registerNodesBulkRouter.html">routers:registerNodesBulkRouter</a></li><li><a href="routers_transactionRoute.html">routers:transactionRoute</a></li></ul><h3>Classes</h3><ul><li><a href="Blocktron.html">Blocktron</a></li></ul><h3>Namespaces</h3><ul><li><a href="res.html">res</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_bt_config">_bt_config</a></li><li><a href="global.html#blocktron">blocktron</a></li><li><a href="global.html#BlocktronLib">BlocktronLib</a></li><li><a href="global.html#currentNodeUrl">currentNodeUrl</a></li><li><a href="global.html#env">env</a></li><li><a href="global.html#log">log</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Jul 07 2018 21:48:22 GMT+0530 (India Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jul 08 2018 13:46:27 GMT+0530 (India Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

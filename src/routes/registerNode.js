@@ -38,50 +38,55 @@ registerNodeRouter.post('/', (req, res, next) => {
          * then push the new url to networkNodes array
          */
         blocktron.networkNodes.push(newNodeUrl);
-
-        /**
-         * Set appropriate response status code
-         */
-        res.status(201);
-
-        /**
-         * Construct the reponse and send it
-         * @const response
-         * @type {Object}
-         * @memberof routers:registerNodeRouter
-         * @param {String} status - The status of the operation 
-         * @param {Number} code - The HTTP response status code
-         * @param {String} message - The message string
-         */
-        let response = {
-            status: 'success',
-            code: res.statusCode,
-            message: 'New node registered successfully'
-        };
-        res.json(response);
     } else {
 
-        /**
-         * Set response status to 409 to represent resource conflict
-         */
-        res.status(409);
+        // /**
+        //  * Set response status to 409 to represent resource conflict
+        //  */
+        // res.status(409);
+
+        // /**
+        //  * Construct the reponse and send it
+        //  * @const response
+        //  * @type {Object}
+        //  * @memberof routers:registerNodeRouter
+        //  * @param {String} status - The status of the operation 
+        //  * @param {Number} code - The HTTP response status code
+        //  * @param {String} message - The message string
+        //  */
+        // let response = {
+        //     status: 'resource conflict',
+        //     code: res.statusCode,
+        //     message: `Given node url: ${newNodeUrl}, is a conflicting value`
+        // };
+        // res.json(response);
 
         /**
-         * Construct the reponse and send it
-         * @const response
-         * @type {Object}
-         * @memberof routers:registerNodeRouter
-         * @param {String} status - The status of the operation 
-         * @param {Number} code - The HTTP response status code
-         * @param {String} message - The message string
+         * log error denoting the duplication or conflicting value
          */
-        let response = {
-            status: 'resource conflict',
-            code: res.statusCode,
-            message: `Given node url: ${newNodeUrl}, is a conflicting value`
-        };
-        res.json(response);
+        log.error(`Given url: ${newNodeUrl} rejected, it is already present or is a conflicting value`);
     }
+
+    /**
+     * Set appropriate response status code
+     */
+    res.status(201);
+
+    /**
+     * Construct the reponse and send it
+     * @const response
+     * @type {Object}
+     * @memberof routers:registerNodeRouter
+     * @param {String} status - The status of the operation 
+     * @param {Number} code - The HTTP response status code
+     * @param {String} message - The message string
+     */
+    let response = {
+        status: 'success',
+        code: res.statusCode,
+        message: 'New node registered successfully'
+    };
+    res.json(response);
 });
 
 module.exports = registerNodeRouter;

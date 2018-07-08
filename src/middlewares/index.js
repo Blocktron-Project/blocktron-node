@@ -1,12 +1,16 @@
 /**
  * Custom middlewares can be augmented here
+ * @module middlewareRouter
  */
 const express = require('express');
-const router = express.Router();
+const middlewareRouter = express.Router();
 
 /**
  * Middleware to augment the response object with helpers
+ * @function
+ * @memberof middlewareRouter
+ * @param {Middleware} middleware - Express middleware callback
  */
-router.use(require('./response'));
+middlewareRouter.use(require('./response'));
 
-module.exports = router;
+module.exports = middlewareRouter;

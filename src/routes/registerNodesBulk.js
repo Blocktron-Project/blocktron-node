@@ -6,7 +6,7 @@ const express = require('express');
 const registerNodesBulkRouter = express.Router();
 
 /**
- * POST multiple node ulrs to register them all at once
+ * POST multiple node urls to register them all at once
  * @function
  * @name post/registerNodesBulk
  * @memberof routers:registerNodesBulkRouter
@@ -23,7 +23,7 @@ registerNodesBulkRouter.post('/', (req, res, next) => {
         /**
          * log error 
          */
-        log.error('Bad request, given request body is either empty or conatins invalid data');
+        log.error('Bad request, given request body is either empty or contains invalid data');
 
         /**
          * Set appropriate status code for response

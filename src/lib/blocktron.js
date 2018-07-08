@@ -8,6 +8,13 @@
 const BlocktronLib = require('blocktron-lib');
 
 /**
+ * A node module for simple, fast generation of RFC4122 UUIDS.
+ * Here v1 is used.
+ * @see {@link https://www.ietf.org/rfc/rfc4122.txt|RFC4122}
+ */
+const uuid = require('uuid/v1');
+
+/**
  * Get the current node's url from command-line args array position 3
  */
 let currentNodeUrl;
@@ -20,6 +27,7 @@ if (process.argv[3]) {
 /**
  * The blocktron-lib class enhanced
  * @class Blocktron
+ * @classdesc A module to enhance the blocktron-lib data structure library
  * @extends BlocktronLib
  */
 class Blocktron extends BlocktronLib {
@@ -65,6 +73,7 @@ class Blocktron extends BlocktronLib {
   /**
    * A method to create a new transaction
    * @function createNewTransaction
+   * @override
    * @memberof Blocktron
    * @param {Number} amount - The amount/value to be recorded
    * @param {String} sender - The adress of the sender
@@ -89,31 +98,54 @@ class Blocktron extends BlocktronLib {
     /**
      * @type {Object}
      * @const newTransactions - An atomic transactions block in the chain
+     * @property {String} transactionId - The unique id for a transaction
      * @property {Number} amount - The value/amount to be recorded
      * @property {String} sender - The adress of the sender
      * @property {String} receiver - The address of the receiver
      */
     const newTransactions = {
+      transactionId: uuid().split('-').join(''),
       amount: amount,
       sender: sender,
       receiver: receiver
     };
 
     /**
-     * Push the new transaction to the chain
-     */
-    //this.pendingTransactions.push(newTransactions);
-
-    /**
-     * Returns the number of the block, this transaction will be added to
-     */
-    //return this.getLastBlock()['index'] + 1;
-
-    /**
      * Return the new transaction object
      */
     return newTransactions;
-  }
+  };
+
+  /**
+   * A blockchain method to add a newly created block to the pending transactions array
+   * @function addTransactionToPendingTransaction
+   * @memberof Blocktron
+   * @param {Object} transactionObject - The object representing the transaction data
+   */
+  addTransactionToPendingTransaction(transactionObject) {
+
+    /**
+     * Validate transaction data object
+     */
+    if (transactionObject) {
+
+      /**
+       * If valid, push the transaction data to the pending transactions array
+       */
+      this.pendingTransactions.push(transactionObject);
+
+      /**
+       * Then return the chronological index of the transaction data block
+       */
+      return this.getLastBlock()['index'] + 1;
+    } else {
+
+      /**
+       * Log error
+       */
+      log.error('Transaction data required');
+    }
+  };
 }
 
 module.exports = Blocktron;

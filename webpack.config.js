@@ -3,13 +3,17 @@
  * Sandeep Vattapparambil
  */
 
-//Constants
+/**
+ * Constants
+ */
 const path = require('path');
 const webpack = require('webpack');
 const PrettierPlugin = require('prettier-webpack-plugin');
 const fs = require('fs');
 
-//Include the node modules
+/**
+ * Include the node modules
+ */
 let nodeModules = {};
 fs.readdirSync('node_modules')
     .filter(function (x) {
@@ -19,13 +23,21 @@ fs.readdirSync('node_modules')
         nodeModules[mod] = 'commonjs ' + mod;
     });
 
-//Webpack config object
+/**
+ * Webpack config object
+ */
 module.exports = {
-    //set webpack build mode
+    /**
+     * set webpack build mode
+     */
     mode: 'none',
-    //set target as server (node)
+    /**
+     * set target as server (node)
+     */
     target: 'node',
-    //Configuration settings
+    /**
+     * Configuration settings
+     */
     plugins: [
         new webpack.BannerPlugin({
             banner: '#!/usr/bin/env node',
@@ -42,20 +54,30 @@ module.exports = {
             'extensions': ['.js', '.ts']
         })
     ],
-    //set minification flag
+    /**
+     * set minification flag
+     */
     optimization: {
         minimize: true
     },
-    //set webpack bundle entry point
+    /**
+     * set webpack bundle entry point
+     */
     entry: './bin/server.js',
-    //set webpack bundle output
+    /**
+     * set webpack bundle output
+     */
     output: {
-        //set output target for commonjs require
+        /**
+         * set output target for commonjs require
+         */
         libraryTarget: 'commonjs2',
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.min.js'
     },
-    //set up babel transpiler
+    /**
+     * set up babel transpiler
+     */
     module: {
         rules: [{
             test: /\.js$/,
@@ -63,10 +85,14 @@ module.exports = {
             exclude: /node_modules/
         }]
     },
-    //set console logs in color
+    /**
+     * set console logs in color
+     */
     stats: {
         colors: true
     },
-    //include source-map in builds
+    /**
+     * include source-map in builds
+     */
     devtool: 'source-map'
 };

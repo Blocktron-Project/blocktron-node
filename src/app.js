@@ -75,6 +75,7 @@ const mineRouter = require('./routes/mine');
 const registerAndBroadCastNodeRouter = require('./routes/registerAndBroadcastNode');
 const registerNodeRouter = require('./routes/registerNode');
 const registerNodesBulkRouter = require('./routes/registerNodesBulk');
+const broadcastTransactionRouter = require('./routes/broadcastTransaction');
 log.info('Blocktron routes initialized');
 
 /**
@@ -119,6 +120,7 @@ blocktronNode.use('/mine', mineRouter);
 blocktronNode.use('/registerAndBroadcastNode', registerAndBroadCastNodeRouter);
 blocktronNode.use('/registerNode', registerNodeRouter);
 blocktronNode.use('/registerNodesBulk', registerNodesBulkRouter);
+blocktronNode.use('/transaction/broadcast', broadcastTransactionRouter);
 log.info('Blocktron routes chained to middlewares');
 
 /**

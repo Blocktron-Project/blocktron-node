@@ -120,7 +120,7 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
                 let response = {
                     status: 'success',
                     code: res.statusCode,
-                    message: 'New node registered with the network'
+                    message: 'New nodes registered with the network'
                 };
                 res.json(response);
             })

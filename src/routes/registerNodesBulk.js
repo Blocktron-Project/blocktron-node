@@ -33,6 +33,7 @@ registerNodesBulkRouter.post('/', (req, res, next) => {
          * @type {Boolean}
          */
         const notCurrentNode = blocktron.currentNodeUrl !== networkNodeUrl;
+        
         /**
          * Check whether node url already exists in data structure, and 
          * also check whether current node's url is equal to network node url

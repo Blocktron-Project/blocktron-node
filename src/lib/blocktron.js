@@ -1,6 +1,5 @@
 /**
  * A module to enhance the blocktron-lib data structure library
- * @namespace Blocktron
  */
 
 /**

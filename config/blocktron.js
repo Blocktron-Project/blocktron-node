@@ -1,5 +1,5 @@
 /**
- * Blocktron global configuration
+ * Blocktron global configuration 
  * @module _bt_config
  */
 
@@ -20,6 +20,7 @@ const blocktronNodeAddress = uuid().split('-').join('');
 /**
  * Blocktron configuration object
  * @type {Object}
+ * @memberof _bt_config
  * @param {String} appTitle - The global process title
  * @param {Number} defaultAppPort - The default port for the app to run
  * @param {String} blocktronNodeAddress - The unique identifier for a single instance of this app

@@ -14,12 +14,14 @@
 
 /**
  * Global blocktron configuration
+ * @global
  */
 const _bt_config = require('../config/blocktron');
 global._bt_config = _bt_config;
 
 /**
- * Set up process
+ * Set up process environment
+ * @global
  */
 const env = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
 global.env = env;
@@ -40,10 +42,16 @@ const createError = require('http-errors');
 const express = require('express');
 
 /**
- * Extremely fast node.js logger, inspired by Bunyan.
+ * Pino instance: Extremely fast node.js logger, inspired by Bunyan.
  * It also includes a shell utility to pretty-print its log files.
+ * @global
  */
 const log = require('pino')(require('../config/pino'));
+
+/**
+ * Set up global logging
+ */
+global.log = log;
 
 /**
  * Include the blocktron library (after it has been extended)
@@ -52,14 +60,10 @@ const Blocktron = require('./lib/blocktron');
 
 /**
  * Create an instance of the Blocktron class and globalize it.
+ * @global
  */
 let blocktron = new Blocktron();
 global.blocktron = blocktron;
-
-/**
- * Set up global logging
- */
-global.log = log;
 
 /**
  * Set-up routes

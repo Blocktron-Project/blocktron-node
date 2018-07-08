@@ -10,7 +10,6 @@
 /**
  * Helper function to enhance the response object
  * @function enhanceResponse
- * @memberof enhanceResponse
  * @param {req} req - The request object
  * @param {res} res - The response object
  * @param {function} next - The next function in the middleware chain
@@ -22,6 +21,7 @@ const enhanceResponse = (req, res, next) => {
      * If the header is not already set, it creates the header with the specified value.
      * The value parameter can be a string or an array.
      * @function appendHeader
+     * @inner
      */
     (function appendHeader() {
         try {

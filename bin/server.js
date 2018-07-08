@@ -1,5 +1,6 @@
 /**
  * Module dependencies.
+ * @module Server
  */
 
 /**
@@ -41,6 +42,11 @@ server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
+ * @function 
+ * @name normalizePort
+ * @memberof Server
+ * @param {Number} val - The port number or string
+ * @returns {Number|String|Boolean} - Returns number, string, or false
  */
 function normalizePort(val) {
    let port = parseInt(val, 10);
@@ -60,6 +66,11 @@ function normalizePort(val) {
 
 /**
  * Event listener for HTTP server "error" event.
+ * @function
+ * @name onError
+ * @memberof Server
+ * @param {Object} error - The error event object
+ * @returns - Returns the error 
  */
 function onError(error) {
    if (error.syscall !== 'listen') {
@@ -85,6 +96,9 @@ function onError(error) {
 
 /**
  * Event listener for HTTP server "listening" event.
+ * @function
+ * @name onListening
+ * @memberof Server
  */
 function onListening() {
    let addr = server.address();

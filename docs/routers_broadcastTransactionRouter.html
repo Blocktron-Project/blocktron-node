@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: enhanceResponse</title>
+    <title>JSDoc: Module: routers:broadcastTransactionRouter</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: enhanceResponse</h1>
+    <h1 class="page-title">Module: routers:broadcastTransactionRouter</h1>
 
     
 
@@ -28,14 +28,58 @@
 
 <header>
     
-        
-    
 </header>
 
 <article>
     <div class="container-overview">
     
         
+            <div class="description"><p>blocktron transaction route and controller</p></div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_routes_broadcastTransaction.js.html">src/routes/broadcastTransaction.js</a>, <a href="src_routes_broadcastTransaction.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
 
         
     
@@ -54,34 +98,21 @@
     
 
     
-
-    
-        <h3 class="subsection-title">Methods</h3>
+        <h3 class="subsection-title">Members</h3>
 
         
             
+<h4 class="name" id="~request"><span class="type-signature">(inner, constant) </span>request<span class="type-signature"></span></h4>
 
-    
-
-    
-    <h4 class="name" id="~appendHeader"><span class="type-signature">(inner) </span>appendHeader<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
 
 
 
 <div class="description">
-    <p>Helper function to append the specified value to the HTTP response header field.
-If the header is not already set, it creates the header with the specified value.
-The value parameter can be a string or an array.</p>
+    <p>The simplified HTTP request client 'request' with Promise support. 
+Powered by Bluebird.
+<code>request-promise</code> returns regular Promises/A+ compliant promises 
+and can be assimilated by any compatible promise library.</p>
 </div>
-
-
-
-
-
-
 
 
 
@@ -118,12 +149,19 @@ The value parameter can be a string or an array.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_middlewares_response.js.html">src/middlewares/response.js</a>, <a href="src_middlewares_response.js.html#line19">line 19</a>
+        <a href="src_routes_broadcastTransaction.js.html">src/routes/broadcastTransaction.js</a>, <a href="src_routes_broadcastTransaction.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
     
 
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://www.npmjs.com/package/request-promise">Request-Promise</a></li>
+        </ul>
+    </dd>
     
 
     
@@ -134,17 +172,11 @@ The value parameter can be a string or an array.</p>
 
 
 
+        
+    
 
-
-
-
-
-
-
-
-
-
-
+    
+        <h3 class="subsection-title">Methods</h3>
 
         
             
@@ -152,7 +184,7 @@ The value parameter can be a string or an array.</p>
     
 
     
-    <h4 class="name" id="~enhanceResponse"><span class="type-signature">(inner) </span>enhanceResponse<span class="signature">(req, res, next)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".post/broadcastTransaction"><span class="type-signature">(static) </span>post/broadcastTransaction<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
     
 
     
@@ -160,7 +192,7 @@ The value parameter can be a string or an array.</p>
 
 
 <div class="description">
-    <p>Helper function to enhance the response object</p>
+    <p>POST a trnasaction to broadcast it</p>
 </div>
 
 
@@ -196,13 +228,13 @@ The value parameter can be a string or an array.</p>
 
         <tr>
             
-                <td class="name"><code>req</code></td>
+                <td class="name"><code>path</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">req</span>
+<span class="param-type">String</span>
 
 
             
@@ -212,20 +244,20 @@ The value parameter can be a string or an array.</p>
 
             
 
-            <td class="description last"><p>The request object</p></td>
+            <td class="description last"><p>Express route path</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>res</code></td>
+                <td class="name"><code>middleware</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="res.html">res</a></span>
+<span class="param-type">Callback</span>
 
 
             
@@ -235,30 +267,7 @@ The value parameter can be a string or an array.</p>
 
             
 
-            <td class="description last"><p>The response object</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>next</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The next function in the middleware chain</p></td>
+            <td class="description last"><p>Express middleware callback</p></td>
         </tr>
 
     
@@ -299,7 +308,7 @@ The value parameter can be a string or an array.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_middlewares_response.js.html">src/middlewares/response.js</a>, <a href="src_middlewares_response.js.html#line10">line 10</a>
+        <a href="src_routes_broadcastTransaction.js.html">src/routes/broadcastTransaction.js</a>, <a href="src_routes_broadcastTransaction.js.html#line19">line 19</a>
     </li></ul></dd>
     
 

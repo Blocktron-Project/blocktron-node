@@ -23,6 +23,7 @@ const request = require('request-promise');
  * @param {Callback} middleware - Express middleware callback
  */
 mineRouter.get('/', (req, res, next) => {
+    
     /**
      * Get the last block from the chain
      */

@@ -109,7 +109,7 @@ mineRouter.get('/', (req, res, next) => {
                 body: {
                     amount: _bt_config.rewardValue,
                     sender: _bt_config.rewardSenderAddress,
-                    reciever: _bt_config.blocktronNodeAddress
+                    receiver: _bt_config.blocktronNodeAddress
                 },
                 json: true
             };

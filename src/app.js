@@ -76,6 +76,7 @@ const registerAndBroadCastNodeRouter = require('./routes/registerAndBroadcastNod
 const registerNodeRouter = require('./routes/registerNode');
 const registerNodesBulkRouter = require('./routes/registerNodesBulk');
 const broadcastTransactionRouter = require('./routes/broadcastTransaction');
+const receiveNewBlockRouter = require('./routes/receiveNewBlock');
 log.info('Blocktron routes initialized');
 
 /**
@@ -121,6 +122,7 @@ blocktronNode.use('/registerAndBroadcastNode', registerAndBroadCastNodeRouter);
 blocktronNode.use('/registerNode', registerNodeRouter);
 blocktronNode.use('/registerNodesBulk', registerNodesBulkRouter);
 blocktronNode.use('/transaction/broadcast', broadcastTransactionRouter);
+blocktronNode.use('/receiveNewBlock', receiveNewBlockRouter);
 log.info('Blocktron routes chained to middlewares');
 
 /**

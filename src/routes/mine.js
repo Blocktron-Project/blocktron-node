@@ -6,6 +6,15 @@ const express = require('express');
 const mineRouter = express.Router();
 
 /**
+ * The simplified HTTP request client 'request' with Promise support. 
+ * Powered by Bluebird.
+ * `request-promise` returns regular Promises/A+ compliant promises 
+ * and can be assimilated by any compatible promise library.
+ * @see {@link https://www.npmjs.com/package/request-promise|Request-Promise}
+ */
+const request = require('request-promise');
+
+/**
  * Mine a block.
  * @function
  * @name get/mine
@@ -48,36 +57,91 @@ mineRouter.get('/', (req, res, next) => {
     const blockHash = blocktron.hashBlock(previousBlockHash, currentBlockData, nonce);
 
     /**
-     * Reward the miner with the standard reward value
-     */
-    blocktron.createNewTransaction(
-        _bt_config.rewardValue,
-        _bt_config.rewardSenderAddress,
-        _bt_config.blocktronNodeAddress
-    );
-
-    /**
      * Create the new block (Mining the new block to the blockchain)
      */
     const newBlock = blocktron.createNewBlock(nonce, previousBlockHash, blockHash);
 
     /**
-     * Construct the response object and send it
-     * @const response
-     * @type {Object}
-     * @memberof routers:mineRoute
-     * @param {String} status - The status of the operation 
-     * @param {Number} code - The HTTP response status code
-     * @param {String} message - The message string
-     * @param {Object} blockData - The newly mined block's data
+     * Array to hold the request promise objects
      */
-    let response = {
-        status: 'success',
-        code: res.statusCode,
-        message: 'New block mined successfully',
-        blockData: newBlock
-    };
-    res.json(response);
+    let requestPromises = [];
+
+    /**
+     * Broadcast mined blocks to all nodes
+     */
+    blocktron.networkNodes.forEach(networkNodeUrl => {
+
+        /**
+         * Construct the request
+         */
+        let requestOptions = {
+            uri: networkNodeUrl + '/recieveNewBlock',
+            method: 'POST',
+            body: {
+                newBlock: newBlock
+            },
+            json: true
+        };
+
+        /**
+         * Push request promise objects into request promise array
+         */
+        requestPromises.push(request(requestOptions));
+    });
+
+    /**
+     * Resolve all request promise objects and then send appropriate response
+     */
+    Promise.all(requestPromises)
+
+        /**
+         * Once resolved send the response
+         */
+        .then(data => {
+
+            /**
+             * Reward the miner with the standard reward value
+             * Construct the request
+             */
+            let requestOptions = {
+                uri: blocktron.currentNodeUrl + '/transaction/broadcast',
+                method: 'POST',
+                body: {
+                    amount: _bt_config.rewardValue,
+                    sender: _bt_config.rewardSenderAddress,
+                    reciever: _bt_config.blocktronNodeAddress
+                },
+                json: true
+            };
+
+            /**
+             * Return the request promise
+             */
+            return request(requestOptions);
+        })
+        .then(data => {
+            
+            /**
+             * Construct the response object and send it
+             * @const response
+             * @type {Object}
+             * @memberof routers:mineRoute
+             * @param {String} status - The status of the operation 
+             * @param {Number} code - The HTTP response status code
+             * @param {String} message - The message string
+             * @param {Object} blockData - The newly mined block's data
+             */
+            let response = {
+                status: 'success',
+                code: res.statusCode,
+                message: 'New block mined and broadcasted successfully',
+                blockData: newBlock
+            };
+            res.json(response);
+        })
+        .catch(error => {
+            log.error(`Block mine and broadcast failed due to: ${error}`);
+        });
 });
 
 module.exports = mineRouter;

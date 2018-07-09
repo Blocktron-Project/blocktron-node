@@ -34,7 +34,7 @@ receiveNewBlockRouter.post('/', (req, res, next) => {
          * Construct the reponse and send it
          * @const response
          * @type {Object}
-         * @memberof routers:registerNodesBulkRouter
+         * @memberof routers:receiveNewBlockRouter
          * @param {String} status - The status of the operation 
          * @param {Number} code - The HTTP response status code
          * @param {String} message - The message string
@@ -66,6 +66,67 @@ receiveNewBlockRouter.post('/', (req, res, next) => {
          * Check if the new block's index is valid
          */
         const validIndex = lastBlock['index'] + 1 === newBlock['index'];
+
+        /**
+         * Check for valid hash and index of the new block
+         */
+        if (validHash && validIndex) {
+
+            /**
+             * Push the valid block into the blockchain
+             */
+            blocktron.chain.push(newBlock);
+
+            /**
+             * Empty the pending transactions array
+             */
+            blocktron.pendingTransactions = [];
+
+            /**
+             * Set appropriate response status code
+             */
+            res.status(201);
+
+            /**
+             * Construct the response object and send it
+             * @const response
+             * @type {Object}
+             * @memberof routers:receiveNewBlockRouter
+             * @param {String} status - The status of the operation 
+             * @param {Number} code - The HTTP response status code
+             * @param {String} message - The message string
+             * @param {Object} blockData - The newly received block's data
+             */
+            let response = {
+                status: 'success',
+                code: res.statusCode,
+                message: 'New block received and accepted',
+                blockData: newBlock
+            };
+            res.json(response);
+        } else {
+
+            /**
+             * Set appropriate status code for response
+             */
+            res.status(400);
+
+            /**
+             * Construct the reponse and send it
+             * @const response
+             * @type {Object}
+             * @memberof routers:receiveNewBlockRouter
+             * @param {String} status - The status of the operation 
+             * @param {Number} code - The HTTP response status code
+             * @param {String} message - The message string
+             */
+            let response = {
+                status: 'Bad request',
+                code: res.statusCode,
+                message: 'Invalid block data'
+            };
+            res.json(response);
+        }
     }
 });
 

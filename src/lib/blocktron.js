@@ -167,10 +167,10 @@ class Blocktron extends BlocktronLib {
 
       /**
        * Iterate the blockchain array
-       * Start from 2nd position inorder to exclude the genesis block.
+       * Start from 1st position inorder to exclude the genesis block.
        * Genesis block will be validated separetely.
        */
-      for (let i = 2; i < chain.length; i++) {
+      for (let i = 1; i < chain.length; i++) {
 
         /**
          * Get current block
@@ -214,9 +214,9 @@ class Blocktron extends BlocktronLib {
       }
 
       /**
-       * Get the genesis block from array index 1
+       * Get the genesis block from array index 0
        */
-      const genesisBlock = chain[1];
+      const genesisBlock = chain[0];
 
       /**
        * Validate genesis block's nonce

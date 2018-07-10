@@ -60,7 +60,7 @@ class Blocktron extends BlocktronLib {
    * @function isNewNode
    * @memberof Blocktron
    * @param {String} nodeUrl - The url of the new node to register
-   * @returns {Boolean} - Returns true if url present or else false
+   * @returns {Boolean} - Returns true if url not present or else false
    */
   isNewNode(nodeUrl) {
     if (this.networkNodes.indexOf(nodeUrl) === -1) {
@@ -144,6 +144,121 @@ class Blocktron extends BlocktronLib {
        * Log error
        */
       log.error('Transaction data required');
+    }
+  };
+
+  /**
+   * A blockchain method to validate a blockchain
+   * @function isChainValid
+   * @memberof Blocktron
+   * @param {Array} chain - The array representing the blockchain data
+   */
+  isChainValid(chain) {
+
+    /**
+     * Validate the parameter
+     */
+    if (chain) {
+
+      /**
+       * Assume the blockchain is valid
+       */
+      let validChain = true;
+
+      /**
+       * Iterate the blockchain array
+       * Start from 2nd position inorder to exclude the genesis block.
+       * Genesis block will be validated separetely.
+       */
+      for (let i = 2; i < chain.length; i++) {
+
+        /**
+         * Get current block
+         */
+        const currentBlock = chain[i];
+
+        /**
+         * Get previous block
+         */
+        const previousBlock = chain[i - 1];
+
+        /**
+         * Rehash the current block data using the parameters
+         */
+        const blockHash = this.hashBlock(previousBlock['hash'], {
+          transactions: currentBlock['transactions'],
+          index: currentBlock['index']
+        }, currentBlock['nonce']);
+
+        /**
+         * Check the generated hash for '0000' substring pattern
+         */
+        if (blockHash.substring(0, 4) !== '0000') {
+
+          /**
+           * If not, then chain is invalid
+           */
+          validChain = false;
+        }
+
+        /**
+         * If hash values don't match between blocks
+         */
+        if (currentBlock['previousBlockHash'] !== previousBlock['hash']) {
+
+          /**
+           * then chain is invalid
+           */
+          validChain = false;
+        }
+      }
+
+      /**
+       * Get the genesis block from array index 1
+       */
+      const genesisBlock = chain[1];
+
+      /**
+       * Validate genesis block's nonce
+       */
+      const validNonce = genesisBlock['nonce'] === 1;
+
+      /**
+       * Validate genesis block's previousBlockHash
+       */
+      const validPreviousBlockHash = genesisBlock['previousBlockHash'] === '0';
+
+      /**
+       * Validate genesis block's hash
+       */
+      const validHash = genesisBlock['hash'] === '0';
+
+      /**
+       * Validate genesis block's transactions
+       */
+      const validTransactions = genesisBlock['transactions'].length === 0;
+
+      /**
+       * Check all validation parameters for genesis block
+       */
+      if (!validNonce || !validPreviousBlockHash || !validHash || !validTransactions) {
+
+        /**
+         * Set invalid if any parameter is invalid
+         */
+        validChain = false;
+      }
+
+      /**
+       * If genesis block and the entire chain is valid then return validChain as true.
+       */
+      return validChain;
+    } else {
+
+      /**
+       * Log error
+       */
+      log.error('Blockchain data required');
     }
   };
 }

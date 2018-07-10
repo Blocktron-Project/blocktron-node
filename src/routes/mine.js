@@ -76,7 +76,7 @@ mineRouter.get('/', (req, res, next) => {
          * Construct the request
          */
         let requestOptions = {
-            uri: networkNodeUrl + '/recieveNewBlock',
+            uri: networkNodeUrl + '/receiveNewBlock',
             method: 'POST',
             body: {
                 newBlock: newBlock
@@ -121,6 +121,11 @@ mineRouter.get('/', (req, res, next) => {
             return request(requestOptions);
         })
         .then(data => {
+            
+            /**
+             * Set appropriate status code
+             */
+            res.status(201);
             
             /**
              * Construct the response object and send it

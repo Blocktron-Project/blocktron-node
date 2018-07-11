@@ -1,5 +1,5 @@
 /**
- * register node route and controller
+ * register node router and controller
  * @module routers:registerNodeRouter
  */
 const express = require('express');

@@ -1,6 +1,6 @@
 /**
- * Index route and controller
- * @module routers:indexRoute
+ * Index router and controller
+ * @module routers:indexRouter
  */
 const express = require('express');
 const indexRouter = express.Router();
@@ -9,7 +9,7 @@ const indexRouter = express.Router();
  * GET home page.
  * @function
  * @name get/
- * @memberof routers:indexRoute
+ * @memberof routers:indexRouter
  * @param {String} path - Express route path
  * @param {Callback} middleware - Express middleware callback
  */

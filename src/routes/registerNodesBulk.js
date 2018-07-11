@@ -1,5 +1,5 @@
 /**
- * register nodes in bulk route and controller
+ * register nodes in bulk router and controller
  * @module routers:registerNodesBulkRouter
  */
 const express = require('express');

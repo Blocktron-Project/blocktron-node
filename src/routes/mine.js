@@ -1,6 +1,6 @@
 /**
- * blocktron mine route and controller
- * @module routers:mineRoute
+ * blocktron mine router and controller
+ * @module routers:mineRouter
  */
 const express = require('express');
 const mineRouter = express.Router();

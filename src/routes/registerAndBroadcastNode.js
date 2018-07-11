@@ -1,5 +1,5 @@
 /**
- * register and broadcast nodes route and controller
+ * register and broadcast nodes router and controller
  * @module routers:registerAndBroadcastRoute
  */
 const express = require('express');

@@ -1,5 +1,5 @@
 /**
- * blocktron mine route and controller
+ * blocktron mine router and controller
  * @module routers:receiveNewBlockRouter
  */
 const express = require('express');

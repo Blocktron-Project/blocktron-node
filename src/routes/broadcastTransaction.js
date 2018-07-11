@@ -1,9 +1,7 @@
 /**
- * blocktron transaction route and controller
+ * blocktron transaction router and controller
  * @module routers:broadcastTransactionRouter
  */
-
-
 const express = require('express');
 const broadcastTransactionRouter = express.Router();
 

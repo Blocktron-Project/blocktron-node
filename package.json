@@ -8,7 +8,7 @@
   },
   "scripts": {
     "precommit": "pretty-quick --staged",
-    "test": "jest test/blocktron-node.spec.js --forceExit",
+    "test": "jest test --forceExit",
     "build-dev": "webpack --config=webpack.dev.config.js",
     "build-prod": "webpack --config=webpack.config.js",
     "build-docs": "jsdoc -c .jsdocrc -R README.md",

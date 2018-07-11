@@ -18,11 +18,12 @@ const uuid = require('uuid/v1');
  * Get the current node's url from command-line args array position 3
  */
 let currentNodeUrl;
-if (process.argv[3]) {
-  currentNodeUrl = process.argv[3];
-} else {
-  log.info('Node URL argument is missing');
-}
+// if (process.argv[3]) {
+//   currentNodeUrl = process.argv[3];
+// } else {
+//   log.info('Node URL argument is missing');
+// }
+currentNodeUrl = process.argv[3] ? process.argv[3] : '';
 
 /**
  * The blocktron-lib class enhanced
@@ -204,7 +205,7 @@ class Blocktron extends BlocktronLib {
         /**
          * If hash values don't match between blocks
          */
-        if (currentBlock['previousBlockHash'] !== previousBlock['hash']) {
+        if (currentBlock['previousHash'] !== previousBlock['hash']) {
 
           /**
            * then chain is invalid
@@ -226,7 +227,7 @@ class Blocktron extends BlocktronLib {
       /**
        * Validate genesis block's previousBlockHash
        */
-      const validPreviousBlockHash = genesisBlock['previousBlockHash'] === '0';
+      const validPreviousBlockHash = genesisBlock['previousHash'] === '0';
 
       /**
        * Validate genesis block's hash

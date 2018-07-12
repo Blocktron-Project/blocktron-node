@@ -6,7 +6,17 @@ const express = require('express');
 const consensusRouter = express.Router();
 
 /**
+ * The simplified HTTP request client 'request' with Promise support. 
+ * Powered by Bluebird.
+ * `request-promise` returns regular Promises/A+ compliant promises 
+ * and can be assimilated by any compatible promise library.
+ * @see {@link https://www.npmjs.com/package/request-promise|Request-Promise}
+ */
+const request = require('request-promise');
+
+/**
  * Check for consensus and update blockchains
+ * This implementation uses the popular 'Longest chain rule' algorithm.
  * @function
  * @name get/consensus
  * @memberof routers:consensusRouter
@@ -104,9 +114,14 @@ consensusRouter.get('/', (req, res, next) => {
             if (!newLongestChain || (newLongestChain && !blocktron.isChainValid(newLongestChain))) {
 
                 /**
+                 * Log error in case of consensus failure
+                 */
+                log.error('Current blockchain has not been replaced');
+
+                /**
                  * Set appropriate status
                  */
-                res.status(304);
+                res.status(200);
 
                 /**
                  * Construct the response object and send it

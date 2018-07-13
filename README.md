@@ -63,11 +63,17 @@ This project assumes you have the latest version of the following tools installe
 * Code editor(VS Code or Atom preferably)
 
 ## Changelog
-- **v0.0.1** [[`7ee57b1`](https://github.com/Blocktron-Project/blocktron-node/commit/7ee57b1b0c7d09b1f87814d53c9843468e4aa246)] - Documentation updates
+- **v0.0.1** [[`7ee57b1`](https://github.com/Blocktron-Project/blocktron-node/commit/7ee57b1b0c7d09b1f87814d53c9843468e4aa246)]
+  - Documentation updates
+  - Initial stable blocktron-node build
 
 ## API Reference
 
 ## Tests
+This project follows a **Test Driven Development (TDD)**. Unit tests are written using **Jest**, an opensource testing and code coverage framework from facebook opensource. Test spec files can be found inside the test folder. Test can be run by the command:
+```sh
+npm run test
+```
 
 ## Continuous Integration
 Continuous Integration services monitor repositories for changes, then automatically run unit tests on your behalf, typically in a containerized environment. To test this setup works in a continuous integration environment, an integration was done with [Travis CI](https://travis-ci.org/) & [CircleCI](https://circleci.com/). According to the [Travis Node.js Documentation](http://docs.travis-ci.com/user/languages/javascript-with-nodejs/), Travis automatically runs `npm install` and `npm test`. The only additional thing I had to add to the Travis configuration was to run `npm run build` before running the tests. The working Travis config looks like this:

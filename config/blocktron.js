@@ -1,5 +1,5 @@
 /**
- * Blocktron global configuration 
+ * Blocktron global configuration
  * @module _bt_config
  */
 
@@ -15,7 +15,9 @@ const uuid = require('uuid/v1');
  * Using uuid generate a unique string, then remove the dashes in the string and rejoin them.
  * The string generated is guarenteed to be unique at a very high percentage.
  */
-const blocktronNodeAddress = uuid().split('-').join('');
+const blocktronNodeAddress = uuid()
+   .split('-')
+   .join('');
 
 /**
  * Blocktron configuration object
@@ -28,11 +30,11 @@ const blocktronNodeAddress = uuid().split('-').join('');
  * @param {Number} rewardValue - The default global reward value
  */
 const _bt_config = {
-    appTitle: 'Blocktron Node',
-    defaultAppPort: 3000,
-    blocktronNodeAddress: blocktronNodeAddress,
-    rewardSenderAddress: '00BLOCKTRON',
-    rewardValue: 12.5
+   appTitle: 'Blocktron Node',
+   defaultAppPort: 3000,
+   blocktronNodeAddress: blocktronNodeAddress,
+   rewardSenderAddress: '00BLOCKTRON',
+   rewardValue: 12.5
 };
 
 module.exports = _bt_config;

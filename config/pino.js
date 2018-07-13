@@ -1,6 +1,6 @@
 /**
  * Pino Logger configuration
- * This module holds the complete configuration object for the Pino logger instance 
+ * This module holds the complete configuration object for the Pino logger instance
  * @module pinoConfig
  * @see {@link https://github.com/pinojs/pino/blob/master/docs/API.md|Pino Config}
  */

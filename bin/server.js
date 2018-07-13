@@ -42,7 +42,7 @@ server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
- * @function 
+ * @function
  * @name normalizePort
  * @memberof Server
  * @param {Number} val - The port number or string
@@ -70,7 +70,7 @@ function normalizePort(val) {
  * @name onError
  * @memberof Server
  * @param {Object} error - The error event object
- * @returns - Returns the error 
+ * @returns - Returns the error
  */
 function onError(error) {
    if (error.syscall !== 'listen') {

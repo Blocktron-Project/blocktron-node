@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: Server</title>
+    <title>JSDoc: Module: routers:indexRouter</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: Server</h1>
+    <h1 class="page-title">Module: routers:indexRouter</h1>
 
     
 
@@ -28,34 +28,16 @@
 
 <header>
     
-        
-            
-        
-    
 </header>
 
 <article>
     <div class="container-overview">
     
         
-            <div class="description"><p>Module dependencies.</p></div>
+            <div class="description"><p>Index router and controller</p></div>
         
 
         
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <dl class="details">
@@ -87,7 +69,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line1">line 1</a>
+        <a href="src_routes_index.js.html">src/routes/index.js</a>, <a href="src_routes_index.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -97,22 +79,6 @@
 
     
 </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         
@@ -132,19 +98,105 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
+
+    
+        <h3 class="subsection-title">Methods</h3>
 
         
             
-<h4 class="name" id="~blocktronNode"><span class="type-signature">(inner, constant) </span>blocktronNode<span class="type-signature"></span></h4>
 
+    
+
+    
+    <h4 class="name" id=".get/"><span class="type-signature">(static) </span>get/<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    
+
+    
 
 
 
 <div class="description">
-    <p>The blocktronNode instance</p>
+    <p>GET home page.</p>
 </div>
 
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express route path</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>middleware</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Callback</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express middleware callback</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -180,7 +232,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line9">line 9</a>
+        <a href="src_routes_index.js.html">src/routes/index.js</a>, <a href="src_routes_index.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -196,63 +248,12 @@
 
 
 
-        
-            
-<h4 class="name" id="~debug"><span class="type-signature">(inner, constant) </span>debug<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>A tiny JavaScript debugging utility modelled after Node.js core's debugging technique.
-Works in Node.js and web browsers.</p>
-</div>
 
 
 
 
 
 
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line15">line 15</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
 
 
 
@@ -260,194 +261,6 @@ Works in Node.js and web browsers.</p>
 
 
         
-            
-<h4 class="name" id="~http"><span class="type-signature">(inner, constant) </span>http<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Node module housing the traditional complex http interfaces.</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line20">line 20</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="~port"><span class="type-signature">(inner, constant) </span>port<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Get port from environment and store in Express.</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line25">line 25</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="~server"><span class="type-signature">(inner, constant) </span>server<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>Create HTTP server.</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line32">line 32</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
-
     
 
     

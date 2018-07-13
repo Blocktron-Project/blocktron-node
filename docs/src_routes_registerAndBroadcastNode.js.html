@@ -27,16 +27,16 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * register and broadcast nodes route and controller
+ * register and broadcast nodes router and controller
  * @module routers:registerAndBroadcastRoute
  */
 const express = require('express');
 const registerAndBroadcastRouter = express.Router();
 
 /**
- * The simplified HTTP request client 'request' with Promise support. 
+ * The simplified HTTP request client 'request' with Promise support.
  * Powered by Bluebird.
- * `request-promise` returns regular Promises/A+ compliant promises 
+ * `request-promise` returns regular Promises/A+ compliant promises
  * and can be assimilated by any compatible promise library.
  * @see {@link https://www.npmjs.com/package/request-promise|Request-Promise}
  */
@@ -51,43 +51,70 @@ const request = require('request-promise');
  * @param {Callback} middleware - Express middleware callback
  */
 registerAndBroadcastRouter.post('/', (req, res, next) => {
+   /**
+    * Get the new node's url from request body
+    */
+   const newNodeUrl = req.body.newNodeUrl;
 
-    /**
-     * Get the new node's url from request body
-     */
-    const newNodeUrl = req.body.newNodeUrl;
+   /**
+    * Check whether current node's url is equal to new node url
+    * if not equal, constant holds a 'true'
+    * @const notCurrentNode
+    * @type {Boolean}
+    */
+   const notCurrentNode = blocktron.currentNodeUrl !== newNodeUrl;
 
-    /**
-     * Check whether current node's url is equal to new node url
-     * if not equal, constant holds a 'true'
-     * @const notCurrentNode
-     * @type {Boolean}
-     */
-    const notCurrentNode = blocktron.currentNodeUrl !== newNodeUrl;
+   /**
+    * Check whether the node url is already present in the registry or is it current node's url
+    */
+   if (blocktron.isNewNode(newNodeUrl) &amp;&amp; notCurrentNode) {
+      /**
+       * If url is new, push the url to registry
+       */
+      blocktron.networkNodes.push(newNodeUrl);
 
-    /**
-     * Check whether the node url is already present in the registry or is it current node's url
-     */
-    if (blocktron.isNewNode(newNodeUrl) &amp;&amp; notCurrentNode) {
+      /**
+       * Array to hold the promise objects of nodes registration
+       */
+      let registerNodesPromises = [];
 
-        /**
-         * If url is new, push the url to registry
-         */
-        blocktron.networkNodes.push(newNodeUrl);
+      /**
+       * Register each node url in the networkNodes array
+       */
+      blocktron.networkNodes.forEach(networkNodeUrl => {
+         /**
+          * Construct the options for request-promise
+          * @const requestOptions
+          * @type {Object}
+          * @memberof routers:registerAndBroadcastRoute
+          * @param {String} uri - The uri to request to
+          * @param {String} method - The HTTP method to use
+          * @param {Object} body - The request body object
+          * @param {Boolean} json - The type of request body
+          */
+         let requestOptions = {
+            uri: networkNodeUrl + '/registerNode',
+            method: 'POST',
+            body: {
+               newNodeUrl: newNodeUrl
+            },
+            json: true
+         };
 
-        /**
-         * Array to hold the promise objects of nodes registration
-         */
-        let registerNodesPromises = [];
+         /**
+          * Push each promise object returned from `request` into the promise array
+          */
+         registerNodesPromises.push(request(requestOptions));
+      });
 
-        /**
-         * Register each node url in the networkNodes array
-         */
-        blocktron.networkNodes.forEach(networkNodeUrl => {
-
+      /**
+       * Resolve all promises sequentially and then register them in bulk
+       */
+      Promise.all(registerNodesPromises)
+         .then(data => {
             /**
-             * Construct the options for request-promise
-             * @const requestOptions
+             * Construct the bulk registration request and send it
+             * @const bulkRegisterOptions
              * @type {Object}
              * @memberof routers:registerAndBroadcastRoute
              * @param {String} uri - The uri to request to
@@ -95,125 +122,91 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
              * @param {Object} body - The request body object
              * @param {Boolean} json - The type of request body
              */
-            let requestOptions = {
-                uri: networkNodeUrl + '/registerNode',
-                method: 'POST',
-                body: {
-                    newNodeUrl: newNodeUrl
-                },
-                json: true
+            let bulkRegisterOptions = {
+               uri: newNodeUrl + '/registerNodesBulk',
+               method: 'POST',
+               body: {
+                  allNetworkNodes: [...blocktron.networkNodes, blocktron.currentNodeUrl]
+               },
+               json: true
             };
 
             /**
-             * Push each promise object returned from `request` into the promise array
+             * Return the bulk registration promise object
              */
-            registerNodesPromises.push(request(requestOptions));
-        });
+            return request(bulkRegisterOptions);
+         })
+         .then(data => {
+            /**
+             * Once bulk registration is resolved set appropriate header and send response
+             */
+            res.status(201);
 
-        /**
-         * Resolve all promises sequentially and then register them in bulk
-         */
-        Promise.all(registerNodesPromises)
-            .then(data => {
+            /**
+             * Construct the reponse and send it
+             * @const response
+             * @type {Object}
+             * @memberof routers:registerAndBroadcastRoute
+             * @param {String} status - The status of the operation
+             * @param {Number} code - The HTTP response status code
+             * @param {String} message - The message string
+             */
+            let response = {
+               status: 'success',
+               code: res.statusCode,
+               message: 'New nodes registered with the network'
+            };
+            res.json(response);
+         })
+         .catch(error => {
+            /**
+             * Catch promise reject error
+             */
+            log.error(`Nodes registration failed due to: ${error}`);
 
-                /**
-                 * Construct the bulk registration request and send it
-                 * @const bulkRegisterOptions
-                 * @type {Object}
-                 * @memberof routers:registerAndBroadcastRoute
-                 * @param {String} uri - The uri to request to
-                 * @param {String} method - The HTTP method to use
-                 * @param {Object} body - The request body object
-                 * @param {Boolean} json - The type of request body
-                 */
-                let bulkRegisterOptions = {
-                    uri: newNodeUrl + '/registerNodesBulk',
-                    method: 'POST',
-                    body: {
-                        allNetworkNodes: [...blocktron.networkNodes, blocktron.currentNodeUrl]
-                    },
-                    json: true
-                };
+            /**
+             * Set response status to 409 to represent resource conflict
+             */
+            res.status(409);
 
-                /**
-                 * Return the bulk registration promise object
-                 */
-                return request(bulkRegisterOptions);
-            })
-            .then(data => {
+            /**
+             * Construct response and send it
+             * @const response
+             * @type {Object}
+             * @memberof routers:registerAndBroadcastRoute
+             * @param {String} status - The status of the operation
+             * @param {Number} code - The HTTP response status code
+             * @param {String} message - The message string
+             */
+            let response = {
+               status: 'resource conflict',
+               code: res.statusCode,
+               message: `Given node url: ${newNodeUrl}, is a conflicting value`
+            };
+            res.json(response);
+         });
+   } else {
+      /**
+       * Set response status to 409 to represent resource conflict
+       */
+      res.status(409);
 
-                /**
-                 * Once bulk registration is resolved set appropriate header and send response
-                 */
-                res.status(201);
-
-                /**
-                 * Construct the reponse and send it
-                 * @const response
-                 * @type {Object}
-                 * @memberof routers:registerAndBroadcastRoute
-                 * @param {String} status - The status of the operation 
-                 * @param {Number} code - The HTTP response status code
-                 * @param {String} message - The message string
-                 */
-                let response = {
-                    status: 'success',
-                    code: res.statusCode,
-                    message: 'New nodes registered with the network'
-                };
-                res.json(response);
-            })
-            .catch((error) => {
-
-                /**
-                 * Catch promise reject error
-                 */
-                log.error(`Nodes registration failed due to: ${error}`);
-
-                /**
-                 * Set response status to 409 to represent resource conflict
-                 */
-                res.status(409);
-
-                /**
-                 * Construct response and send it
-                 * @const response
-                 * @type {Object}
-                 * @memberof routers:registerAndBroadcastRoute
-                 * @param {String} status - The status of the operation 
-                 * @param {Number} code - The HTTP response status code
-                 * @param {String} message - The message string
-                 */
-                let response = {
-                    status: 'resource conflict',
-                    code: res.statusCode,
-                    message: `Given node url: ${newNodeUrl}, is a conflicting value`
-                };
-                res.json(response);
-            });
-    } else {
-
-        /**
-         * Set response status to 409 to represent resource conflict
-         */
-        res.status(409);
-
-        /**
-         * Construct response and send it
-         * @const response
-         * @type {Object}
-         * @memberof routers:registerAndBroadcastRoute
-         * @param {String} status - The status of the operation 
-         * @param {Number} code - The HTTP response status code
-         * @param {String} message - The message string
-         */
-        let response = {
-            status: 'resource conflict',
-            code: res.statusCode,
-            message: `Given node url: ${newNodeUrl}, is already present in registry or is a conflicting value`
-        };
-        res.json(response);
-    }
+      /**
+       * Construct response and send it
+       * @const response
+       * @type {Object}
+       * @memberof routers:registerAndBroadcastRoute
+       * @param {String} status - The status of the operation
+       * @param {Number} code - The HTTP response status code
+       * @param {String} message - The message string
+       */
+      let response = {
+         status: 'resource conflict',
+         code: res.statusCode,
+         message: `Given node url: ${newNodeUrl}, is already present in registry or is a conflicting value`
+      };
+      res.json(response);
+   }
 });
 
 module.exports = registerAndBroadcastRouter;
@@ -227,13 +220,13 @@ module.exports = registerAndBroadcastRouter;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_bt_config.html">_bt_config</a></li><li><a href="module-blocktronNode.html">blocktronNode</a></li><li><a href="module-enhanceResponse.html">enhanceResponse</a></li><li><a href="module-middlewareRouter.html">middlewareRouter</a></li><li><a href="module-pinoConfig.html">pinoConfig</a></li><li><a href="module-Server.html">Server</a></li><li><a href="routers_blocktronRoute.html">routers:blocktronRoute</a></li><li><a href="routers_broadcastTransactionRouter.html">routers:broadcastTransactionRouter</a></li><li><a href="routers_indexRoute.html">routers:indexRoute</a></li><li><a href="routers_mineRoute.html">routers:mineRoute</a></li><li><a href="routers_registerAndBroadcastRoute.html">routers:registerAndBroadcastRoute</a></li><li><a href="routers_registerNodeRouter.html">routers:registerNodeRouter</a></li><li><a href="routers_registerNodesBulkRouter.html">routers:registerNodesBulkRouter</a></li><li><a href="routers_transactionRoute.html">routers:transactionRoute</a></li></ul><h3>Classes</h3><ul><li><a href="Blocktron.html">Blocktron</a></li></ul><h3>Namespaces</h3><ul><li><a href="res.html">res</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_bt_config">_bt_config</a></li><li><a href="global.html#blocktron">blocktron</a></li><li><a href="global.html#BlocktronLib">BlocktronLib</a></li><li><a href="global.html#currentNodeUrl">currentNodeUrl</a></li><li><a href="global.html#env">env</a></li><li><a href="global.html#log">log</a></li><li><a href="global.html#newTransactions">newTransactions</a></li><li><a href="global.html#uuid">uuid</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_bt_config.html">_bt_config</a></li><li><a href="module-blocktronNode.html">blocktronNode</a></li><li><a href="module-enhanceResponse.html">enhanceResponse</a></li><li><a href="module-middlewareRouter.html">middlewareRouter</a></li><li><a href="module-pinoConfig.html">pinoConfig</a></li><li><a href="module-Server.html">Server</a></li><li><a href="routers_blocktronRouter.html">routers:blocktronRouter</a></li><li><a href="routers_broadcastTransactionRouter.html">routers:broadcastTransactionRouter</a></li><li><a href="routers_consensusRouter.html">routers:consensusRouter</a></li><li><a href="routers_indexRouter.html">routers:indexRouter</a></li><li><a href="routers_mineRouter.html">routers:mineRouter</a></li><li><a href="routers_receiveNewBlockRouter.html">routers:receiveNewBlockRouter</a></li><li><a href="routers_registerAndBroadcastRoute.html">routers:registerAndBroadcastRoute</a></li><li><a href="routers_registerNodeRouter.html">routers:registerNodeRouter</a></li><li><a href="routers_registerNodesBulkRouter.html">routers:registerNodesBulkRouter</a></li><li><a href="routers_transactionRoute.html">routers:transactionRoute</a></li></ul><h3>Classes</h3><ul><li><a href="Blocktron.html">Blocktron</a></li></ul><h3>Namespaces</h3><ul><li><a href="res.html">res</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_bt_config">_bt_config</a></li><li><a href="global.html#blocktron">blocktron</a></li><li><a href="global.html#BlocktronLib">BlocktronLib</a></li><li><a href="global.html#currentNodeUrl">currentNodeUrl</a></li><li><a href="global.html#env">env</a></li><li><a href="global.html#log">log</a></li><li><a href="global.html#newTransactions">newTransactions</a></li><li><a href="global.html#uuid">uuid</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jul 09 2018 20:45:36 GMT+0530 (India Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jul 12 2018 21:55:08 GMT+0530 (India Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

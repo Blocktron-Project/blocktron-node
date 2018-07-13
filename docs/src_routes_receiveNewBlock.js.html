@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: src/routes/mine.js</title>
+    <title>JSDoc: Source: src/routes/receiveNewBlock.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: src/routes/mine.js</h1>
+    <h1 class="page-title">Source: src/routes/receiveNewBlock.js</h1>
 
     
 
@@ -28,126 +28,86 @@
         <article>
             <pre class="prettyprint source linenums"><code>/**
  * blocktron mine router and controller
- * @module routers:mineRouter
+ * @module routers:receiveNewBlockRouter
  */
 const express = require('express');
-const mineRouter = express.Router();
+const receiveNewBlockRouter = express.Router();
 
 /**
- * The simplified HTTP request client 'request' with Promise support.
- * Powered by Bluebird.
- * `request-promise` returns regular Promises/A+ compliant promises
- * and can be assimilated by any compatible promise library.
- * @see {@link https://www.npmjs.com/package/request-promise|Request-Promise}
- */
-const request = require('request-promise');
-
-/**
- * Mine a block.
+ * Receive a new block.
  * @function
- * @name get/mine
- * @memberof routers:mineRoute
+ * @name get/receiveNewBlock
+ * @memberof routers:receiveNewBlockRouter
  * @param {String} path - Express route path
  * @param {Callback} middleware - Express middleware callback
  */
-mineRouter.get('/', (req, res, next) => {
+receiveNewBlockRouter.post('/', (req, res, next) => {
    /**
-    * Get the last block from the chain
+    * Validate the request for new block
     */
-   const lastBlock = blocktron.getLastBlock();
-
-   /**
-    * Get the hash of the that block (previousBlock)
-    */
-   const previousBlockHash = lastBlock['hash'];
-
-   /**
-    * Build the current block's data
-    * @constant currentBlockData
-    * @type {Object}
-    * @memberof routers:mineRoute
-    * @param {Array} transactions - List of pending transactions
-    * @param {Number} index - The chronological position of this block on the chain
-    */
-   const currentBlockData = {
-      transactions: blocktron.pendingTransactions,
-      index: lastBlock['index'] + 1
-   };
-
-   /**
-    * Get the valid nonce value using the Proof Of Work Algorithm
-    */
-   const nonce = blocktron.proofOfWork(previousBlockHash, currentBlockData);
-
-   /**
-    * Generate the hash of the block data
-    */
-   const blockHash = blocktron.hashBlock(previousBlockHash, currentBlockData, nonce);
-
-   /**
-    * Create the new block (Mining the new block to the blockchain)
-    */
-   const newBlock = blocktron.createNewBlock(nonce, previousBlockHash, blockHash);
-
-   /**
-    * Array to hold the request promise objects
-    */
-   let requestPromises = [];
-
-   /**
-    * Broadcast mined blocks to all nodes
-    */
-   blocktron.networkNodes.forEach(networkNodeUrl => {
+   if (!req || !req.body || !req.body.newBlock) {
       /**
-       * Construct the request
+       * Log error if bad request
        */
-      let requestOptions = {
-         uri: networkNodeUrl + '/receiveNewBlock',
-         method: 'POST',
-         body: {
-            newBlock: newBlock
-         },
-         json: true
+      log.error('Block data missing');
+
+      /**
+       * Set appropriate status code for response
+       */
+      res.status(400);
+
+      /**
+       * Construct the reponse and send it
+       * @const response
+       * @type {Object}
+       * @memberof routers:receiveNewBlockRouter
+       * @param {String} status - The status of the operation
+       * @param {Number} code - The HTTP response status code
+       * @param {String} message - The message string
+       */
+      let response = {
+         status: 'Bad request',
+         code: res.statusCode,
+         message: 'Invalid data type or missing data'
       };
+      res.json(response);
+   } else {
+      /**
+       * Read the new block data from request
+       */
+      const newBlock = req.body.newBlock;
 
       /**
-       * Push request promise objects into request promise array
+       * Get the last block from this node's chain
        */
-      requestPromises.push(request(requestOptions));
-   });
-
-   /**
-    * Resolve all request promise objects and then send appropriate response
-    */
-   Promise.all(requestPromises)
+      const lastBlock = blocktron.getLastBlock();
 
       /**
-       * Once resolved send the response
+       * Check new block's previous hash is equal to last block's hash or not
        */
-      .then(data => {
+      const validHash = lastBlock.hash === newBlock.previousHash;
+
+      /**
+       * Check if the new block's index is valid
+       */
+      const validIndex = lastBlock['index'] + 1 === newBlock['index'];
+
+      /**
+       * Check for valid hash and index of the new block
+       */
+      if (validHash &amp;&amp; validIndex) {
          /**
-          * Reward the miner with the standard reward value
-          * Construct the request
+          * Push the valid block into the blockchain
           */
-         let requestOptions = {
-            uri: blocktron.currentNodeUrl + '/transaction/broadcast',
-            method: 'POST',
-            body: {
-               amount: _bt_config.rewardValue,
-               sender: _bt_config.rewardSenderAddress,
-               receiver: _bt_config.blocktronNodeAddress
-            },
-            json: true
-         };
+         blocktron.chain.push(newBlock);
 
          /**
-          * Return the request promise
+          * Empty the pending transactions array
           */
-         return request(requestOptions);
-      })
-      .then(data => {
+         blocktron.pendingTransactions = [];
+
          /**
-          * Set appropriate status code
+          * Set appropriate response status code
           */
          res.status(201);
 
@@ -155,26 +115,45 @@ mineRouter.get('/', (req, res, next) => {
           * Construct the response object and send it
           * @const response
           * @type {Object}
-          * @memberof routers:mineRoute
+          * @memberof routers:receiveNewBlockRouter
           * @param {String} status - The status of the operation
           * @param {Number} code - The HTTP response status code
           * @param {String} message - The message string
-          * @param {Object} blockData - The newly mined block's data
+          * @param {Object} blockData - The newly received block's data
           */
          let response = {
             status: 'success',
             code: res.statusCode,
-            message: 'New block mined and broadcasted successfully',
+            message: 'New block received and accepted',
             blockData: newBlock
          };
          res.json(response);
-      })
-      .catch(error => {
-         log.error(`Block mine and broadcast failed due to: ${error}`);
-      });
+      } else {
+         /**
+          * Set appropriate status code for response
+          */
+         res.status(400);
+
+         /**
+          * Construct the reponse and send it
+          * @const response
+          * @type {Object}
+          * @memberof routers:receiveNewBlockRouter
+          * @param {String} status - The status of the operation
+          * @param {Number} code - The HTTP response status code
+          * @param {String} message - The message string
+          */
+         let response = {
+            status: 'Bad request',
+            code: res.statusCode,
+            message: 'Invalid block data'
+         };
+         res.json(response);
+      }
+   }
 });
 
-module.exports = mineRouter;
+module.exports = receiveNewBlockRouter;
 </code></pre>
         </article>
     </section>

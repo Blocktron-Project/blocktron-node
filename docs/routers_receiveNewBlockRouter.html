@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: Server</title>
+    <title>JSDoc: Module: routers:receiveNewBlockRouter</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: Server</h1>
+    <h1 class="page-title">Module: routers:receiveNewBlockRouter</h1>
 
     
 
@@ -28,34 +28,16 @@
 
 <header>
     
-        
-            
-        
-    
 </header>
 
 <article>
     <div class="container-overview">
     
         
-            <div class="description"><p>Module dependencies.</p></div>
+            <div class="description"><p>blocktron mine router and controller</p></div>
         
 
         
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <dl class="details">
@@ -87,7 +69,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line1">line 1</a>
+        <a href="src_routes_receiveNewBlock.js.html">src/routes/receiveNewBlock.js</a>, <a href="src_routes_receiveNewBlock.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -97,22 +79,6 @@
 
     
 </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         
@@ -136,16 +102,26 @@
 
         
             
-<h4 class="name" id="~blocktronNode"><span class="type-signature">(inner, constant) </span>blocktronNode<span class="type-signature"></span></h4>
+<h4 class="name" id=".response"><span class="type-signature">(static, constant) </span>response<span class="type-signature"> :Object</span></h4>
 
 
 
 
 <div class="description">
-    <p>The blocktronNode instance</p>
+    <p>Construct the reponse and send it</p>
 </div>
 
 
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
 
 
 
@@ -180,7 +156,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line9">line 9</a>
+        <a href="src_routes_receiveNewBlock.js.html">src/routes/receiveNewBlock.js</a>, <a href="src_routes_receiveNewBlock.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -198,17 +174,26 @@
 
         
             
-<h4 class="name" id="~debug"><span class="type-signature">(inner, constant) </span>debug<span class="type-signature"></span></h4>
+<h4 class="name" id=".response"><span class="type-signature">(static, constant) </span>response<span class="type-signature"> :Object</span></h4>
 
 
 
 
 <div class="description">
-    <p>A tiny JavaScript debugging utility modelled after Node.js core's debugging technique.
-Works in Node.js and web browsers.</p>
+    <p>Construct the response object and send it</p>
 </div>
 
 
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
 
 
 
@@ -243,7 +228,7 @@ Works in Node.js and web browsers.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line15">line 15</a>
+        <a href="src_routes_receiveNewBlock.js.html">src/routes/receiveNewBlock.js</a>, <a href="src_routes_receiveNewBlock.js.html#line86">line 86</a>
     </li></ul></dd>
     
 
@@ -261,16 +246,26 @@ Works in Node.js and web browsers.</p>
 
         
             
-<h4 class="name" id="~http"><span class="type-signature">(inner, constant) </span>http<span class="type-signature"></span></h4>
+<h4 class="name" id=".response"><span class="type-signature">(static, constant) </span>response<span class="type-signature"> :Object</span></h4>
 
 
 
 
 <div class="description">
-    <p>Node module housing the traditional complex http interfaces.</p>
+    <p>Construct the reponse and send it</p>
 </div>
 
 
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
 
 
 
@@ -305,7 +300,7 @@ Works in Node.js and web browsers.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line20">line 20</a>
+        <a href="src_routes_receiveNewBlock.js.html">src/routes/receiveNewBlock.js</a>, <a href="src_routes_receiveNewBlock.js.html#line109">line 109</a>
     </li></ul></dd>
     
 
@@ -320,16 +315,28 @@ Works in Node.js and web browsers.</p>
 
 
 
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
 
         
             
-<h4 class="name" id="~port"><span class="type-signature">(inner, constant) </span>port<span class="type-signature"></span></h4>
 
+    
+
+    
+    <h4 class="name" id=".get/receiveNewBlock"><span class="type-signature">(static) </span>get/receiveNewBlock<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    
+
+    
 
 
 
 <div class="description">
-    <p>Get port from environment and store in Express.</p>
+    <p>Receive a new block.</p>
 </div>
 
 
@@ -338,62 +345,78 @@ Works in Node.js and web browsers.</p>
 
 
 
-<dl class="details">
 
+
+    <h5>Parameters:</h5>
     
 
-    
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line25">line 25</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
+        <th>Type</th>
 
         
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
             
-<h4 class="name" id="~server"><span class="type-signature">(inner, constant) </span>server<span class="type-signature"></span></h4>
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
 
 
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express route path</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>middleware</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Callback</span>
 
 
-<div class="description">
-    <p>Create HTTP server.</p>
-</div>
+            
+            </td>
 
+            
+
+            
+
+            <td class="description last"><p>Express middleware callback</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -429,7 +452,7 @@ Works in Node.js and web browsers.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bin_server.js.html">bin/server.js</a>, <a href="bin_server.js.html#line32">line 32</a>
+        <a href="src_routes_receiveNewBlock.js.html">src/routes/receiveNewBlock.js</a>, <a href="src_routes_receiveNewBlock.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -445,9 +468,19 @@ Works in Node.js and web browsers.</p>
 
 
 
-        
-    
 
+
+
+
+
+
+
+
+
+
+
+
+        
     
 
     

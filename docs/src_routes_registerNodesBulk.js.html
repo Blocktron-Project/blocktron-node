@@ -27,7 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * register nodes in bulk route and controller
+ * register nodes in bulk router and controller
  * @module routers:registerNodesBulkRouter
  */
 const express = require('express');
@@ -42,98 +42,96 @@ const registerNodesBulkRouter = express.Router();
  * @param {Callback} middleware - Express middleware callback
  */
 registerNodesBulkRouter.post('/', (req, res, next) => {
+   /**
+    * Validate the request for invalid data
+    */
+   if (!req.body || !req.body.allNetworkNodes) {
+      /**
+       * log error
+       */
+      log.error(
+         'Bad request, given request body is either empty or contains invalid data'
+      );
 
-    /**
-     * Validate the request for invalid data
-     */
-    if (!req.body || !req.body.allNetworkNodes) {
+      /**
+       * Set appropriate status code for response
+       */
+      res.status(400);
 
-        /**
-         * log error 
-         */
-        log.error('Bad request, given request body is either empty or contains invalid data');
+      /**
+       * Construct the reponse and send it
+       * @const response
+       * @type {Object}
+       * @memberof routers:registerNodesBulkRouter
+       * @param {String} status - The status of the operation
+       * @param {Number} code - The HTTP response status code
+       * @param {String} message - The message string
+       */
+      let response = {
+         status: 'Bad request',
+         code: res.statusCode,
+         message: 'Invalid data type or missing data'
+      };
+      res.json(response);
+   } else {
+      /**
+       * Get the network nodes url list from the request body
+       */
+      const allNetworkNodes = req.body.allNetworkNodes;
 
-        /**
-         * Set appropriate status code for response
-         */
-        res.status(400);
+      /**
+       * Iterate and add each node url to networkNodes array
+       * also validate each url for duplication
+       */
+      allNetworkNodes.forEach(networkNodeUrl => {
+         /**
+          * Check whether current node's url is equal to network node url
+          * if not equal, constant holds a 'true'
+          * @const notCurrentNode
+          * @type {Boolean}
+          */
+         const notCurrentNode = blocktron.currentNodeUrl !== networkNodeUrl;
 
-        /**
-         * Construct the reponse and send it
-         * @const response
-         * @type {Object}
-         * @memberof routers:registerNodesBulkRouter
-         * @param {String} status - The status of the operation 
-         * @param {Number} code - The HTTP response status code
-         * @param {String} message - The message string
-         */
-        let response = {
-            status: 'Bad request',
-            code: res.statusCode,
-            message: 'Invalid data type or missing data'
-        };
-        res.json(response);
-    } else {
-
-        /**
-         * Get the network nodes url list from the request body
-         */
-        const allNetworkNodes = req.body.allNetworkNodes;
-
-        /**
-         * Iterate and add each node url to networkNodes array
-         * also validate each url for duplication
-         */
-        allNetworkNodes.forEach(networkNodeUrl => {
-
+         /**
+          * Check whether node url already exists in data structure, and
+          * also check whether current node's url is equal to network node url
+          */
+         if (blocktron.isNewNode(networkNodeUrl) &amp;&amp; notCurrentNode) {
             /**
-             * Check whether current node's url is equal to network node url
-             * if not equal, constant holds a 'true'
-             * @const notCurrentNode
-             * @type {Boolean}
+             * then push the new url to networkNodes array
              */
-            const notCurrentNode = blocktron.currentNodeUrl !== networkNodeUrl;
-
+            blocktron.networkNodes.push(networkNodeUrl);
+         } else {
             /**
-             * Check whether node url already exists in data structure, and 
-             * also check whether current node's url is equal to network node url
+             * log error denoting the duplication or conflicting value
              */
-            if (blocktron.isNewNode(networkNodeUrl) &amp;&amp; notCurrentNode) {
+            log.error(
+               `Given url: ${networkNodeUrl} rejected, it is already present or is a conflicting value`
+            );
+         }
+      });
 
-                /**
-                 * then push the new url to networkNodes array
-                 */
-                blocktron.networkNodes.push(networkNodeUrl);
-            } else {
+      /**
+       * Set appropriate status code for response
+       */
+      res.status(201);
 
-                /**
-                 * log error denoting the duplication or conflicting value
-                 */
-                log.error(`Given url: ${networkNodeUrl} rejected, it is already present or is a conflicting value`);
-            }
-        });
-
-        /**
-         * Set appropriate status code for response
-         */
-        res.status(201);
-
-        /**
-         * Construct the reponse and send it
-         * @const response
-         * @type {Object}
-         * @memberof routers:registerNodesBulkRouter
-         * @param {String} status - The status of the operation 
-         * @param {Number} code - The HTTP response status code
-         * @param {String} message - The message string
-         */
-        let response = {
-            status: 'success',
-            code: res.statusCode,
-            message: 'Bulk registration of nodes successful'
-        };
-        res.json(response);
-    }
+      /**
+       * Construct the reponse and send it
+       * @const response
+       * @type {Object}
+       * @memberof routers:registerNodesBulkRouter
+       * @param {String} status - The status of the operation
+       * @param {Number} code - The HTTP response status code
+       * @param {String} message - The message string
+       */
+      let response = {
+         status: 'success',
+         code: res.statusCode,
+         message: 'Bulk registration of nodes successful'
+      };
+      res.json(response);
+   }
 });
 
 module.exports = registerNodesBulkRouter;
@@ -147,13 +145,13 @@ module.exports = registerNodesBulkRouter;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_bt_config.html">_bt_config</a></li><li><a href="module-blocktronNode.html">blocktronNode</a></li><li><a href="module-enhanceResponse.html">enhanceResponse</a></li><li><a href="module-middlewareRouter.html">middlewareRouter</a></li><li><a href="module-pinoConfig.html">pinoConfig</a></li><li><a href="module-Server.html">Server</a></li><li><a href="routers_blocktronRoute.html">routers:blocktronRoute</a></li><li><a href="routers_broadcastTransactionRouter.html">routers:broadcastTransactionRouter</a></li><li><a href="routers_indexRoute.html">routers:indexRoute</a></li><li><a href="routers_mineRoute.html">routers:mineRoute</a></li><li><a href="routers_registerAndBroadcastRoute.html">routers:registerAndBroadcastRoute</a></li><li><a href="routers_registerNodeRouter.html">routers:registerNodeRouter</a></li><li><a href="routers_registerNodesBulkRouter.html">routers:registerNodesBulkRouter</a></li><li><a href="routers_transactionRoute.html">routers:transactionRoute</a></li></ul><h3>Classes</h3><ul><li><a href="Blocktron.html">Blocktron</a></li></ul><h3>Namespaces</h3><ul><li><a href="res.html">res</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_bt_config">_bt_config</a></li><li><a href="global.html#blocktron">blocktron</a></li><li><a href="global.html#BlocktronLib">BlocktronLib</a></li><li><a href="global.html#currentNodeUrl">currentNodeUrl</a></li><li><a href="global.html#env">env</a></li><li><a href="global.html#log">log</a></li><li><a href="global.html#newTransactions">newTransactions</a></li><li><a href="global.html#uuid">uuid</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_bt_config.html">_bt_config</a></li><li><a href="module-blocktronNode.html">blocktronNode</a></li><li><a href="module-enhanceResponse.html">enhanceResponse</a></li><li><a href="module-middlewareRouter.html">middlewareRouter</a></li><li><a href="module-pinoConfig.html">pinoConfig</a></li><li><a href="module-Server.html">Server</a></li><li><a href="routers_blocktronRouter.html">routers:blocktronRouter</a></li><li><a href="routers_broadcastTransactionRouter.html">routers:broadcastTransactionRouter</a></li><li><a href="routers_consensusRouter.html">routers:consensusRouter</a></li><li><a href="routers_indexRouter.html">routers:indexRouter</a></li><li><a href="routers_mineRouter.html">routers:mineRouter</a></li><li><a href="routers_receiveNewBlockRouter.html">routers:receiveNewBlockRouter</a></li><li><a href="routers_registerAndBroadcastRoute.html">routers:registerAndBroadcastRoute</a></li><li><a href="routers_registerNodeRouter.html">routers:registerNodeRouter</a></li><li><a href="routers_registerNodesBulkRouter.html">routers:registerNodesBulkRouter</a></li><li><a href="routers_transactionRoute.html">routers:transactionRoute</a></li></ul><h3>Classes</h3><ul><li><a href="Blocktron.html">Blocktron</a></li></ul><h3>Namespaces</h3><ul><li><a href="res.html">res</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_bt_config">_bt_config</a></li><li><a href="global.html#blocktron">blocktron</a></li><li><a href="global.html#BlocktronLib">BlocktronLib</a></li><li><a href="global.html#currentNodeUrl">currentNodeUrl</a></li><li><a href="global.html#env">env</a></li><li><a href="global.html#log">log</a></li><li><a href="global.html#newTransactions">newTransactions</a></li><li><a href="global.html#uuid">uuid</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jul 09 2018 20:45:36 GMT+0530 (India Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jul 12 2018 21:55:08 GMT+0530 (India Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

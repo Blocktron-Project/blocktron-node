@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: blocktronNode</title>
+    <title>JSDoc: Module: routers:consensusRouter</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: blocktronNode</h1>
+    <h1 class="page-title">Module: routers:consensusRouter</h1>
 
     
 
@@ -28,34 +28,16 @@
 
 <header>
     
-        
-            
-        
-    
 </header>
 
 <article>
     <div class="container-overview">
     
         
-            <div class="description"><p>The blocktron-node express application object</p></div>
+            <div class="description"><p>Consensus router and controller</p></div>
         
 
         
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <dl class="details">
@@ -87,7 +69,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_app.js.html">src/app.js</a>, <a href="src_app.js.html#line10">line 10</a>
+        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -97,22 +79,6 @@
 
     
 </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         
@@ -136,16 +102,26 @@
 
         
             
-<h4 class="name" id="~Blocktron"><span class="type-signature">(inner, constant) </span>Blocktron<span class="type-signature"></span></h4>
+<h4 class="name" id=".response"><span class="type-signature">(static, constant) </span>response<span class="type-signature"> :Object</span></h4>
 
 
 
 
 <div class="description">
-    <p>Include the blocktron library (after it has been extended)</p>
+    <p>Construct the response object and send it</p>
 </div>
 
 
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
 
 
 
@@ -180,7 +156,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_app.js.html">src/app.js</a>, <a href="src_app.js.html#line59">line 59</a>
+        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line123">line 123</a>
     </li></ul></dd>
     
 
@@ -198,16 +174,26 @@
 
         
             
-<h4 class="name" id="~blocktronNode"><span class="type-signature">(inner, constant) </span>blocktronNode<span class="type-signature"></span></h4>
+<h4 class="name" id=".response"><span class="type-signature">(static, constant) </span>response<span class="type-signature"> :Object</span></h4>
 
 
 
 
 <div class="description">
-    <p>Instantiate the blocktron express app object</p>
+    <p>Construct the response object and send it</p>
 </div>
 
 
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
 
 
 
@@ -242,7 +228,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_app.js.html">src/app.js</a>, <a href="src_app.js.html#line96">line 96</a>
+        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line158">line 158</a>
     </li></ul></dd>
     
 
@@ -260,13 +246,13 @@
 
         
             
-<h4 class="name" id="~createError"><span class="type-signature">(inner, constant) </span>createError<span class="type-signature"></span></h4>
+<h4 class="name" id="~maximumChainLength"><span class="type-signature">(inner) </span>maximumChainLength<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>Create HTTP errors for Express, Koa, Connect, etc. with ease.</p>
+    <p>Replace new maximum chain length with largest blockchain length</p>
 </div>
 
 
@@ -304,7 +290,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_app.js.html">src/app.js</a>, <a href="src_app.js.html#line37">line 37</a>
+        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line91">line 91</a>
     </li></ul></dd>
     
 
@@ -322,13 +308,13 @@
 
         
             
-<h4 class="name" id="~express"><span class="type-signature">(inner, constant) </span>express<span class="type-signature"></span></h4>
+<h4 class="name" id="~newLongestChain"><span class="type-signature">(inner) </span>newLongestChain<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>Fast, unopinionated, minimalist web framework for node.</p>
+    <p>Replace largest blockchain as the new longest chain</p>
 </div>
 
 
@@ -366,7 +352,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_app.js.html">src/app.js</a>, <a href="src_app.js.html#line42">line 42</a>
+        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line96">line 96</a>
     </li></ul></dd>
     
 
@@ -384,13 +370,13 @@
 
         
             
-<h4 class="name" id="~icon"><span class="type-signature">(inner, constant) </span>icon<span class="type-signature"></span></h4>
+<h4 class="name" id="~newPendingTransactions"><span class="type-signature">(inner) </span>newPendingTransactions<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>Serve favicon</p>
+    <p>Replace pending transactions list with the largest blockchain's pending transactions list</p>
 </div>
 
 
@@ -428,7 +414,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_app.js.html">src/app.js</a>, <a href="src_app.js.html#line69">line 69</a>
+        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line101">line 101</a>
     </li></ul></dd>
     
 
@@ -446,13 +432,16 @@
 
         
             
-<h4 class="name" id="~indexRouter"><span class="type-signature">(inner, constant) </span>indexRouter<span class="type-signature"></span></h4>
+<h4 class="name" id="~request"><span class="type-signature">(inner, constant) </span>request<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>Set-up routes</p>
+    <p>The simplified HTTP request client 'request' with Promise support.
+Powered by Bluebird.
+<code>request-promise</code> returns regular Promises/A+ compliant promises
+and can be assimilated by any compatible promise library.</p>
 </div>
 
 
@@ -490,12 +479,19 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_app.js.html">src/app.js</a>, <a href="src_app.js.html#line81">line 81</a>
+        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
     
 
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://www.npmjs.com/package/request-promise">Request-Promise</a></li>
+        </ul>
+    </dd>
     
 
     
@@ -505,18 +501,109 @@
 
 
 
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
 
         
             
-<h4 class="name" id="~path"><span class="type-signature">(inner, constant) </span>path<span class="type-signature"></span></h4>
 
+    
+
+    
+    <h4 class="name" id=".get/consensus"><span class="type-signature">(static) </span>get/consensus<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    
+
+    
 
 
 
 <div class="description">
-    <p>Node.js path module</p>
+    <p>Check for consensus and update blockchains
+This implementation uses the popular 'Longest chain rule' algorithm.</p>
 </div>
 
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express route path</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>middleware</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Callback</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express middleware callback</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -552,7 +639,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_app.js.html">src/app.js</a>, <a href="src_app.js.html#line64">line 64</a>
+        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -568,9 +655,19 @@
 
 
 
-        
-    
 
+
+
+
+
+
+
+
+
+
+
+
+        
     
 
     
@@ -592,7 +689,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jul 12 2018 21:55:08 GMT+0530 (India Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jul 12 2018 21:55:09 GMT+0530 (India Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

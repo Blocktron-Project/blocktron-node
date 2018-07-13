@@ -27,18 +27,16 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * blocktron transaction route and controller
+ * blocktron transaction router and controller
  * @module routers:broadcastTransactionRouter
  */
-
-
 const express = require('express');
 const broadcastTransactionRouter = express.Router();
 
 /**
- * The simplified HTTP request client 'request' with Promise support. 
+ * The simplified HTTP request client 'request' with Promise support.
  * Powered by Bluebird.
- * `request-promise` returns regular Promises/A+ compliant promises 
+ * `request-promise` returns regular Promises/A+ compliant promises
  * and can be assimilated by any compatible promise library.
  * @see {@link https://www.npmjs.com/package/request-promise|Request-Promise}
  */
@@ -53,86 +51,82 @@ const request = require('request-promise');
  * @param {Callback} middleware - Express middleware callback
  */
 broadcastTransactionRouter.post('/', (req, res, next) => {
+   /**
+    * Validate the transaction parameters
+    */
+   if (!req || !req.body || !req.body.amount || !req.body.sender || !req.body.receiver) {
+      /**
+       * log error
+       */
+      log.error('Cannot create a transaction without required parameters');
+   }
 
-    /**
-     * Validate the transaction parameters
-     */
-    if (!req || !req.body || !req.body.amount || !req.body.sender || !req.body.receiver) {
+   /**
+    * Create a transaction with the request parameters.
+    */
+   const newTransaction = blocktron.createNewTransaction(
+      req.body.amount,
+      req.body.sender,
+      req.body.receiver
+   );
 
-        /**
-         * log error 
-         */
-        log.error('Cannot create a transaction without required parameters');
-    }
+   /**
+    * Add the transaction object to pending transactions array of this node
+    */
+   blocktron.addTransactionToPendingTransaction(newTransaction);
 
-    /**
-     * Create a transaction with the request parameters.
-     */
-    const newTransaction = blocktron.createNewTransaction(
-        req.body.amount,
-        req.body.sender,
-        req.body.receiver
-    );
+   /**
+    * Array to hold the request promise objects
+    */
+   let requestPromises = [];
 
-    /**
-     * Add the transaction object to pending transactions array of this node
-     */
-    blocktron.addTransactionToPendingTransaction(newTransaction);
+   /**
+    * Broadcast transactions to all nodes in the network node array
+    */
+   blocktron.networkNodes.forEach(networkNodeUrl => {
+      /**
+       * Construct the request
+       */
+      const requestOptions = {
+         uri: networkNodeUrl + '/transaction',
+         method: 'POST',
+         body: newTransaction,
+         json: true
+      };
 
-    /**
-     * Array to hold the request promise objects
-     */
-    let requestPromises = [];
+      /**
+       * Push request promise objects into request promise array
+       */
+      requestPromises.push(request(requestOptions));
+   });
 
-    /**
-     * Broadcast transactions to all nodes in the network node array
-     */
-    blocktron.networkNodes.forEach(networkNodeUrl => {
+   /**
+    * Resolve all request promise objects and then send appropriate response
+    */
+   Promise.all(requestPromises)
 
-        /**
-         * Construct the request
-         */
-        const requestOptions = {
-            uri: networkNodeUrl + '/transaction',
-            method: 'POST',
-            body: newTransaction,
-            json: true
-        };
+      /**
+       * Once resolved send the response
+       */
+      .then(data => {
+         /**
+          * Set success, object created status code
+          */
+         res.status(201);
 
-        /**
-         * Push request promise objects into request promise array
-         */
-        requestPromises.push(request(requestOptions));
-    });
-
-    /**
-     * Resolve all request promise objects and then send appropriate response
-     */
-    Promise.all(requestPromises)
-
-        /**
-         * Once resolved send the response
-         */
-        .then(data => {
-
-            /**
-             * Set success, object created status code
-             */
-            res.status(201);
-
-            /**
-             * Construct the response and send it
-             */
-            let response = {
-                status: 'success',
-                code: res.statusCode,
-                message: 'Transaction created and broadcasted successfully'
-            };
-            res.json(response);
-        })
-        .catch(error => {
-            log.error(`Transaction broadcast failed due to: ${error}`);
-        });
+         /**
+          * Construct the response and send it
+          */
+         let response = {
+            status: 'success',
+            code: res.statusCode,
+            message: 'Transaction created and broadcasted successfully'
+         };
+         res.json(response);
+      })
+      .catch(error => {
+         log.error(`Transaction broadcast failed due to: ${error}`);
+      });
 });
 
 module.exports = broadcastTransactionRouter;
@@ -146,13 +140,13 @@ module.exports = broadcastTransactionRouter;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_bt_config.html">_bt_config</a></li><li><a href="module-blocktronNode.html">blocktronNode</a></li><li><a href="module-enhanceResponse.html">enhanceResponse</a></li><li><a href="module-middlewareRouter.html">middlewareRouter</a></li><li><a href="module-pinoConfig.html">pinoConfig</a></li><li><a href="module-Server.html">Server</a></li><li><a href="routers_blocktronRoute.html">routers:blocktronRoute</a></li><li><a href="routers_broadcastTransactionRouter.html">routers:broadcastTransactionRouter</a></li><li><a href="routers_indexRoute.html">routers:indexRoute</a></li><li><a href="routers_mineRoute.html">routers:mineRoute</a></li><li><a href="routers_registerAndBroadcastRoute.html">routers:registerAndBroadcastRoute</a></li><li><a href="routers_registerNodeRouter.html">routers:registerNodeRouter</a></li><li><a href="routers_registerNodesBulkRouter.html">routers:registerNodesBulkRouter</a></li><li><a href="routers_transactionRoute.html">routers:transactionRoute</a></li></ul><h3>Classes</h3><ul><li><a href="Blocktron.html">Blocktron</a></li></ul><h3>Namespaces</h3><ul><li><a href="res.html">res</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_bt_config">_bt_config</a></li><li><a href="global.html#blocktron">blocktron</a></li><li><a href="global.html#BlocktronLib">BlocktronLib</a></li><li><a href="global.html#currentNodeUrl">currentNodeUrl</a></li><li><a href="global.html#env">env</a></li><li><a href="global.html#log">log</a></li><li><a href="global.html#newTransactions">newTransactions</a></li><li><a href="global.html#uuid">uuid</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_bt_config.html">_bt_config</a></li><li><a href="module-blocktronNode.html">blocktronNode</a></li><li><a href="module-enhanceResponse.html">enhanceResponse</a></li><li><a href="module-middlewareRouter.html">middlewareRouter</a></li><li><a href="module-pinoConfig.html">pinoConfig</a></li><li><a href="module-Server.html">Server</a></li><li><a href="routers_blocktronRouter.html">routers:blocktronRouter</a></li><li><a href="routers_broadcastTransactionRouter.html">routers:broadcastTransactionRouter</a></li><li><a href="routers_consensusRouter.html">routers:consensusRouter</a></li><li><a href="routers_indexRouter.html">routers:indexRouter</a></li><li><a href="routers_mineRouter.html">routers:mineRouter</a></li><li><a href="routers_receiveNewBlockRouter.html">routers:receiveNewBlockRouter</a></li><li><a href="routers_registerAndBroadcastRoute.html">routers:registerAndBroadcastRoute</a></li><li><a href="routers_registerNodeRouter.html">routers:registerNodeRouter</a></li><li><a href="routers_registerNodesBulkRouter.html">routers:registerNodesBulkRouter</a></li><li><a href="routers_transactionRoute.html">routers:transactionRoute</a></li></ul><h3>Classes</h3><ul><li><a href="Blocktron.html">Blocktron</a></li></ul><h3>Namespaces</h3><ul><li><a href="res.html">res</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_bt_config">_bt_config</a></li><li><a href="global.html#blocktron">blocktron</a></li><li><a href="global.html#BlocktronLib">BlocktronLib</a></li><li><a href="global.html#currentNodeUrl">currentNodeUrl</a></li><li><a href="global.html#env">env</a></li><li><a href="global.html#log">log</a></li><li><a href="global.html#newTransactions">newTransactions</a></li><li><a href="global.html#uuid">uuid</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jul 09 2018 20:45:36 GMT+0530 (India Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jul 12 2018 21:55:08 GMT+0530 (India Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -6,9 +6,9 @@ const express = require('express');
 const consensusRouter = express.Router();
 
 /**
- * The simplified HTTP request client 'request' with Promise support. 
+ * The simplified HTTP request client 'request' with Promise support.
  * Powered by Bluebird.
- * `request-promise` returns regular Promises/A+ compliant promises 
+ * `request-promise` returns regular Promises/A+ compliant promises
  * and can be assimilated by any compatible promise library.
  * @see {@link https://www.npmjs.com/package/request-promise|Request-Promise}
  */
@@ -24,167 +24,162 @@ const request = require('request-promise');
  * @param {Callback} middleware - Express middleware callback
  */
 consensusRouter.get('/', (req, res, next) => {
+   /**
+    * Array to hold the request promise objects
+    */
+   let requestPromises = [];
 
-    /**
-     * Array to hold the request promise objects
-     */
-    let requestPromises = [];
+   /**
+    * Broadcast transactions to all nodes in the network node array
+    */
+   blocktron.networkNodes.forEach(networkNodeUrl => {
+      /**
+       * Construct the request
+       */
+      const requestOptions = {
+         uri: networkNodeUrl + '/blockchain',
+         method: 'GET',
+         json: true
+      };
 
-    /**
-     * Broadcast transactions to all nodes in the network node array
-     */
-    blocktron.networkNodes.forEach(networkNodeUrl => {
+      /**
+       * Push request promise objects into request promise array
+       */
+      requestPromises.push(request(requestOptions));
+   });
 
-        /**
-         * Construct the request
-         */
-        const requestOptions = {
-            uri: networkNodeUrl + '/blockchain',
-            method: 'GET',
-            json: true
-        };
+   /**
+    * Resolve all request promise objects and then send appropriate response
+    */
+   Promise.all(requestPromises)
 
-        /**
-         * Push request promise objects into request promise array
-         */
-        requestPromises.push(request(requestOptions));
-    });
+      /**
+       * Once resolved, do chain validation and update chains accordingly
+       */
+      .then(blockchains => {
+         /**
+          * Get the length of the current node's blockchain
+          */
+         const currentChainLength = blocktron.chain.length;
 
-    /**
-     * Resolve all request promise objects and then send appropriate response
-     */
-    Promise.all(requestPromises)
+         /**
+          * Set currentChainLength as the maximum chain length
+          */
+         let maximumChainLength = currentChainLength;
 
-        /**
-         * Once resolved, do chain validation and update chains accordingly
-         */
-        .then((blockchains) => {
+         /**
+          * Initialize new longest chain as null
+          */
+         let newLongestChain = null;
 
+         /**
+          * Initialize new pending transactions as null
+          */
+         let newPendingTransactions = null;
+
+         /**
+          * Iterate through each blockchain
+          */
+         blockchains.forEach(blockchain => {
             /**
-             * Get the length of the current node's blockchain
+             * If any blockchain has length larger than current node's blockchain
              */
-            const currentChainLength = blocktron.chain.length;
+            if (blockchain.chain.length > maximumChainLength) {
+               /**
+                * Replace new maximum chain length with largest blockchain length
+                */
+               maximumChainLength = blockchain.chain.length;
 
-            /**
-             * Set currentChainLength as the maximum chain length
-             */
-            let maximumChainLength = currentChainLength;
+               /**
+                * Replace largest blockchain as the new longest chain
+                */
+               newLongestChain = blockchain.chain;
 
-            /**
-             * Initialize new longest chain as null
-             */
-            let newLongestChain = null;
-
-            /**
-             * Initialize new pending transactions as null
-             */
-            let newPendingTransactions = null;
-
-            /**
-             * Iterate through each blockchain
-             */
-            blockchains.forEach(blockchain => {
-
-                /**
-                 * If any blockchain has length larger than current node's blockchain
-                 */
-                if (blockchain.chain.length > maximumChainLength) {
-
-                    /**
-                     * Replace new maximum chain length with largest blockchain length
-                     */
-                    maximumChainLength = blockchain.chain.length;
-
-                    /**
-                     * Replace largest blockchain as the new longest chain
-                     */
-                    newLongestChain = blockchain.chain;
-
-                    /**
-                     * Replace pending transactions list with the largest blockchain's pending transactions list
-                     */
-                    newPendingTransactions = blockchain.pendingTransactions;
-                }
-            });
-
-            /**
-             * If there are no long chains or the new longest chain is not a valid chain, then
-             * Send appropriate response
-             */
-            if (!newLongestChain || (newLongestChain && !blocktron.isChainValid(newLongestChain))) {
-
-                /**
-                 * Log error in case of consensus failure
-                 */
-                log.error('Current blockchain has not been replaced');
-
-                /**
-                 * Set appropriate status
-                 */
-                res.status(200);
-
-                /**
-                 * Construct the response object and send it
-                 * @const response
-                 * @type {Object}
-                 * @memberof routers:consensusRouter
-                 * @param {String} status - The status of the operation 
-                 * @param {Number} code - The HTTP response status code
-                 * @param {String} message - The message string
-                 * @param {Object} blockchain - The blockchain data
-                 */
-                let response = {
-                    status: 'Not Modified',
-                    code: res.statusCode,
-                    message: 'Current blockchain has not been replaced',
-                    blockchain: blocktron.chain
-                };
-                res.json(response);
-            } else if (newLongestChain && blocktron.isChainValid(newLongestChain)) {
-
-                /**
-                 * If there is a longer valid chain, then replace current node's blockchain with 
-                 * the longest valid chain
-                 */
-                blocktron.chain = newLongestChain;
-
-                /**
-                 * Update the pending transactions list of current node with the new valid 
-                 * blockchain's pending transactions list
-                 */
-                blocktron.pendingTransactions = newPendingTransactions;
-
-                /**
-                 * Set appropriate status code
-                 */
-                res.status(201);
-
-                /**
-                 * Construct the response object and send it
-                 * @const response
-                 * @type {Object}
-                 * @memberof routers:consensusRouter
-                 * @param {String} status - The status of the operation 
-                 * @param {Number} code - The HTTP response status code
-                 * @param {String} message - The message string
-                 * @param {Object} blockchain - The blockchain data after consensus
-                 */
-                let response = {
-                    status: 'Chain replaced',
-                    code: res.statusCode,
-                    message: 'Current blockchain has been replaced',
-                    blockchain: blocktron.chain
-                };
-                res.json(response);
+               /**
+                * Replace pending transactions list with the largest blockchain's pending transactions list
+                */
+               newPendingTransactions = blockchain.pendingTransactions;
             }
-        })
-        .catch((error) => {
+         });
 
+         /**
+          * If there are no long chains or the new longest chain is not a valid chain, then
+          * Send appropriate response
+          */
+         if (
+            !newLongestChain ||
+            (newLongestChain && !blocktron.isChainValid(newLongestChain))
+         ) {
             /**
              * Log error in case of consensus failure
              */
-            log.error(`Consensus check failed due to: ${error}`);
-        });
+            log.error('Current blockchain has not been replaced');
+
+            /**
+             * Set appropriate status
+             */
+            res.status(200);
+
+            /**
+             * Construct the response object and send it
+             * @const response
+             * @type {Object}
+             * @memberof routers:consensusRouter
+             * @param {String} status - The status of the operation
+             * @param {Number} code - The HTTP response status code
+             * @param {String} message - The message string
+             * @param {Object} blockchain - The blockchain data
+             */
+            let response = {
+               status: 'Not Modified',
+               code: res.statusCode,
+               message: 'Current blockchain has not been replaced',
+               blockchain: blocktron.chain
+            };
+            res.json(response);
+         } else if (newLongestChain && blocktron.isChainValid(newLongestChain)) {
+            /**
+             * If there is a longer valid chain, then replace current node's blockchain with
+             * the longest valid chain
+             */
+            blocktron.chain = newLongestChain;
+
+            /**
+             * Update the pending transactions list of current node with the new valid
+             * blockchain's pending transactions list
+             */
+            blocktron.pendingTransactions = newPendingTransactions;
+
+            /**
+             * Set appropriate status code
+             */
+            res.status(201);
+
+            /**
+             * Construct the response object and send it
+             * @const response
+             * @type {Object}
+             * @memberof routers:consensusRouter
+             * @param {String} status - The status of the operation
+             * @param {Number} code - The HTTP response status code
+             * @param {String} message - The message string
+             * @param {Object} blockchain - The blockchain data after consensus
+             */
+            let response = {
+               status: 'Chain replaced',
+               code: res.statusCode,
+               message: 'Current blockchain has been replaced',
+               blockchain: blocktron.chain
+            };
+            res.json(response);
+         }
+      })
+      .catch(error => {
+         /**
+          * Log error in case of consensus failure
+          */
+         log.error(`Consensus check failed due to: ${error}`);
+      });
 });
 
 module.exports = consensusRouter;

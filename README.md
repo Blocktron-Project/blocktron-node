@@ -28,6 +28,8 @@ Blocktron project is built with the following technologies:
 - Github
 - Travis-CI
 - CircleCI
+- Snyke
+- Codacy
 - Jest
 
 ![techstack](techstack.png)
@@ -35,17 +37,33 @@ Blocktron project is built with the following technologies:
 ## Why JavaScript & Node.js
 **Javascript**, often refered as **js**, is a high level, multi-paradigm, Object-based, event-driven, interpreted programming language. It first appeared in 4th december 1995, 22 years ago. It's also charecterized as dynamic, weakly-typed and prototypal inheritance based language. It was exclusivley created for the web. Its one of the three core technologies which makes the world wide web. Javascript contributes to the interactions on the web pages. Node.js is the opensource, cross-platform javascript runtime environment that can execute javascript code outside the browser environment. It helps developers to build systems for the server side and command line applications using the regular javascript language. Unlike other programming languages Node.js (Javascript) is a lot different. Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world. Every browser has a JavaSript engine built in it to process JavaScript files contained in websites. Google Chrome uses V8 engine which is built using C++. 
 <img src="https://cdn-images-1.medium.com/max/1600/1*AKKvE3QmN_ZQmEzSj16oXg.png" height=300 alt="v8logo">
+
 Node.js also uses this super-fast engine to interpret JavaScript files. Node.js uses an event-driven model. This means that Node.js waits for certain events to take place. It then acts on those events. Events can be anything from a click to a HTTP request. We can also declare our own custom events and make node.js listen for those events. Node.js uses a non-blocking I/O model. We know that I/O tasks take much longer than processing tasks. Node.js uses callback functions to handle such requests. V8 was first designed to increase the performance of JavaScript execution inside web browsers. In order to obtain speed, V8 translates JavaScript code into more efficient machine code instead of using an interpreter. It compiles JavaScript code into machine code at execution by implementing a JIT (Just-In-Time) compiler like a lot of modern JavaScript engines do such as SpiderMonkey or Rhino (Mozilla). The main difference here is that V8 doesn’t produce bytecode or any intermediate code. You can read more about V8 and its internals from the medium post by [sessionstack](https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e)
 
 ## Getting Started
-
+You can grab a copy of blocktron-node from github either by cloning or downloading the zip. clones can be created using the command:
+```sh
+git clone https://github.com/Blocktron-Project/blocktron-node.git
+```
+or using ssh as:
+```sh
+git clone ssh://git@github.com:Blocktron-Project/blocktron-node.git
+```
 ## Installation
-
-**Prerequisites**
+You can install the project dependencies by running the following command inside the project folder:
+```sh
+npm i
+```
 
 ## Dependency
+This project assumes you have the latest version of the following tools installed in your machine.
+* Git
+* Node.js >= [v8.x](https://nodejs.org/download/release/latest-v8.x/)
+* Python
+* Code editor(VS Code or Atom preferably)
 
 ## Changelog
+- **v0.0.1** [[`7ee57b1`](https://github.com/Blocktron-Project/blocktron-node/commit/7ee57b1b0c7d09b1f87814d53c9843468e4aa246)] - Documentation updates
 
 ## API Reference
 

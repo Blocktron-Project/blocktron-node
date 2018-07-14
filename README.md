@@ -89,48 +89,70 @@ This project assumes you have the latest version of the following tools installe
 ## Dependency
 This project is internally dependent on the following npm modules and packages:
 - **[blocktron-lib](https://www.npmjs.com/package/blocktron-lib)**
+
   blocktron-lib module is a member of the Blocktron Project. blocktron-lib is a javascript library housing a blockchain class, and the core blockchain data structures with various blockchain methods and functionalities. This library is fully extensible to accommodate any blockchain applications. Its completely independent and follows a class constructor design pattern and is written using ES6 specifications.
 - **[debug](https://www.npmjs.com/package/debug)**
+
   A tiny JavaScript debugging utility modelled after Node.js core's debugging technique. Works in Node.js and web browsers.
 - **[express](https://www.npmjs.com/package/express)**
+
   Fast, unopinionated, minimalist web framework for node.
 - **[http-errors](https://www.npmjs.com/package/http-errors)**
+
   Create HTTP errors for Express, Koa, Connect, etc. with ease.
 - **[path](https://www.npmjs.com/package/path)**
+
   The path module provides utilities for working with file and directory paths. It can be accessed using:
 - **[pino](https://www.npmjs.com/package/pino)**
+
   Extremely fast node.js logger, inspired by Bunyan. It also includes a shell utility to pretty-print its log files.
 - **[request-promise](https://www.npmjs.com/package/request-promise)**
+
   The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.
 - **[serve-favicon](https://www.npmjs.com/package/serve-favicon)**
+
   Node.js middleware for serving a favicon. A favicon is a visual cue that client software, like browsers, use to identify a site
 - **[uuid](https://www.npmjs.com/package/uuid)**
+
   Simple, fast generation of RFC4122 UUIDS
 - **[babel-core](https://www.npmjs.com/package/babel-core)**
+
   Babel compiler core.
 - **[babel-eslint](https://www.npmjs.com/package/babel-eslint)**
+
   babel-eslint allows you to lint ALL valid Babel code with the fantastic ESLint.
 - **[babel-loader](https://www.npmjs.com/package/babel-loader)**
+
   This package allows transpiling JavaScript files using Babel and webpack.
 - **[babel-preset-es2015](https://www.npmjs.com/package/babel-preset-es2015)**
+
   Babel preset for all es2015 plugins.
 - **[babel-preset-stage-0](https://www.npmjs.com/package/babel-preset-stage-0)**
+
   Babel preset for stage 0 plugins.
 - **[eslint](https://www.npmjs.com/package/eslint)**
+
   ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code. In many ways, it is similar to JSLint and JSHint with a few exceptions
 - **[jest](https://www.npmjs.com/package/jest)**
+
   A javascript testing framework from facebook
 - **[jsdoc](https://www.npmjs.com/package/jsdoc)**
+
   An API documentation generator for JavaScript.
 - **[prettier](https://www.npmjs.com/package/prettier)**
+
   Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
 - **[prettier-webpack-plugin](https://www.npmjs.com/package/prettier-webpack-plugin)**
+
   Automatically process your source files with Prettier when bundling via Webpack.
 - **[supertest](https://www.npmjs.com/package/supertest)**
+
   HTTP assertions made easy via superagent.
 - **[webpack](https://www.npmjs.com/package/webpack)**
+
   webpack is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.
 - **[webpack-cli](https://www.npmjs.com/package/webpack-cli)**
+
   Webpack CLI encapsulates all code related to CLI handling. It captures options and sends them to webpack compiler. You can also find functionality for initializing a project and migrating between versions.
 
 ## Changelog
@@ -139,6 +161,7 @@ This project is internally dependent on the following npm modules and packages:
   - Initial stable blocktron-node build
 
 ## API Reference
+`updating soon`
 
 ## Tests
 This project follows a **Test Driven Development (TDD)**. Unit tests are written using **Jest**, an opensource testing and code coverage framework from facebook opensource. Test spec files can be found inside the test folder. Tests can be run by the command:

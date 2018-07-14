@@ -8,6 +8,27 @@
 # blocktron-node
 **blocktron-node** is the single server node of the entire **distributed blocktron system**. A single node of the entire distributed system utilizes the blocktron-lib js blockchain library internally to build the blockchain core data structures and functionalities.
 
+## Table of Contents
+<!--ts-->
+* [About](https://github.com/Blocktron-Project/blocktron-node#blocktron)
+* [Motivation](https://github.com/Blocktron-Project/blocktron-node#motivation)
+* [Build Status](https://github.com/Blocktron-Project/blocktron-node#build-status)
+* [Technology Stack](https://github.com/Blocktron-Project/blocktron-node#technology-stack)
+* [Why JavaScript & Node.js](https://github.com/Blocktron-Project/blocktron-node#why-javascript--nodejs)
+* [Getting Started](https://github.com/Blocktron-Project/blocktron-node#getting-started)
+* [Installation](https://github.com/Blocktron-Project/blocktron-node#installation)
+* [Dependency](https://github.com/Blocktron-Project/blocktron-node#dependency)
+* [Changelog](https://github.com/Blocktron-Project/blocktron-node#changelog)
+* [API Reference](https://github.com/Blocktron-Project/blocktron-node#api-reference)
+* [Tests](https://github.com/Blocktron-Project/blocktron-node#tests)
+* [Continuous Integration](https://github.com/Blocktron-Project/blocktron-node#continuous-integration)
+* [Contributing](https://github.com/Blocktron-Project/blocktron-node#contributing)
+* [Versioning](https://github.com/Blocktron-Project/blocktron-node#versioning)
+* [Authors](https://github.com/Blocktron-Project/blocktron-node#authors)
+* [License](https://github.com/Blocktron-Project/blocktron-node#license)
+* [Acknowledgements](https://github.com/Blocktron-Project/blocktron-node#acknowledgements)
+<!--te-->
+
 ## Motivation
 The **blockchain** is an undeniably ingenious invention – the brainchild of a person or group of people known by the pseudonym,  `Satoshi Nakamoto`. But since then, it has evolved into something greater, and the main question every single person is asking is: What is Blockchain? By allowing digital information to be distributed but not copied, blockchain technology created the backbone of a new type of internet. Originally devised for the digital currency, Bitcoin, the tech community is now finding other potential uses for the technology.
 
@@ -60,7 +81,7 @@ This project assumes you have the latest version of the following tools installe
 * Git
 * Node.js >= [v8.x](https://nodejs.org/download/release/latest-v8.x/)
 * Python
-* Code editor(VS Code or Atom preferably)
+* Code editor(VS Code preferably or Atom)
 * Terminal/cmd
 
 ## Dependency

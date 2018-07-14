@@ -55,6 +55,8 @@ Blocktron project is built with the following technologies:
 
 ![techstack](techstack.png)
 
+Read more about blocktron stack from [here](https://stackshare.io/blocktron/blocktron)
+
 ## Why JavaScript & Node.js
 **Javascript**, often refered as **js**, is a high level, multi-paradigm, Object-based, event-driven, interpreted programming language. It first appeared in 4th december 1995, 22 years ago. It's also charecterized as dynamic, weakly-typed and prototypal inheritance based language. It was exclusivley created for the web. Its one of the three core technologies which makes the world wide web. Javascript contributes to the interactions on the web pages. Node.js is the opensource, cross-platform javascript runtime environment that can execute javascript code outside the browser environment. It helps developers to build systems for the server side and command line applications using the regular javascript language. Unlike other programming languages Node.js (Javascript) is a lot different. Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world. Every browser has a JavaSript engine built in it to process JavaScript files contained in websites. Google Chrome uses V8 engine which is built using C++. 
 <img src="https://cdn-images-1.medium.com/max/1600/1*AKKvE3QmN_ZQmEzSj16oXg.png" height=300 alt="v8logo">

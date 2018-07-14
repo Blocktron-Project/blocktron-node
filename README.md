@@ -55,6 +55,7 @@ You can install the project dependencies by running the following command inside
 npm i
 ```
 **Prerequisites**
+
 This project assumes you have the latest version of the following tools installed in your machine.
 * Git
 * Node.js >= [v8.x](https://nodejs.org/download/release/latest-v8.x/)

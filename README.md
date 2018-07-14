@@ -3,7 +3,7 @@
 
 [![GitHub license](https://img.shields.io/github/license/Blocktron-Project/blocktron-node.svg)](https://github.com/Blocktron-Project/blocktron-node/blob/master/LICENSE) ![made with](https://img.shields.io/badge/made%20with-JavaScript-green.svg) ![dependencies](https://david-dm.org/Blocktron-Project/blocktron-node.svg) ![blocktron-lib](https://img.shields.io/badge/blocktron--lib-0.0.1-green.svg) [![Known Vulnerabilities](https://snyk.io/test/github/Blocktron-Project/blocktron-node/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Blocktron-Project/blocktron-node?targetFile=package.json) ![codefactor](https://www.codefactor.io/Content/badges/A.svg) ![CircleCI](https://circleci.com/gh/Blocktron-Project/blocktron-node.svg?style=svg) ![TravisCI](https://travis-ci.org/Blocktron-Project/blocktron-node.svg?branch=master) [![GitHub issues](https://img.shields.io/github/issues/Blocktron-Project/blocktron-node.svg)](https://github.com/Blocktron-Project/blocktron-node/issues) [![Greenkeeper badge](https://badges.greenkeeper.io/Blocktron-Project/blocktron-node.svg)](https://greenkeeper.io/) ![GitHub forks](https://img.shields.io/github/forks/Blocktron-Project/blocktron-node.svg) ![GitHub stars](https://img.shields.io/github/stars/Blocktron-Project/blocktron-node.svg) ![Twitter](https://img.shields.io/twitter/url/https/github.com/Blocktron-Project/blocktron-node.svg?style=social)
 
-**Blocktron** is a simple yet elegant and efficient **blockchain framework** written in **Javascript** for **Node.js** environment. Blocktron is aimed at developing generic, multipurpose blockchain platforms and softwares for various application use-cases, and also for educational and awareness purposes. This library is built from the ground up using only **opensource** technologies.
+**Blocktron** is a simple yet elegant and efficient **blockchain framework** written in **Javascript** for **Node.js** environment. Blocktron is aimed at developing generic, multipurpose blockchain platforms and softwares for various application use-cases, and also for educational and awareness purposes. This framework is built from the ground up using only **opensource** technologies.
  
 # blocktron-node
 **blocktron-node** is the single server node of the entire **distributed blocktron system**. A single node of the entire distributed system utilizes the blocktron-lib js blockchain library internally to build the blockchain core data structures and functionalities.
@@ -21,16 +21,16 @@ This project has been set up with Travis-CI and Circle-CI where the continuous i
 
 ## Technology Stack
 Blocktron project is built with the following technologies:
-- JavaScript
-- Node.js
-- blocktron-lib
-- Git
-- Github
-- Travis-CI
-- CircleCI
-- Snyke
-- Codacy
-- Jest
+- [JavaScript](https://developer.mozilla.org/bm/docs/Web/JavaScript)
+- [Node.js](https://nodejs.org/en/)
+- [blocktron-lib](https://www.npmjs.com/package/blocktron-lib)
+- [Git](https://git-scm.com/)
+- [Github](https://github.com)
+- [Travis-CI](https://travis-ci.org)
+- [CircleCI](https://circleci.com/)
+- [Snyke](https://snyk.io/)
+- [Codacy](https://www.codacy.com/)
+- [Jest](https://jestjs.io/)
 
 ![techstack](techstack.png)
 
@@ -54,16 +54,63 @@ You can install the project dependencies by running the following command inside
 ```sh
 npm i
 ```
-
-## Dependency
+**Prerequisites**
 This project assumes you have the latest version of the following tools installed in your machine.
 * Git
 * Node.js >= [v8.x](https://nodejs.org/download/release/latest-v8.x/)
 * Python
 * Code editor(VS Code or Atom preferably)
+* Terminal/cmd
+
+## Dependency
+This project is internally dependent on the following npm modules and packages:
+- **[blocktron-lib](https://www.npmjs.com/package/blocktron-lib)**
+  blocktron-lib module is a member of the Blocktron Project. blocktron-lib is a javascript library housing a blockchain class, and the core blockchain data structures with various blockchain methods and functionalities. This library is fully extensible to accommodate any blockchain applications. Its completely independent and follows a class constructor design pattern and is written using ES6 specifications.
+- **[debug](https://www.npmjs.com/package/debug)**
+  A tiny JavaScript debugging utility modelled after Node.js core's debugging technique. Works in Node.js and web browsers.
+- **[express](https://www.npmjs.com/package/express)**
+  Fast, unopinionated, minimalist web framework for node.
+- **[http-errors](https://www.npmjs.com/package/http-errors)**
+  Create HTTP errors for Express, Koa, Connect, etc. with ease.
+- **[path](https://www.npmjs.com/package/path)**
+  The path module provides utilities for working with file and directory paths. It can be accessed using:
+- **[pino](https://www.npmjs.com/package/pino)**
+  Extremely fast node.js logger, inspired by Bunyan. It also includes a shell utility to pretty-print its log files.
+- **[request-promise](https://www.npmjs.com/package/request-promise)**
+  The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.
+- **[serve-favicon](https://www.npmjs.com/package/serve-favicon)**
+  Node.js middleware for serving a favicon. A favicon is a visual cue that client software, like browsers, use to identify a site
+- **[uuid](https://www.npmjs.com/package/uuid)**
+  Simple, fast generation of RFC4122 UUIDS
+- **[babel-core](https://www.npmjs.com/package/babel-core)**
+  Babel compiler core.
+- **[babel-eslint](https://www.npmjs.com/package/babel-eslint)**
+  babel-eslint allows you to lint ALL valid Babel code with the fantastic ESLint.
+- **[babel-loader](https://www.npmjs.com/package/babel-loader)**
+  This package allows transpiling JavaScript files using Babel and webpack.
+- **[babel-preset-es2015](https://www.npmjs.com/package/babel-preset-es2015)**
+  Babel preset for all es2015 plugins.
+- **[babel-preset-stage-0](https://www.npmjs.com/package/babel-preset-stage-0)**
+  Babel preset for stage 0 plugins.
+- **[eslint](https://www.npmjs.com/package/eslint)**
+  ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code. In many ways, it is similar to JSLint and JSHint with a few exceptions
+- **[jest](https://www.npmjs.com/package/jest)**
+  A javascript testing framework from facebook
+- **[jsdoc](https://www.npmjs.com/package/jsdoc)**
+  An API documentation generator for JavaScript.
+- **[prettier](https://www.npmjs.com/package/prettier)**
+  Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
+- **[prettier-webpack-plugin](https://www.npmjs.com/package/prettier-webpack-plugin)**
+  Automatically process your source files with Prettier when bundling via Webpack.
+- **[supertest](https://www.npmjs.com/package/supertest)**
+  HTTP assertions made easy via superagent.
+- **[webpack](https://www.npmjs.com/package/webpack)**
+  webpack is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.
+- **[webpack-cli](https://www.npmjs.com/package/webpack-cli)**
+  Webpack CLI encapsulates all code related to CLI handling. It captures options and sends them to webpack compiler. You can also find functionality for initializing a project and migrating between versions.
 
 ## Changelog
-- **v0.0.1** [[`7ee57b1`](https://github.com/Blocktron-Project/blocktron-node/commit/7ee57b1b0c7d09b1f87814d53c9843468e4aa246)]
+- **v0.0.1**
   - Documentation updates
   - Initial stable blocktron-node build
 
@@ -75,6 +122,7 @@ This project follows a **Test Driven Development (TDD)**. Unit tests are written
 npm run test
 ```
 > **Note:** This includes code/test coverage report also
+
 ## Continuous Integration
 Continuous Integration services monitor repositories for changes, then automatically run unit tests on your behalf, typically in a containerized environment. To test this setup works in a continuous integration environment, an integration was done with [Travis CI](https://travis-ci.org/) & [CircleCI](https://circleci.com/). According to the [Travis Node.js Documentation](http://docs.travis-ci.com/user/languages/javascript-with-nodejs/), Travis automatically runs `npm install` and `npm test`. The only additional thing I had to add to the Travis configuration was to run `npm run build` before running the tests. The working Travis config looks like this:
 

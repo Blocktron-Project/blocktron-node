@@ -94,7 +94,7 @@ log.info('Blocktron routes initialized');
  * Instantiate the blocktron express app object
  */
 const blocktronNode = express();
-log.info('Blocktron initialized');
+log.info(`Blocktron initialized and running in ${env} mode`);
 
 /**
  * disable x-powered-by to deceive hackers

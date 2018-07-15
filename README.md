@@ -215,7 +215,8 @@ x-powered-by: blocktron
 			"heap_used": "15.321807861328125 MB",
 			"external": "0.11514663696289062 MB"
 		},
-		"node_address": "cd2ac140880711e8b6608d43a43507f6",
+		"node_id": "576dd470881011e8889491bdff51cd6d",
+    "node_address": "http://127.0.0.1:3000",
 		"environment": "development",
 		"os": "win32",
 		"cpu_arch": "x64",
@@ -226,7 +227,7 @@ x-powered-by: blocktron
 	}
 }
 ```
-This route gives the basic configuration information about the blocktro-node instance currently runing on your machine.
+This route gives the basic configuration information about the blocktron-node instance currently runing on your machine.
 
 `updating soon`
 

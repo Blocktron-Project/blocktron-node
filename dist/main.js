@@ -137,7 +137,7 @@ server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
- * @function 
+ * @function
  * @name normalizePort
  * @memberof Server
  * @param {Number} val - The port number or string
@@ -165,7 +165,7 @@ function normalizePort(val) {
  * @name onError
  * @memberof Server
  * @param {Object} error - The error event object
- * @returns - Returns the error 
+ * @returns - Returns the error
  */
 function onError(error) {
   if (error.syscall !== 'listen') {
@@ -235,7 +235,7 @@ global._bt_config = _bt_config;
  */
 var env =  true ? "none" : undefined;
 global.env = env;
-
+console.log(env);
 /**
  * Set up process title (useful for debugging)
  */
@@ -389,7 +389,7 @@ module.exports = blocktronNode;
 
 
 /**
- * Blocktron global configuration 
+ * Blocktron global configuration
  * @module _bt_config
  */
 
@@ -28582,7 +28582,7 @@ module.exports = {"_from":"pino","_id":"pino@4.17.3","_inBundle":false,"_integri
 
 /**
  * Pino Logger configuration
- * This module holds the complete configuration object for the Pino logger instance 
+ * This module holds the complete configuration object for the Pino logger instance
  * @module pinoConfig
  * @see {@link https://github.com/pinojs/pino/blob/master/docs/API.md|Pino Config}
  */
@@ -28739,7 +28739,6 @@ var Blocktron = function (_BlocktronLib) {
      * Add the current node's url as a property
      */
     var _this = _possibleConstructorReturn(this, (Blocktron.__proto__ || Object.getPrototypeOf(Blocktron)).call(this, chain, pendingTransactions));
-
     /**
      * Call the parent class constructor with the given parameters.
      */
@@ -28772,9 +28771,6 @@ var Blocktron = function (_BlocktronLib) {
         return false;
       }
     }
-  }, {
-    key: 'createNewTransaction',
-
 
     /**
      * A method to create a new transaction
@@ -28786,8 +28782,10 @@ var Blocktron = function (_BlocktronLib) {
      * @param {String} receiver - The address of the receiver
      * @returns {Object} - Returns the transaction object
      */
-    value: function createNewTransaction(amount, sender, receiver) {
 
+  }, {
+    key: 'createNewTransaction',
+    value: function createNewTransaction(amount, sender, receiver) {
       /**
        * Validate the parameters
        */
@@ -28821,9 +28819,6 @@ var Blocktron = function (_BlocktronLib) {
        */
       return newTransactions;
     }
-  }, {
-    key: 'addTransactionToPendingTransaction',
-
 
     /**
      * A blockchain method to add a newly created block to the pending transactions array
@@ -28831,13 +28826,14 @@ var Blocktron = function (_BlocktronLib) {
      * @memberof Blocktron
      * @param {Object} transactionObject - The object representing the transaction data
      */
-    value: function addTransactionToPendingTransaction(transactionObject) {
 
+  }, {
+    key: 'addTransactionToPendingTransaction',
+    value: function addTransactionToPendingTransaction(transactionObject) {
       /**
        * Validate transaction data object
        */
       if (transactionObject) {
-
         /**
          * If valid, push the transaction data to the pending transactions array
          */
@@ -28848,16 +28844,12 @@ var Blocktron = function (_BlocktronLib) {
          */
         return this.getLastBlock()['index'] + 1;
       } else {
-
         /**
          * Log error
          */
         log.error('Transaction data required');
       }
     }
-  }, {
-    key: 'isChainValid',
-
 
     /**
      * A blockchain method to validate a blockchain
@@ -28865,13 +28857,14 @@ var Blocktron = function (_BlocktronLib) {
      * @memberof Blocktron
      * @param {Array} chain - The array representing the blockchain data
      */
-    value: function isChainValid(chain) {
 
+  }, {
+    key: 'isChainValid',
+    value: function isChainValid(chain) {
       /**
        * Validate the parameter
        */
       if (chain) {
-
         /**
          * Assume the blockchain is valid
          */
@@ -28883,7 +28876,6 @@ var Blocktron = function (_BlocktronLib) {
          * Genesis block will be validated separetely.
          */
         for (var i = 1; i < chain.length; i++) {
-
           /**
            * Get current block
            */
@@ -28906,7 +28898,6 @@ var Blocktron = function (_BlocktronLib) {
            * Check the generated hash for '0000' substring pattern
            */
           if (blockHash.substring(0, 4) !== '0000') {
-
             /**
              * If not, then chain is invalid
              */
@@ -28917,7 +28908,6 @@ var Blocktron = function (_BlocktronLib) {
            * If hash values don't match between blocks
            */
           if (currentBlock['previousHash'] !== previousBlock['hash']) {
-
             /**
              * then chain is invalid
              */
@@ -28954,7 +28944,6 @@ var Blocktron = function (_BlocktronLib) {
          * Check all validation parameters for genesis block
          */
         if (!validNonce || !validPreviousBlockHash || !validHash || !validTransactions) {
-
           /**
            * Set invalid if any parameter is invalid
            */
@@ -28966,7 +28955,6 @@ var Blocktron = function (_BlocktronLib) {
          */
         return validChain;
       } else {
-
         /**
          * Log error
          */
@@ -29411,33 +29399,32 @@ var indexRouter = express.Router();
  * @param {Callback} middleware - Express middleware callback
  */
 indexRouter.get('/', function (req, res, next) {
-
-    /**
-     * Construct response and send it
-     * This object contains information about various environment 
-     * and configuration details of blocktron node
-     * @const response
-     * @type {Object}
-     * @memberof routers:indexRoute
-     */
-    var response = {
-        message: 'Blocktron Node is running',
-        port: port,
-        status_code: res.statusCode,
-        configuration: {
-            process_title: process.title,
-            process_pid: process.pid,
-            node_address: _bt_config.blocktronNodeAddress,
-            environment: env,
-            os: process.platform,
-            cpu_arch: process.arch,
-            process_versions: {
-                node_version: process.versions.node,
-                v8_version: process.versions.v8
-            }
-        }
-    };
-    res.json(response);
+   /**
+    * Construct response and send it
+    * This object contains information about various environment
+    * and configuration details of blocktron node
+    * @const response
+    * @type {Object}
+    * @memberof routers:indexRoute
+    */
+   var response = {
+      message: 'Blocktron Node is running',
+      port: port,
+      status_code: res.statusCode,
+      configuration: {
+         process_title: process.title,
+         process_pid: process.pid,
+         node_address: _bt_config.blocktronNodeAddress,
+         environment: env,
+         os: process.platform,
+         cpu_arch: process.arch,
+         process_versions: {
+            node_version: process.versions.node,
+            v8_version: process.versions.v8
+         }
+      }
+   };
+   res.json(response);
 });
 
 module.exports = indexRouter;
@@ -29465,7 +29452,6 @@ var blocktronRouter = express.Router();
  * @param {Callback} middleware - Express middleware callback
  */
 blocktronRouter.get('/', function (req, res, next) {
-
   /**
    * Send the JSON representation of blockchain to the client.
    */
@@ -29497,12 +29483,10 @@ var transactionRouter = express.Router();
  * @param {Callback} middleware - Express middleware callback
  */
 transactionRouter.post('/', function (req, res, next) {
-
   /**
    * Validate the transaction parameter
    */
   if (req.body) {
-
     /**
      * Create a transaction with the request parameters.
      */
@@ -29513,7 +29497,7 @@ transactionRouter.post('/', function (req, res, next) {
      * @const response
      * @type {Object}
      * @memberof routers:transactionRoute
-     * @param {String} status - The status of the operation 
+     * @param {String} status - The status of the operation
      * @param {Number} code - The HTTP response status code
      * @param {String} message - The message string
      */
@@ -29524,9 +29508,8 @@ transactionRouter.post('/', function (req, res, next) {
     };
     res.json(response);
   } else {
-
     /**
-     * log error 
+     * log error
      */
     log.error('Cannot create a transaction without required parameter');
   }
@@ -29549,9 +29532,9 @@ var express = __webpack_require__(20);
 var mineRouter = express.Router();
 
 /**
- * The simplified HTTP request client 'request' with Promise support. 
+ * The simplified HTTP request client 'request' with Promise support.
  * Powered by Bluebird.
- * `request-promise` returns regular Promises/A+ compliant promises 
+ * `request-promise` returns regular Promises/A+ compliant promises
  * and can be assimilated by any compatible promise library.
  * @see {@link https://www.npmjs.com/package/request-promise|Request-Promise}
  */
@@ -29566,7 +29549,6 @@ var request = __webpack_require__(195);
  * @param {Callback} middleware - Express middleware callback
  */
 mineRouter.get('/', function (req, res, next) {
-
   /**
    * Get the last block from the chain
    */
@@ -29614,7 +29596,6 @@ mineRouter.get('/', function (req, res, next) {
    * Broadcast mined blocks to all nodes
    */
   blocktron.networkNodes.forEach(function (networkNodeUrl) {
-
     /**
      * Construct the request
      */
@@ -29642,7 +29623,6 @@ mineRouter.get('/', function (req, res, next) {
    * Once resolved send the response
    */
   .then(function (data) {
-
     /**
      * Reward the miner with the standard reward value
      * Construct the request
@@ -29663,7 +29643,6 @@ mineRouter.get('/', function (req, res, next) {
      */
     return request(requestOptions);
   }).then(function (data) {
-
     /**
      * Set appropriate status code
      */
@@ -29674,7 +29653,7 @@ mineRouter.get('/', function (req, res, next) {
      * @const response
      * @type {Object}
      * @memberof routers:mineRoute
-     * @param {String} status - The status of the operation 
+     * @param {String} status - The status of the operation
      * @param {Number} code - The HTTP response status code
      * @param {String} message - The message string
      * @param {Object} blockData - The newly mined block's data
@@ -67671,9 +67650,9 @@ var express = __webpack_require__(20);
 var registerAndBroadcastRouter = express.Router();
 
 /**
- * The simplified HTTP request client 'request' with Promise support. 
+ * The simplified HTTP request client 'request' with Promise support.
  * Powered by Bluebird.
- * `request-promise` returns regular Promises/A+ compliant promises 
+ * `request-promise` returns regular Promises/A+ compliant promises
  * and can be assimilated by any compatible promise library.
  * @see {@link https://www.npmjs.com/package/request-promise|Request-Promise}
  */
@@ -67688,7 +67667,6 @@ var request = __webpack_require__(195);
  * @param {Callback} middleware - Express middleware callback
  */
 registerAndBroadcastRouter.post('/', function (req, res, next) {
-
   /**
    * Get the new node's url from request body
    */
@@ -67706,7 +67684,6 @@ registerAndBroadcastRouter.post('/', function (req, res, next) {
    * Check whether the node url is already present in the registry or is it current node's url
    */
   if (blocktron.isNewNode(newNodeUrl) && notCurrentNode) {
-
     /**
      * If url is new, push the url to registry
      */
@@ -67721,7 +67698,6 @@ registerAndBroadcastRouter.post('/', function (req, res, next) {
      * Register each node url in the networkNodes array
      */
     blocktron.networkNodes.forEach(function (networkNodeUrl) {
-
       /**
        * Construct the options for request-promise
        * @const requestOptions
@@ -67751,7 +67727,6 @@ registerAndBroadcastRouter.post('/', function (req, res, next) {
      * Resolve all promises sequentially and then register them in bulk
      */
     Promise.all(registerNodesPromises).then(function (data) {
-
       /**
        * Construct the bulk registration request and send it
        * @const bulkRegisterOptions
@@ -67776,7 +67751,6 @@ registerAndBroadcastRouter.post('/', function (req, res, next) {
        */
       return request(bulkRegisterOptions);
     }).then(function (data) {
-
       /**
        * Once bulk registration is resolved set appropriate header and send response
        */
@@ -67787,7 +67761,7 @@ registerAndBroadcastRouter.post('/', function (req, res, next) {
        * @const response
        * @type {Object}
        * @memberof routers:registerAndBroadcastRoute
-       * @param {String} status - The status of the operation 
+       * @param {String} status - The status of the operation
        * @param {Number} code - The HTTP response status code
        * @param {String} message - The message string
        */
@@ -67798,7 +67772,6 @@ registerAndBroadcastRouter.post('/', function (req, res, next) {
       };
       res.json(response);
     }).catch(function (error) {
-
       /**
        * Catch promise reject error
        */
@@ -67814,7 +67787,7 @@ registerAndBroadcastRouter.post('/', function (req, res, next) {
        * @const response
        * @type {Object}
        * @memberof routers:registerAndBroadcastRoute
-       * @param {String} status - The status of the operation 
+       * @param {String} status - The status of the operation
        * @param {Number} code - The HTTP response status code
        * @param {String} message - The message string
        */
@@ -67826,7 +67799,6 @@ registerAndBroadcastRouter.post('/', function (req, res, next) {
       res.json(response);
     });
   } else {
-
     /**
      * Set response status to 409 to represent resource conflict
      */
@@ -67837,7 +67809,7 @@ registerAndBroadcastRouter.post('/', function (req, res, next) {
      * @const response
      * @type {Object}
      * @memberof routers:registerAndBroadcastRoute
-     * @param {String} status - The status of the operation 
+     * @param {String} status - The status of the operation
      * @param {Number} code - The HTTP response status code
      * @param {String} message - The message string
      */
@@ -67875,7 +67847,6 @@ var registerNodeRouter = express.Router();
  * @param {Callback} middleware - Express middleware callback
  */
 registerNodeRouter.post('/', function (req, res, next) {
-
   /**
    * Get the new node's url from request body
    */
@@ -67890,17 +67861,15 @@ registerNodeRouter.post('/', function (req, res, next) {
   var notCurrentNode = blocktron.currentNodeUrl !== newNodeUrl;
 
   /**
-   * Check whether node url already exists in data structure, and 
+   * Check whether node url already exists in data structure, and
    * also check whether current node's url is equal to new node url
    */
   if (blocktron.isNewNode(newNodeUrl) && notCurrentNode) {
-
     /**
      * then push the new url to networkNodes array
      */
     blocktron.networkNodes.push(newNodeUrl);
   } else {
-
     /**
      * log error denoting the duplication or conflicting value
      */
@@ -67917,7 +67886,7 @@ registerNodeRouter.post('/', function (req, res, next) {
    * @const response
    * @type {Object}
    * @memberof routers:registerNodeRouter
-   * @param {String} status - The status of the operation 
+   * @param {String} status - The status of the operation
    * @param {Number} code - The HTTP response status code
    * @param {String} message - The message string
    */
@@ -67954,14 +67923,12 @@ var registerNodesBulkRouter = express.Router();
  * @param {Callback} middleware - Express middleware callback
  */
 registerNodesBulkRouter.post('/', function (req, res, next) {
-
   /**
    * Validate the request for invalid data
    */
   if (!req.body || !req.body.allNetworkNodes) {
-
     /**
-     * log error 
+     * log error
      */
     log.error('Bad request, given request body is either empty or contains invalid data');
 
@@ -67975,7 +67942,7 @@ registerNodesBulkRouter.post('/', function (req, res, next) {
      * @const response
      * @type {Object}
      * @memberof routers:registerNodesBulkRouter
-     * @param {String} status - The status of the operation 
+     * @param {String} status - The status of the operation
      * @param {Number} code - The HTTP response status code
      * @param {String} message - The message string
      */
@@ -67986,7 +67953,6 @@ registerNodesBulkRouter.post('/', function (req, res, next) {
     };
     res.json(response);
   } else {
-
     /**
      * Get the network nodes url list from the request body
      */
@@ -67997,7 +67963,6 @@ registerNodesBulkRouter.post('/', function (req, res, next) {
      * also validate each url for duplication
      */
     allNetworkNodes.forEach(function (networkNodeUrl) {
-
       /**
        * Check whether current node's url is equal to network node url
        * if not equal, constant holds a 'true'
@@ -68007,17 +67972,15 @@ registerNodesBulkRouter.post('/', function (req, res, next) {
       var notCurrentNode = blocktron.currentNodeUrl !== networkNodeUrl;
 
       /**
-       * Check whether node url already exists in data structure, and 
+       * Check whether node url already exists in data structure, and
        * also check whether current node's url is equal to network node url
        */
       if (blocktron.isNewNode(networkNodeUrl) && notCurrentNode) {
-
         /**
          * then push the new url to networkNodes array
          */
         blocktron.networkNodes.push(networkNodeUrl);
       } else {
-
         /**
          * log error denoting the duplication or conflicting value
          */
@@ -68035,7 +67998,7 @@ registerNodesBulkRouter.post('/', function (req, res, next) {
      * @const response
      * @type {Object}
      * @memberof routers:registerNodesBulkRouter
-     * @param {String} status - The status of the operation 
+     * @param {String} status - The status of the operation
      * @param {Number} code - The HTTP response status code
      * @param {String} message - The message string
      */
@@ -68065,9 +68028,9 @@ var express = __webpack_require__(20);
 var broadcastTransactionRouter = express.Router();
 
 /**
- * The simplified HTTP request client 'request' with Promise support. 
+ * The simplified HTTP request client 'request' with Promise support.
  * Powered by Bluebird.
- * `request-promise` returns regular Promises/A+ compliant promises 
+ * `request-promise` returns regular Promises/A+ compliant promises
  * and can be assimilated by any compatible promise library.
  * @see {@link https://www.npmjs.com/package/request-promise|Request-Promise}
  */
@@ -68082,14 +68045,12 @@ var request = __webpack_require__(195);
  * @param {Callback} middleware - Express middleware callback
  */
 broadcastTransactionRouter.post('/', function (req, res, next) {
-
   /**
    * Validate the transaction parameters
    */
   if (!req || !req.body || !req.body.amount || !req.body.sender || !req.body.receiver) {
-
     /**
-     * log error 
+     * log error
      */
     log.error('Cannot create a transaction without required parameters');
   }
@@ -68113,7 +68074,6 @@ broadcastTransactionRouter.post('/', function (req, res, next) {
    * Broadcast transactions to all nodes in the network node array
    */
   blocktron.networkNodes.forEach(function (networkNodeUrl) {
-
     /**
      * Construct the request
      */
@@ -68139,7 +68099,6 @@ broadcastTransactionRouter.post('/', function (req, res, next) {
    * Once resolved send the response
    */
   .then(function (data) {
-
     /**
      * Set success, object created status code
      */
@@ -68184,12 +68143,10 @@ var receiveNewBlockRouter = express.Router();
  * @param {Callback} middleware - Express middleware callback
  */
 receiveNewBlockRouter.post('/', function (req, res, next) {
-
   /**
    * Validate the request for new block
    */
   if (!req || !req.body || !req.body.newBlock) {
-
     /**
      * Log error if bad request
      */
@@ -68205,7 +68162,7 @@ receiveNewBlockRouter.post('/', function (req, res, next) {
      * @const response
      * @type {Object}
      * @memberof routers:receiveNewBlockRouter
-     * @param {String} status - The status of the operation 
+     * @param {String} status - The status of the operation
      * @param {Number} code - The HTTP response status code
      * @param {String} message - The message string
      */
@@ -68216,7 +68173,6 @@ receiveNewBlockRouter.post('/', function (req, res, next) {
     };
     res.json(response);
   } else {
-
     /**
      * Read the new block data from request
      */
@@ -68241,7 +68197,6 @@ receiveNewBlockRouter.post('/', function (req, res, next) {
      * Check for valid hash and index of the new block
      */
     if (validHash && validIndex) {
-
       /**
        * Push the valid block into the blockchain
        */
@@ -68262,7 +68217,7 @@ receiveNewBlockRouter.post('/', function (req, res, next) {
        * @const response
        * @type {Object}
        * @memberof routers:receiveNewBlockRouter
-       * @param {String} status - The status of the operation 
+       * @param {String} status - The status of the operation
        * @param {Number} code - The HTTP response status code
        * @param {String} message - The message string
        * @param {Object} blockData - The newly received block's data
@@ -68275,7 +68230,6 @@ receiveNewBlockRouter.post('/', function (req, res, next) {
       };
       res.json(_response);
     } else {
-
       /**
        * Set appropriate status code for response
        */
@@ -68286,7 +68240,7 @@ receiveNewBlockRouter.post('/', function (req, res, next) {
        * @const response
        * @type {Object}
        * @memberof routers:receiveNewBlockRouter
-       * @param {String} status - The status of the operation 
+       * @param {String} status - The status of the operation
        * @param {Number} code - The HTTP response status code
        * @param {String} message - The message string
        */
@@ -68317,9 +68271,9 @@ var express = __webpack_require__(20);
 var consensusRouter = express.Router();
 
 /**
- * The simplified HTTP request client 'request' with Promise support. 
+ * The simplified HTTP request client 'request' with Promise support.
  * Powered by Bluebird.
- * `request-promise` returns regular Promises/A+ compliant promises 
+ * `request-promise` returns regular Promises/A+ compliant promises
  * and can be assimilated by any compatible promise library.
  * @see {@link https://www.npmjs.com/package/request-promise|Request-Promise}
  */
@@ -68335,7 +68289,6 @@ var request = __webpack_require__(195);
  * @param {Callback} middleware - Express middleware callback
  */
 consensusRouter.get('/', function (req, res, next) {
-
   /**
    * Array to hold the request promise objects
    */
@@ -68345,7 +68298,6 @@ consensusRouter.get('/', function (req, res, next) {
    * Broadcast transactions to all nodes in the network node array
    */
   blocktron.networkNodes.forEach(function (networkNodeUrl) {
-
     /**
      * Construct the request
      */
@@ -68370,7 +68322,6 @@ consensusRouter.get('/', function (req, res, next) {
    * Once resolved, do chain validation and update chains accordingly
    */
   .then(function (blockchains) {
-
     /**
      * Get the length of the current node's blockchain
      */
@@ -68395,12 +68346,10 @@ consensusRouter.get('/', function (req, res, next) {
      * Iterate through each blockchain
      */
     blockchains.forEach(function (blockchain) {
-
       /**
        * If any blockchain has length larger than current node's blockchain
        */
       if (blockchain.chain.length > maximumChainLength) {
-
         /**
          * Replace new maximum chain length with largest blockchain length
          */
@@ -68423,7 +68372,6 @@ consensusRouter.get('/', function (req, res, next) {
      * Send appropriate response
      */
     if (!newLongestChain || newLongestChain && !blocktron.isChainValid(newLongestChain)) {
-
       /**
        * Log error in case of consensus failure
        */
@@ -68439,7 +68387,7 @@ consensusRouter.get('/', function (req, res, next) {
        * @const response
        * @type {Object}
        * @memberof routers:consensusRouter
-       * @param {String} status - The status of the operation 
+       * @param {String} status - The status of the operation
        * @param {Number} code - The HTTP response status code
        * @param {String} message - The message string
        * @param {Object} blockchain - The blockchain data
@@ -68452,15 +68400,14 @@ consensusRouter.get('/', function (req, res, next) {
       };
       res.json(response);
     } else if (newLongestChain && blocktron.isChainValid(newLongestChain)) {
-
       /**
-       * If there is a longer valid chain, then replace current node's blockchain with 
+       * If there is a longer valid chain, then replace current node's blockchain with
        * the longest valid chain
        */
       blocktron.chain = newLongestChain;
 
       /**
-       * Update the pending transactions list of current node with the new valid 
+       * Update the pending transactions list of current node with the new valid
        * blockchain's pending transactions list
        */
       blocktron.pendingTransactions = newPendingTransactions;
@@ -68475,7 +68422,7 @@ consensusRouter.get('/', function (req, res, next) {
        * @const response
        * @type {Object}
        * @memberof routers:consensusRouter
-       * @param {String} status - The status of the operation 
+       * @param {String} status - The status of the operation
        * @param {Number} code - The HTTP response status code
        * @param {String} message - The message string
        * @param {Object} blockchain - The blockchain data after consensus
@@ -68489,7 +68436,6 @@ consensusRouter.get('/', function (req, res, next) {
       res.json(_response);
     }
   }).catch(function (error) {
-
     /**
      * Log error in case of consensus failure
      */
@@ -68547,7 +68493,6 @@ module.exports = middlewareRouter;
  * @param {function} next - The next function in the middleware chain
  */
 var enhanceResponse = function enhanceResponse(req, res, next) {
-
   /**
    * Helper function to append the specified value to the HTTP response header field.
    * If the header is not already set, it creates the header with the specified value.

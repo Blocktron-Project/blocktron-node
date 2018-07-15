@@ -233,9 +233,9 @@ global._bt_config = _bt_config;
  * Set up process environment
  * @global
  */
-var env =  true ? "none" : undefined;
+var env = "none" || 'development';
 global.env = env;
-console.log(env);
+
 /**
  * Set up process title (useful for debugging)
  */
@@ -304,7 +304,7 @@ log.info('Blocktron routes initialized');
  * Instantiate the blocktron express app object
  */
 var blocktronNode = express();
-log.info('Blocktron initialized');
+log.info('Blocktron initialized and running in ' + env + ' mode');
 
 /**
  * disable x-powered-by to deceive hackers
@@ -29399,32 +29399,38 @@ var indexRouter = express.Router();
  * @param {Callback} middleware - Express middleware callback
  */
 indexRouter.get('/', function (req, res, next) {
-   /**
-    * Construct response and send it
-    * This object contains information about various environment
-    * and configuration details of blocktron node
-    * @const response
-    * @type {Object}
-    * @memberof routers:indexRoute
-    */
-   var response = {
-      message: 'Blocktron Node is running',
-      port: port,
-      status_code: res.statusCode,
-      configuration: {
-         process_title: process.title,
-         process_pid: process.pid,
-         node_address: _bt_config.blocktronNodeAddress,
-         environment: env,
-         os: process.platform,
-         cpu_arch: process.arch,
-         process_versions: {
-            node_version: process.versions.node,
-            v8_version: process.versions.v8
-         }
-      }
-   };
-   res.json(response);
+    /**
+     * Construct response and send it
+     * This object contains information about various environment
+     * and configuration details of blocktron node
+     * @const response
+     * @type {Object}
+     * @memberof routers:indexRoute
+     */
+    var response = {
+        message: 'Blocktron Node is running',
+        port: port,
+        status_code: res.statusCode,
+        configuration: {
+            process_title: process.title,
+            process_pid: process.pid,
+            memory: {
+                resident_set_size: process.memoryUsage().rss / 1024 / 1024 * 100 / 100 + ' MB',
+                heap_total: process.memoryUsage().heapTotal / 1024 / 1024 * 100 / 100 + ' MB',
+                heap_used: process.memoryUsage().heapUsed / 1024 / 1024 * 100 / 100 + ' MB',
+                external: process.memoryUsage().external / 1024 / 1024 * 100 / 100 + ' MB'
+            },
+            node_address: _bt_config.blocktronNodeAddress,
+            environment: env,
+            os: process.platform,
+            cpu_arch: process.arch,
+            process_versions: {
+                node_version: process.versions.node,
+                v8_version: process.versions.v8
+            }
+        }
+    };
+    res.json(response);
 });
 
 module.exports = indexRouter;

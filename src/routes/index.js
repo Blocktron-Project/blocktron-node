@@ -29,6 +29,15 @@ indexRouter.get('/', (req, res, next) => {
       configuration: {
          process_title: process.title,
          process_pid: process.pid,
+         memory: {
+            resident_set_size:
+               ((process.memoryUsage().rss / 1024 / 1024) * 100) / 100 + ' MB',
+            heap_total:
+               ((process.memoryUsage().heapTotal / 1024 / 1024) * 100) / 100 + ' MB',
+            heap_used:
+               ((process.memoryUsage().heapUsed / 1024 / 1024) * 100) / 100 + ' MB',
+            external: ((process.memoryUsage().external / 1024 / 1024) * 100) / 100 + ' MB'
+         },
          node_address: _bt_config.blocktronNodeAddress,
          environment: env,
          os: process.platform,

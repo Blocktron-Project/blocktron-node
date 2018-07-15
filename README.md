@@ -5,7 +5,7 @@
 
 **Blocktron** is a simple yet elegant and efficient **blockchain framework** written in **Javascript** for **Node.js** environment. Blocktron is aimed at developing generic, multipurpose blockchain platforms and softwares for various application use-cases, and also for educational and awareness purposes. This framework is built from the ground up using only **opensource** technologies.
  
-# blocktron-node
+# blocktron-node v0.0.1
 **blocktron-node** is the single server node of the entire **distributed blocktron system**. A single node of the entire distributed system utilizes the blocktron-lib js blockchain library internally to build the blockchain core data structures and functionalities.
 
 ## Table of Contents
@@ -168,7 +168,7 @@ blocktron-node is a decentralized system. A simple distributed configuration wil
 npm start
 ```
 This command will run the blocktron-node from the compressed build distributable with development options and parameters on port `3000`. A log similar to the following will be printed to the console:
-```sh
+```
 [2018-07-15T07:50:18.752Z] INFO (blocktron/3152 on Sandeep-HP): Blocktron routes initialized
 [2018-07-15T07:50:18.760Z] INFO (blocktron/3152 on Sandeep-HP): Blocktron initialized and running in development mode
 [2018-07-15T07:50:18.762Z] INFO (blocktron/3152 on Sandeep-HP): Blocktron application middlewares initialized

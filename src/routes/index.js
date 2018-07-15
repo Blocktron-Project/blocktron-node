@@ -38,7 +38,8 @@ indexRouter.get('/', (req, res, next) => {
                ((process.memoryUsage().heapUsed / 1024 / 1024) * 100) / 100 + ' MB',
             external: ((process.memoryUsage().external / 1024 / 1024) * 100) / 100 + ' MB'
          },
-         node_address: _bt_config.blocktronNodeAddress,
+         node_id: _bt_config.blocktronNodeId,
+         //node_address: ,
          environment: env,
          os: process.platform,
          cpu_arch: process.arch,

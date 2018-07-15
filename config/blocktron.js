@@ -15,7 +15,7 @@ const uuid = require('uuid/v1');
  * Using uuid generate a unique string, then remove the dashes in the string and rejoin them.
  * The string generated is guarenteed to be unique at a very high percentage.
  */
-const blocktronNodeAddress = uuid()
+const blocktronNodeId = uuid()
    .split('-')
    .join('');
 
@@ -32,7 +32,7 @@ const blocktronNodeAddress = uuid()
 const _bt_config = {
    appTitle: 'Blocktron Node',
    defaultAppPort: 3000,
-   blocktronNodeAddress: blocktronNodeAddress,
+   blocktronNodeId: blocktronNodeId,
    rewardSenderAddress: '00BLOCKTRON',
    rewardValue: 12.5
 };

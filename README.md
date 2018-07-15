@@ -216,7 +216,7 @@ x-powered-by: blocktron
 			"external": "0.11514663696289062 MB"
 		},
 		"node_id": "576dd470881011e8889491bdff51cd6d",
-    "node_address": "http://127.0.0.1:3000",
+		"node_address": "http://127.0.0.1:3000",
 		"environment": "development",
 		"os": "win32",
 		"cpu_arch": "x64",

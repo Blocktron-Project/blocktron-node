@@ -196,7 +196,7 @@ Status: 200 OK
 ```
 x-blocktron-Accept-Charset: UTF-8
 x-blocktron-Accept-Language: en
-x-blocktron-host-uuid: b794c5a0880311e88d6ddd807d4dd719
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
 x-blocktron-response-timestamp: 1531641455416
 x-powered-by: blocktron
 ```
@@ -208,7 +208,7 @@ x-powered-by: blocktron
 	"status_code": 200,
 	"configuration": {
 		"process_title": "Blocktron Node",
-		"process_pid": 8700,
+		"process_pid": 3152,
 		"memory": {
 			"resident_set_size": "46.890625 MB",
 			"heap_total": "34.33984375 MB",

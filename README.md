@@ -184,7 +184,7 @@ This command will run the blocktron-node from the compressed build distributable
 You can access the API through a browser or a REST console like postman. When you hit the base url:
 
 ### Route: GET /
-This is the index route of the blocktron-node instance. This route can be accessed by hitting `http:127.0.0.1:3000/`
+This is the index route of the blocktron-node instance. This route can be accessed by hitting `http:127.0.0.1:3000/`. This route uses the `HTTP GET` method. 
 
 **Request header**
 
@@ -238,7 +238,7 @@ x-powered-by: blocktron
 This route gives the basic configuration information about the blocktron-node instance currently running on your machine. The response includes information like port on which the process is running, name of the process, process identifier, memory allocation and heap information, environment, operating system and platform information, and node.js information.
 
 ### Route: GET /blockchain
-This route responds with the blockchain data on the current node instance.
+This route responds with the blockchain data on the current node instance. This route uses the `HTTP GET` method. 
 
 **Request header**
 
@@ -293,6 +293,41 @@ By default every blocktron-node instance will respond with the very same blockch
 
 The `pendingTransactions` array will hold the list of transactions before being mined. `currentNodeUrl` represents the address of the current node instance.
 `networkNodes` array holds the addressess of all the blocktron-nodes in the network.
+
+### Route: POST /registerAndBroadcastNode
+This route is used to register a new node and then broadcasting it accross the distributed system. This route uses the `HTTP POST` method. 
+
+**Request header**
+
+```
+Content-Type: application/json
+```
+
+**Request body**
+
+```js
+{
+	"newNodeUrl": "http://127.0.0.1:3002"
+}
+```
+
+in your REST client you will get the following response:
+
+```
+Status: 201 Created
+```
+
+**Response headers** 
+
+```
+x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron
+```
+
+**Body**
 
 `updating soon`
 

@@ -38,8 +38,10 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
 
    /**
     * Check whether the node url is already present in the registry or is it current node's url
+    * TODO: Also check whether the node url is accessible.
     */
    if (blocktron.isNewNode(newNodeUrl) && notCurrentNode) {
+
       /**
        * If url is new, push the url to registry
        */

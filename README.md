@@ -336,6 +336,31 @@ x-powered-by: blocktron
     "message": "New nodes registered with the network"
 }
 ```
+If the same request is received more than once, then the following response can be expected:
+
+```
+Status: 409 Conflict
+```
+
+**Response headers** 
+
+```
+x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron
+```
+
+**Body**
+
+```
+{
+    "status": "resource conflict",
+    "code": 409,
+    "message": "Given node url: http://127.0.0.1:3002, is already present in registry or is a conflicting value"
+}
+```
 
 `updating soon`
 

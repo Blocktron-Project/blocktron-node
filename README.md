@@ -398,6 +398,8 @@ and the application logs the following line to the console:
 [2018-07-18T16:18:48.488Z] ERROR (blocktron/6896 on Sandeep-HP): Nodes registration failed due to: RequestError: Error: connect ECONNREFUSED 127.0.0.1:300x
 ```
 
+>**Note: ECONNREFUSED** (Connection refused): No connection could be made because the target machine actively refused it. This usually results from trying to connect to a service that is inactive on the foreign host.
+
 `updating soon`
 
 ## Tests

@@ -23,6 +23,7 @@
   * [Running blocktron-node](#running-blocktron-node)
   * [Route: GET /](#route-get-)
   * [Route: GET /blockchain](#route-get-blockchain)
+  * [Route: POST /registerAndBroadcastNode](#route-post-registerandbroadcastnode)
 * [Tests](#tests)
 * [Continuous Integration](#continuous-integration)
 * [Contributing](#contributing)

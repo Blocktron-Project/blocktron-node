@@ -336,6 +336,29 @@ x-powered-by: blocktron
     "message": "New nodes registered with the network"
 }
 ```
+
+When a node registration is successful, then newly registered node's network url will be added to all the nodes in the network, and urls of all other nodes wil be added to the networkNodes array of the newly added node. The following would be a sample blockchain representaion:
+
+```js
+{
+	"chain": [{
+		"index": 1,
+		"timeStamp": 1531929909041,
+		"transactions": [],
+		"nonce": 1,
+		"hash": "0",
+		"previousHash": "0"
+	}],
+	"pendingTransactions": [],
+	"currentNodeUrl": "http://127.0.0.1:3001",
+	"networkNodes": [
+		"http://127.0.0.1:3002",
+		"http://127.0.0.1:3004",
+		"http://127.0.0.1:3003"
+	]
+}
+```
+
 If the same request is received more than once, then the following response can be expected:
 
 ```

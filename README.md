@@ -362,6 +362,42 @@ x-powered-by: blocktron
 }
 ```
 
+Also the application logs the following line to console:
+```sh
+[2018-07-18T16:07:15.506Z] ERROR (blocktron/3284 on Sandeep-HP): Given url: http://127.0.0.1:3002 rejected, it is already present or is a conflicting value
+```
+
+If the network is unable to reach a particular node when registration happens, then the following response can be expected:
+
+```
+Status: 409 Conflict
+```
+
+**Response headers** 
+
+```
+x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron
+```
+
+**Body**
+
+```
+{
+    "status": "resource conflict",
+    "code": 409,
+    "message": "Given node url: http://127.0.0.1:300x, is a conflicting value"
+}
+```
+and the application logs the following line to the console:
+
+```sh
+[2018-07-18T16:18:48.488Z] ERROR (blocktron/6896 on Sandeep-HP): Nodes registration failed due to: RequestError: Error: connect ECONNREFUSED 127.0.0.1:300x
+```
+
 `updating soon`
 
 ## Tests

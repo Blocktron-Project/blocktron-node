@@ -20,6 +20,9 @@
 * [Dependency](https://github.com/Blocktron-Project/blocktron-node#dependency)
 * [Changelog](https://github.com/Blocktron-Project/blocktron-node#changelog)
 * [API Reference](https://github.com/Blocktron-Project/blocktron-node#api-reference)
+  * Running blocktron-node
+  * Route: GET /
+  * Route: GET /blockchain
 * [Tests](https://github.com/Blocktron-Project/blocktron-node#tests)
 * [Continuous Integration](https://github.com/Blocktron-Project/blocktron-node#continuous-integration)
 * [Contributing](https://github.com/Blocktron-Project/blocktron-node#contributing)

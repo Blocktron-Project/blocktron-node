@@ -295,7 +295,7 @@ The `pendingTransactions` array will hold the list of transactions before being 
 `networkNodes` array holds the addressess of all the blocktron-nodes in the network.
 
 ### Route: POST /registerAndBroadcastNode
-This route is used to register a new node and then broadcasting it accross the distributed system. This route uses the `HTTP POST` method. 
+This route is used to register a new node and then broadcasting it across the distributed system. This route uses the `HTTP POST` method. 
 
 **Request header**
 
@@ -307,7 +307,7 @@ Content-Type: application/json
 
 ```js
 {
-	"newNodeUrl": "http://127.0.0.1:3002"
+	"newNodeUrl": "http://127.0.0.1:300x"
 }
 ```
 

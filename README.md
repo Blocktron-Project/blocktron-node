@@ -260,7 +260,7 @@ x-powered-by: blocktron
 
 **Body**
 
-```
+```js
 {
 	"chain": [{
 		"index": 1,

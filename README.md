@@ -180,9 +180,11 @@ This command will run the blocktron-node from the compressed build distributable
 
 You can access the API through a browser or a REST console like postman. When you hit the base url:
 
-`GET 127.0.0.1:3000/`
+### Route: GET /
+This is the index route of the blocktron-node instance. This route can be accessed by hitting `http:127.0.0.1:3000/`
 
 **Request header**
+
 ```
 Content-Type: application/json
 ```
@@ -193,6 +195,7 @@ Status: 200 OK
 ```
 
 **Response headers** 
+
 ```
 x-blocktron-Accept-Charset: UTF-8
 x-blocktron-Accept-Language: en
@@ -200,7 +203,9 @@ x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
 x-blocktron-response-timestamp: 1531641455416
 x-powered-by: blocktron
 ```
+
 **Body**
+
 ```js
 {
 	"message": "Blocktron Node is running",
@@ -227,7 +232,64 @@ x-powered-by: blocktron
 	}
 }
 ```
-This route gives the basic configuration information about the blocktron-node instance currently runing on your machine.
+This route gives the basic configuration information about the blocktron-node instance currently running on your machine. The response includes information like port on which the process is running, name of the process, process identifier, memory allocation and heap information, environment, operating system and platform information, and node.js information.
+
+### Route: GET /blockchain
+This route responds with the blockchain data on the current node instance.
+
+**Request header**
+
+```
+Content-Type: application/json
+```
+in your REST client you will get the following response:
+
+```
+Status: 200 OK
+```
+
+**Response headers** 
+
+```
+x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron
+```
+
+**Body**
+
+```
+{
+	"chain": [{
+		"index": 1,
+		"timeStamp": 1531924923856,
+		"transactions": [],
+		"nonce": 1,
+		"hash": "0",
+		"previousHash": "0"
+	}],
+	"pendingTransactions": [],
+	"currentNodeUrl": "http://127.0.0.1:3001",
+	"networkNodes": []
+}
+```
+By default every blocktron-node instance will respond with the very same blockchain. The `chain` array in the response is the blockchain data. Every blockchain will have an initial block with index `1`. This block is called the **Genesis Block**. Consecutive blocks mined will be attached to the chain in chronological order. Each block in the chain will have the following key-values:
+
+| **Key** | **Description**| **Default** | 
+| -- | -- | -- |
+| **Index** | The chronological position of a block in the chain | `1` |
+| **Timestamp** | The unix epoch timestamp at the time of creation of the block | |
+| **transactions** | The array representing the list of transactions | `[]` |
+| **nonce** | The 'nonsense' number genearting the valid hash of the block data | `1` |
+| **hash** | The hash of the block's data | `0` |
+| **previousHash** | The hash of the previous block | `0` |
+
+> **Note:** The default values apply only for **Genesis Block**
+
+The `pendingTransactions` array will hold the list of transactions before being mined. `currentNodeUrl` represents the address of the current node instance.
+`networkNodes` array holds the addressess of all the blocktron-nodes in the network.
 
 `updating soon`
 

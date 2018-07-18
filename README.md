@@ -329,6 +329,14 @@ x-powered-by: blocktron
 
 **Body**
 
+```
+{
+    "status": "success",
+    "code": 201,
+    "message": "New nodes registered with the network"
+}
+```
+
 `updating soon`
 
 ## Tests

@@ -160,6 +160,7 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
             res.json(response);
          });
    } else {
+         
       /**
        * Set response status to 409 to represent resource conflict
        */

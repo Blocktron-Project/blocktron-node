@@ -10,26 +10,26 @@
 
 ## Table of Contents
 <!--ts-->
-* [About](https://github.com/Blocktron-Project/blocktron-node#blocktron)
-* [Motivation](https://github.com/Blocktron-Project/blocktron-node#motivation)
-* [Build Status](https://github.com/Blocktron-Project/blocktron-node#build-status)
-* [Technology Stack](https://github.com/Blocktron-Project/blocktron-node#technology-stack)
-* [Why JavaScript & Node.js](https://github.com/Blocktron-Project/blocktron-node#why-javascript--nodejs)
-* [Getting Started](https://github.com/Blocktron-Project/blocktron-node#getting-started)
-* [Installation](https://github.com/Blocktron-Project/blocktron-node#installation)
-* [Dependency](https://github.com/Blocktron-Project/blocktron-node#dependency)
-* [Changelog](https://github.com/Blocktron-Project/blocktron-node#changelog)
-* [API Reference](https://github.com/Blocktron-Project/blocktron-node#api-reference)
-  * Running blocktron-node
-  * Route: GET /
-  * Route: GET /blockchain
-* [Tests](https://github.com/Blocktron-Project/blocktron-node#tests)
-* [Continuous Integration](https://github.com/Blocktron-Project/blocktron-node#continuous-integration)
-* [Contributing](https://github.com/Blocktron-Project/blocktron-node#contributing)
-* [Versioning](https://github.com/Blocktron-Project/blocktron-node#versioning)
-* [Authors](https://github.com/Blocktron-Project/blocktron-node#authors)
-* [License](https://github.com/Blocktron-Project/blocktron-node#license)
-* [Acknowledgements](https://github.com/Blocktron-Project/blocktron-node#acknowledgements)
+* [About](#blocktron)
+* [Motivation](#motivation)
+* [Build Status](#build-status)
+* [Technology Stack](#technology-stack)
+* [Why JavaScript & Node.js](#why-javascript--nodejs)
+* [Getting Started](#getting-started)
+* [Installation](#installation)
+* [Dependency](#dependency)
+* [Changelog](#changelog)
+* [API Reference](#api-reference)
+  * [Running blocktron-node](#running-blocktron-node)
+  * [Route: GET /](#route-get-)
+  * [Route: GET /blockchain](#route-get-blockchain)
+* [Tests](#tests)
+* [Continuous Integration](#continuous-integration)
+* [Contributing](#contributing)
+* [Versioning](#versioning)
+* [Authors](#authors)
+* [License](#license)
+* [Acknowledgements](#acknowledgements)
 <!--te-->
 
 ## Motivation

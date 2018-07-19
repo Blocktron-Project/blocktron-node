@@ -24,6 +24,8 @@
   * [Route: GET /](#route-get-)
   * [Route: GET /blockchain](#route-get-blockchain)
   * [Route: POST /registerAndBroadcastNode](#route-post-registerandbroadcastnode)
+  * [Route: POST /transaction/broadcast](#route-post-transactionbroadcast)
+  * [Route: GET /mine](#route-post-transactionbroadcast)
 * [Tests](#tests)
 * [Continuous Integration](#continuous-integration)
 * [Contributing](#contributing)

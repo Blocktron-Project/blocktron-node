@@ -424,6 +424,163 @@ and the application logs the following line to the console:
 
 >**Note: ECONNREFUSED** (Connection refused): No connection could be made because the target machine actively refused it. This usually results from trying to connect to a service that is inactive on the foreign host.
 
+### Route: POST /transaction/broadcast
+This route is used to register a transaction and broadcast it among other nodes.
+
+**Request header**
+
+```
+Content-Type: application/json
+```
+
+**Request body**
+
+```js
+{
+	"amount": 50020,
+	"sender": "SANDEEP3J23NJ23N",
+	"receiver": "NEHANJK23NRJ2K3"
+}
+```
+
+Once the request is served successfully, the following response can be expected.
+
+```
+Status: 201 Created
+```
+
+**Response header**
+
+```
+x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron
+```
+
+**Body**
+
+```js
+{
+    "status": "success",
+    "code": 201,
+    "message": "Transaction created and broadcasted successfully"
+}
+```
+
+Now the blockchain data will look similar to the following:
+
+```js
+{
+	"chain": [{
+		"index": 1,
+		"timeStamp": 1532012395307,
+		"transactions": [],
+		"nonce": 1,
+		"hash": "0",
+		"previousHash": "0"
+	}],
+	"pendingTransactions": [{
+		"transactionId": "c9918db08b6411e8956069c0a2ff1a04",
+		"amount": 50020,
+		"sender": "SANDEEP3J23NJ23N",
+		"receiver": "NEHANJK23NRJ2K3"
+	}],
+	"currentNodeUrl": "http://127.0.0.1:3001",
+	"networkNodes": []
+}
+```
+The newly added transaction will be added to the pendingTransactions array.
+
+### Route: GET /mine
+This route is used for mining the pending transactions and add them to the blockchain.
+
+**Request header**
+
+```
+Content-Type: application/json
+```
+
+Once the request is served successfully, the following response can be expected.
+
+```
+Status: 201 Created
+```
+
+**Response header**
+
+```
+x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron
+```
+
+**Body**
+```js
+{
+	"status": "success",
+	"code": 201,
+	"message": "New block mined and broadcasted successfully",
+	"blockData": {
+		"index": 2,
+		"timeStamp": 1532015691848,
+		"transactions": [{
+				"transactionId": "f3ab95308b6b11e890bc5d646af74329",
+				"amount": 50020,
+				"sender": "SANDEEP3J23NJ23N",
+				"receiver": "NEHANJK23NRJ2K3"
+			}
+		],
+		"nonce": 110885,
+		"hash": "000017200806c32e29841ffd7d7f563b129f5e18a38a3e8e4ef489482fdcf9bb",
+		"previousHash": "0"
+	}
+}
+```
+
+And the blockchain data will look similar to the following:
+
+```js
+{
+	"chain": [{
+			"index": 1,
+			"timeStamp": 1532015588352,
+			"transactions": [],
+			"nonce": 1,
+			"hash": "0",
+			"previousHash": "0"
+		},
+		{
+			"index": 2,
+			"timeStamp": 1532015691848,
+			"transactions": [{
+				"transactionId": "f3ab95308b6b11e890bc5d646af74329",
+				"amount": 50020,
+				"sender": "SANDEEP3J23NJ23N",
+				"receiver": "NEHANJK23NRJ2K3"
+			}],
+			"nonce": 110885,
+			"hash": "000017200806c32e29841ffd7d7f563b129f5e18a38a3e8e4ef489482fdcf9bb",
+			"previousHash": "0"
+		}
+	],
+	"pendingTransactions": [{
+		"transactionId": "128a1c108b6c11e890bc5d646af74329",
+		"amount": 12.5,
+		"sender": "00BLOCKTRON",
+		"receiver": "00BLOCKTRON"
+	}],
+	"currentNodeUrl": "http://127.0.0.1:3001",
+	"networkNodes": [
+		"http://127.0.0.1:3002"
+	]
+}
+```
+Now you can observe that the pendingTransactions array contains a transaction with amount **12.5 units**. This is the **mining reward** provided by the **Blocktron-node**
+
 `updating soon`
 
 ## Tests

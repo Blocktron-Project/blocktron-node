@@ -330,7 +330,7 @@ x-powered-by: blocktron
 
 **Body**
 
-```
+```js
 {
     "status": "success",
     "code": 201,
@@ -378,7 +378,7 @@ x-powered-by: blocktron
 
 **Body**
 
-```
+```js
 {
     "status": "resource conflict",
     "code": 409,
@@ -409,7 +409,7 @@ x-powered-by: blocktron
 
 **Body**
 
-```
+```js
 {
     "status": "resource conflict",
     "code": 409,

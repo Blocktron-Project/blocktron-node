@@ -23,9 +23,10 @@ const blocktronNodeId = uuid()
  * Blocktron configuration object
  * @type {Object}
  * @memberof _bt_config
+ * @inner
  * @param {String} appTitle - The global process title
  * @param {Number} defaultAppPort - The default port for the app to run
- * @param {String} blocktronNodeAddress - The unique identifier for a single instance of this app
+ * @param {String} blocktronNodeId - The unique identifier for a single instance of this app
  * @param {String} rewardSenderAddress - The address label for this particular instance for reward process
  * @param {Number} rewardValue - The default global reward value
  */

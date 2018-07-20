@@ -583,6 +583,85 @@ And the blockchain data will look similar to the following:
 ```
 Now you can observe that the pendingTransactions array contains a transaction with amount **12.5 units**. This is the **mining reward** provided by the **Blocktron-node**
 
+### Route: GET/consensus
+This route can be used to validate the entire blockchain against all the chains in the network and reach consensus based on the **Longest rule algorithm**.
+
+**Request header**
+
+```
+Content-Type: application/json
+```
+
+**Response header**
+
+```
+x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron
+```
+Assuming the consensus route is hit from a newly added node, The following response can be observed, if successful:
+
+**body**
+
+```js
+{
+    "status": "Chain replaced",
+    "code": 201,
+    "message": "Current blockchain has been replaced",
+    "blockchain": [
+        {
+            "index": 1,
+            "timeStamp": 1532099906418,
+            "transactions": [],
+            "nonce": 1,
+            "hash": "0",
+            "previousHash": "0"
+        },
+        {
+            "index": 2,
+            "timeStamp": 1532099983752,
+            "transactions": [],
+            "nonce": 18140,
+            "hash": "0000b9135b054d1131392c9eb9d03b0111d4b516824a03c35639e12858912100",
+            "previousHash": "0"
+        },
+        {
+            "index": 3,
+            "timeStamp": 1532099986120,
+            "transactions": [
+                {
+                    "transactionId": "547ee0008c3011e88cf195a8aa7e7eda",
+                    "amount": 12.5,
+                    "sender": "00BLOCKTRON",
+                    "receiver": "260b8c508c3011e88cf195a8aa7e7eda"
+                }
+            ],
+            "nonce": 31235,
+            "hash": "00004d2fc19892ed16733a986f7c3b8f4874a2a1a3aaf8cd0f927bbcd4593a29",
+            "previousHash": "0000b9135b054d1131392c9eb9d03b0111d4b516824a03c35639e12858912100"
+        },
+        {
+            "index": 4,
+            "timeStamp": 1532099989254,
+            "transactions": [
+                {
+                    "transactionId": "55d680c08c3011e88cf195a8aa7e7eda",
+                    "amount": 12.5,
+                    "sender": "00BLOCKTRON",
+                    "receiver": "260b8c508c3011e88cf195a8aa7e7eda"
+                }
+            ],
+            "nonce": 117330,
+            "hash": "00006509a6dcdb11f5f7b08b6c9eacfdeeed2975b13152774d4c1cd9e0edfa75",
+            "previousHash": "00004d2fc19892ed16733a986f7c3b8f4874a2a1a3aaf8cd0f927bbcd4593a29"
+        }
+    ]
+}
+```
+As represented the response says `chain replaced`, which means the node has reached consensus with the distributed system. If the route is hit more than once, the response says `Not Modified`.
+
 `updating soon`
 
 ## Tests

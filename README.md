@@ -28,6 +28,7 @@
   * [Route: POST /transaction/broadcast](#route-post-transactionbroadcast)
   * [Route: GET /mine](#route-post-transactionbroadcast)
   * [Route: GET/consensus](#route-getconsensus)
+* [Adding Nodes](#adding-nodes)
 * [Tests](#tests)
 * [Continuous Integration](#continuous-integration)
 * [Contributing](#contributing)

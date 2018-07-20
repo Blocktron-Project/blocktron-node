@@ -44,9 +44,39 @@
 
     <section>
         <article><p><img src="blocktron.png" alt="logo"></p>
-<h1>Blocktron</h1><p><a href="https://github.com/Blocktron-Project/blocktron-node/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Blocktron-Project/blocktron-node.svg" alt="GitHub license"></a> <img src="https://img.shields.io/badge/made%20with-JavaScript-green.svg" alt="made with"> <img src="https://david-dm.org/Blocktron-Project/blocktron-node.svg" alt="dependencies"> <img src="https://img.shields.io/badge/blocktron--lib-0.0.1-green.svg" alt="blocktron-lib"> <a href="https://snyk.io/test/github/Blocktron-Project/blocktron-node?targetFile=package.json"><img src="https://snyk.io/test/github/Blocktron-Project/blocktron-node/badge.svg?targetFile=package.json" alt="Known Vulnerabilities"></a> <img src="https://www.codefactor.io/Content/badges/A.svg" alt="codefactor"> <img src="https://circleci.com/gh/Blocktron-Project/blocktron-node.svg?style=svg" alt="CircleCI"> <img src="https://travis-ci.org/Blocktron-Project/blocktron-node.svg?branch=master" alt="TravisCI"> <a href="https://github.com/Blocktron-Project/blocktron-node/issues"><img src="https://img.shields.io/github/issues/Blocktron-Project/blocktron-node.svg" alt="GitHub issues"></a> <a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/Blocktron-Project/blocktron-node.svg" alt="Greenkeeper badge"></a> <img src="https://img.shields.io/github/forks/Blocktron-Project/blocktron-node.svg" alt="GitHub forks"> <img src="https://img.shields.io/github/stars/Blocktron-Project/blocktron-node.svg" alt="GitHub stars"> <img src="https://img.shields.io/twitter/url/https/github.com/Blocktron-Project/blocktron-node.svg?style=social" alt="Twitter"></p>
-<p><strong>Blocktron</strong> is a simple yet elegant and efficient <strong>blockchain framework</strong> written in <strong>Javascript</strong> for <strong>Node.js</strong> environment. Blocktron is aimed at developing generic, multipurpose blockchain platforms and softwares for various application use-cases, and also for educational and awareness purposes. This library is built from the ground up using only <strong>opensource</strong> technologies.</p>
-<h1>blocktron-node</h1><p><strong>blocktron-node</strong> is the single server node of the entire <strong>distributed blocktron system</strong>. A single node of the entire distributed system utilizes the blocktron-lib js blockchain library internally to build the blockchain core data structures and functionalities.</p>
+<h1>Blocktron</h1><p><a href="https://github.com/Blocktron-Project/blocktron-node/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Blocktron-Project/blocktron-node.svg" alt="GitHub license"></a> <img src="https://img.shields.io/badge/made%20with-JavaScript-green.svg" alt="made with"> <img src="https://david-dm.org/Blocktron-Project/blocktron-node.svg" alt="dependencies"> <img src="https://img.shields.io/badge/blocktron--lib-0.0.1-green.svg" alt="blocktron-lib"> <a href="https://snyk.io/test/github/Blocktron-Project/blocktron-node?targetFile=package.json"><img src="https://snyk.io/test/github/Blocktron-Project/blocktron-node/badge.svg?targetFile=package.json" alt="Known Vulnerabilities"></a> <img src="https://www.codefactor.io/Content/badges/A.svg" alt="codefactor"> <img src="https://circleci.com/gh/Blocktron-Project/blocktron-node.svg?style=svg" alt="CircleCI"> <img src="https://travis-ci.org/Blocktron-Project/blocktron-node.svg?branch=master" alt="TravisCI"> <a href="https://stackshare.io/blocktron/blocktron"><img src="https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat" alt="StackShare"></a> <a href="https://github.com/Blocktron-Project/blocktron-node/issues"><img src="https://img.shields.io/github/issues/Blocktron-Project/blocktron-node.svg" alt="GitHub issues"></a> <a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/Blocktron-Project/blocktron-node.svg" alt="Greenkeeper badge"></a> <img src="https://img.shields.io/github/forks/Blocktron-Project/blocktron-node.svg" alt="GitHub forks"> <img src="https://img.shields.io/github/stars/Blocktron-Project/blocktron-node.svg" alt="GitHub stars"> <img src="https://img.shields.io/twitter/url/https/github.com/Blocktron-Project/blocktron-node.svg?style=social" alt="Twitter"></p>
+<p><strong>Blocktron</strong> is a simple yet elegant and efficient <strong>blockchain framework</strong> written in <strong>Javascript</strong> for <strong>Node.js</strong> environment. Blocktron is aimed at developing generic, multipurpose blockchain platforms and softwares for various application use-cases, and also for educational and awareness purposes. This framework is built from the ground up using only <strong>opensource</strong> technologies.</p>
+<h1>blocktron-node v0.0.1</h1><p><strong>blocktron-node</strong> is the single server node of the entire <strong>distributed blocktron system</strong>. A single node of the entire distributed system utilizes the blocktron-lib js blockchain library internally to build the blockchain core data structures and functionalities.</p>
+<h2>Table of Contents</h2><!--ts-->
+<ul>
+<li><a href="#blocktron">About</a></li>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#build-status">Build Status</a></li>
+<li><a href="#technology-stack">Technology Stack</a></li>
+<li><a href="#why-javascript--nodejs">Why JavaScript &amp; Node.js</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#dependency">Dependency</a></li>
+<li><a href="#changelog">Changelog</a></li>
+<li><a href="#api-reference">API Reference</a><ul>
+<li><a href="#running-blocktron-node">Running blocktron-node</a></li>
+<li><a href="#route-get-">Route: GET /</a></li>
+<li><a href="#route-get-blockchain">Route: GET /blockchain</a></li>
+<li><a href="#route-post-registerandbroadcastnode">Route: POST /registerAndBroadcastNode</a></li>
+<li><a href="#route-post-transactionbroadcast">Route: POST /transaction/broadcast</a></li>
+<li><a href="#route-post-transactionbroadcast">Route: GET /mine</a></li>
+<li><a href="#route-getconsensus">Route: GET/consensus</a></li>
+</ul>
+</li>
+<li><a href="#tests">Tests</a></li>
+<li><a href="#continuous-integration">Continuous Integration</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#versioning">Versioning</a></li>
+<li><a href="#authors">Authors</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#acknowledgements">Acknowledgements</a><!--te-->
+</li>
+</ul>
 <h2>Motivation</h2><p>The <strong>blockchain</strong> is an undeniably ingenious invention – the brainchild of a person or group of people known by the pseudonym,  <code>Satoshi Nakamoto</code>. But since then, it has evolved into something greater, and the main question every single person is asking is: What is Blockchain? By allowing digital information to be distributed but not copied, blockchain technology created the backbone of a new type of internet. Originally devised for the digital currency, Bitcoin, the tech community is now finding other potential uses for the technology.</p>
 <p>As a computer engineer, I am passionate about solving different problems the world is facing today, through softwares, computing and other digital systems, to enhance the world as a better place for humanity. And blockchain has got a lot of attention in the recent years through the rise of certain Dapps platforms and obviously due to the hike in the value of bitcoins. Now the mission of <strong>Blocktron project</strong> is to contribute to that situation by developing blockchain technology to its next level and make it available to the world in its most simple and efficient form, so that the world can make the most of it.</p>
 <h2>Build status</h2><p>This project has been set up with Travis-CI and Circle-CI where the continuous integration and continuous deployment tests are being run on every code commits to ensure code quality and code integrity. These badges shows the tests and builds passing or failing.</p>
@@ -56,18 +86,448 @@
 </ul>
 <h2>Technology Stack</h2><p>Blocktron project is built with the following technologies:</p>
 <ul>
-<li>JavaScript</li>
-<li>Node.js</li>
-<li>blocktron-lib</li>
-<li>Git</li>
-<li>Github</li>
-<li>Travis-CI</li>
-<li>CircleCI</li>
-<li>Jest</li>
+<li><a href="https://developer.mozilla.org/bm/docs/Web/JavaScript">JavaScript</a></li>
+<li><a href="https://nodejs.org/en/">Node.js</a></li>
+<li><a href="https://www.npmjs.com/package/blocktron-lib">blocktron-lib</a></li>
+<li><a href="https://git-scm.com/">Git</a></li>
+<li><a href="https://github.com">Github</a></li>
+<li><a href="https://travis-ci.org">Travis-CI</a></li>
+<li><a href="https://circleci.com/">CircleCI</a></li>
+<li><a href="https://snyk.io/">Snyke</a></li>
+<li><a href="https://www.codacy.com/">Codacy</a></li>
+<li><a href="https://jestjs.io/">Jest</a></li>
 </ul>
 <p><img src="techstack.png" alt="techstack"></p>
-<h2>Why JavaScript &amp; Node.js</h2><h2>Getting Started</h2><h2>Installation</h2><p><strong>Prerequisites</strong></p>
-<h2>Dependency</h2><h2>Changelog</h2><h2>API Reference</h2><h2>Tests</h2><h2>Continuous Integration</h2><p>Continuous Integration services monitor repositories for changes, then automatically run unit tests on your behalf, typically in a containerized environment. To test this setup works in a continuous integration environment, an integration was done with <a href="https://travis-ci.org/">Travis CI</a> &amp; <a href="https://circleci.com/">CircleCI</a>. According to the <a href="http://docs.travis-ci.com/user/languages/javascript-with-nodejs/">Travis Node.js Documentation</a>, Travis automatically runs <code>npm install</code> and <code>npm test</code>. The only additional thing I had to add to the Travis configuration was to run <code>npm run build</code> before running the tests. The working Travis config looks like this:</p>
+<p>Read more about blocktron stack from <a href="https://stackshare.io/blocktron/blocktron">here</a></p>
+<h2>Why JavaScript &amp; Node.js</h2><p><strong>Javascript</strong>, often refered as <strong>js</strong>, is a high level, multi-paradigm, Object-based, event-driven, interpreted programming language. It first appeared in 4th december 1995, 22 years ago. It's also charecterized as dynamic, weakly-typed and prototypal inheritance based language. It was exclusivley created for the web. Its one of the three core technologies which makes the world wide web. Javascript contributes to the interactions on the web pages. Node.js is the opensource, cross-platform javascript runtime environment that can execute javascript code outside the browser environment. It helps developers to build systems for the server side and command line applications using the regular javascript language. Unlike other programming languages Node.js (Javascript) is a lot different. Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world. Every browser has a JavaSript engine built in it to process JavaScript files contained in websites. Google Chrome uses V8 engine which is built using C++. 
+<img src="https://cdn-images-1.medium.com/max/1600/1*AKKvE3QmN_ZQmEzSj16oXg.png" height=300 alt="v8logo"></p>
+<p>Node.js also uses this super-fast engine to interpret JavaScript files. Node.js uses an event-driven model. This means that Node.js waits for certain events to take place. It then acts on those events. Events can be anything from a click to a HTTP request. We can also declare our own custom events and make node.js listen for those events. Node.js uses a non-blocking I/O model. We know that I/O tasks take much longer than processing tasks. Node.js uses callback functions to handle such requests. V8 was first designed to increase the performance of JavaScript execution inside web browsers. In order to obtain speed, V8 translates JavaScript code into more efficient machine code instead of using an interpreter. It compiles JavaScript code into machine code at execution by implementing a JIT (Just-In-Time) compiler like a lot of modern JavaScript engines do such as SpiderMonkey or Rhino (Mozilla). The main difference here is that V8 doesn’t produce bytecode or any intermediate code. You can read more about V8 and its internals from the medium post by <a href="https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e">sessionstack</a></p>
+<h2>Getting Started</h2><p>You can grab a copy of blocktron-node from github either by cloning or downloading the zip. clones can be created using the command:</p>
+<pre class="prettyprint source lang-sh"><code>git clone https://github.com/Blocktron-Project/blocktron-node.git</code></pre><p>or using ssh as:</p>
+<pre class="prettyprint source lang-sh"><code>git clone ssh://git@github.com:Blocktron-Project/blocktron-node.git</code></pre><h2>Installation</h2><p>You can install the project dependencies by running the following command inside the project folder:</p>
+<pre class="prettyprint source lang-sh"><code>npm i</code></pre><p><strong>Prerequisites</strong></p>
+<p>This project assumes you have the latest version of the following tools installed in your machine.</p>
+<ul>
+<li>Git</li>
+<li>Node.js &gt;= <a href="https://nodejs.org/download/release/latest-v8.x/">v8.x</a></li>
+<li>Python</li>
+<li>Code editor(VS Code preferably or Atom)</li>
+<li>Terminal/cmd</li>
+</ul>
+<h2>Dependency</h2><p>This project is internally dependent on the following npm modules and packages:</p>
+<ul>
+<li><p><strong><a href="https://www.npmjs.com/package/blocktron-lib">blocktron-lib</a></strong></p>
+<p>blocktron-lib module is a member of the Blocktron Project. blocktron-lib is a javascript library housing a blockchain class, and the core blockchain data structures with various blockchain methods and functionalities. This library is fully extensible to accommodate any blockchain applications. Its completely independent and follows a class constructor design pattern and is written using ES6 specifications.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/debug">debug</a></strong></p>
+<p>A tiny JavaScript debugging utility modelled after Node.js core's debugging technique. Works in Node.js and web browsers.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/express">express</a></strong></p>
+<p>Fast, unopinionated, minimalist web framework for node.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/http-errors">http-errors</a></strong></p>
+<p>Create HTTP errors for Express, Koa, Connect, etc. with ease.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/path">path</a></strong></p>
+<p>The path module provides utilities for working with file and directory paths. It can be accessed using:</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/pino">pino</a></strong></p>
+<p>Extremely fast node.js logger, inspired by Bunyan. It also includes a shell utility to pretty-print its log files.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/request-promise">request-promise</a></strong></p>
+<p>The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/serve-favicon">serve-favicon</a></strong></p>
+<p>Node.js middleware for serving a favicon. A favicon is a visual cue that client software, like browsers, use to identify a site</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/uuid">uuid</a></strong></p>
+<p>Simple, fast generation of RFC4122 UUIDS</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/babel-core">babel-core</a></strong></p>
+<p>Babel compiler core.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/babel-eslint">babel-eslint</a></strong></p>
+<p>babel-eslint allows you to lint ALL valid Babel code with the fantastic ESLint.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/babel-loader">babel-loader</a></strong></p>
+<p>This package allows transpiling JavaScript files using Babel and webpack.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/babel-preset-es2015">babel-preset-es2015</a></strong></p>
+<p>Babel preset for all es2015 plugins.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/babel-preset-stage-0">babel-preset-stage-0</a></strong></p>
+<p>Babel preset for stage 0 plugins.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/eslint">eslint</a></strong></p>
+<p>ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code. In many ways, it is similar to JSLint and JSHint with a few exceptions</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/jest">jest</a></strong></p>
+<p>A javascript testing framework from facebook</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/jsdoc">jsdoc</a></strong></p>
+<p>An API documentation generator for JavaScript.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/prettier">prettier</a></strong></p>
+<p>Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/prettier-webpack-plugin">prettier-webpack-plugin</a></strong></p>
+<p>Automatically process your source files with Prettier when bundling via Webpack.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/supertest">supertest</a></strong></p>
+<p>HTTP assertions made easy via superagent.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/webpack">webpack</a></strong></p>
+<p>webpack is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.</p>
+</li>
+<li><p><strong><a href="https://www.npmjs.com/package/webpack-cli">webpack-cli</a></strong></p>
+<p>Webpack CLI encapsulates all code related to CLI handling. It captures options and sends them to webpack compiler. You can also find functionality for initializing a project and migrating between versions.</p>
+</li>
+</ul>
+<h2>Changelog</h2><ul>
+<li><strong>v0.0.1</strong><ul>
+<li>Documentation updates</li>
+<li>Initial stable blocktron-node build</li>
+</ul>
+</li>
+</ul>
+<h2>API Reference</h2><h3>Running blocktron-node</h3><p>blocktron-node is a decentralized system. A simple distributed configuration will have atleast 2 nodes. But a single blocktron-node can be run by using the following npm command:</p>
+<pre class="prettyprint source lang-sh"><code>npm start</code></pre><p>This command will run the blocktron-node from the compressed build distributable with development options and parameters on port <code>3000</code>. A log similar to the following will be printed to the console:</p>
+<pre class="prettyprint source"><code>[2018-07-15T07:50:18.752Z] INFO (blocktron/3152 on Sandeep-HP): Blocktron routes initialized
+[2018-07-15T07:50:18.760Z] INFO (blocktron/3152 on Sandeep-HP): Blocktron initialized and running in development mode
+[2018-07-15T07:50:18.762Z] INFO (blocktron/3152 on Sandeep-HP): Blocktron application middlewares initialized
+[2018-07-15T07:50:18.766Z] INFO (blocktron/3152 on Sandeep-HP): Blocktron custom middlewares initialized
+[2018-07-15T07:50:18.769Z] INFO (blocktron/3152 on Sandeep-HP): Blocktron routes chained to middlewares
+[2018-07-15T07:50:18.789Z] INFO (blocktron/3152 on Sandeep-HP): Blocktron is running on port: 3000</code></pre><blockquote>
+<p><strong>Note:</strong> Logs are generated by Pino logger, it can be piped to logstash or any other log analysis programs of your choice.</p>
+</blockquote>
+<p>You can access the API through a browser or a REST console like postman. When you hit the base url:</p>
+<h3>Route: GET /</h3><p>This is the index route of the blocktron-node instance. This route can be accessed by hitting <code>http:127.0.0.1:3000/</code>. This route uses the <code>HTTP GET</code> method. </p>
+<p><strong>Request header</strong></p>
+<pre class="prettyprint source"><code>Content-Type: application/json</code></pre><p>in your REST client you will get the following response:</p>
+<pre class="prettyprint source"><code>Status: 200 OK</code></pre><p><strong>Response headers</strong> </p>
+<pre class="prettyprint source"><code>x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron</code></pre><p><strong>Body</strong></p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;message&quot;: &quot;Blocktron Node is running&quot;,
+    &quot;port&quot;: 3000,
+    &quot;status_code&quot;: 200,
+    &quot;configuration&quot;: {
+        &quot;process_title&quot;: &quot;Blocktron Node&quot;,
+        &quot;process_pid&quot;: 3152,
+        &quot;memory&quot;: {
+            &quot;resident_set_size&quot;: &quot;46.890625 MB&quot;,
+            &quot;heap_total&quot;: &quot;34.33984375 MB&quot;,
+            &quot;heap_used&quot;: &quot;15.321807861328125 MB&quot;,
+            &quot;external&quot;: &quot;0.11514663696289062 MB&quot;
+        },
+        &quot;node_id&quot;: &quot;576dd470881011e8889491bdff51cd6d&quot;,
+        &quot;node_address&quot;: &quot;http://127.0.0.1:3000&quot;,
+        &quot;environment&quot;: &quot;development&quot;,
+        &quot;os&quot;: &quot;win32&quot;,
+        &quot;cpu_arch&quot;: &quot;x64&quot;,
+        &quot;process_versions&quot;: {
+            &quot;node_version&quot;: &quot;9.4.0&quot;,
+            &quot;v8_version&quot;: &quot;6.2.414.46-node.17&quot;
+        }
+    }
+}</code></pre><p>This route gives the basic configuration information about the blocktron-node instance currently running on your machine. The response includes information like port on which the process is running, name of the process, process identifier, memory allocation and heap information, environment, operating system and platform information, and node.js information.</p>
+<h3>Route: GET /blockchain</h3><p>This route responds with the blockchain data on the current node instance. This route uses the <code>HTTP GET</code> method. </p>
+<p><strong>Request header</strong></p>
+<pre class="prettyprint source"><code>Content-Type: application/json</code></pre><p>in your REST client you will get the following response:</p>
+<pre class="prettyprint source"><code>Status: 200 OK</code></pre><p><strong>Response headers</strong> </p>
+<pre class="prettyprint source"><code>x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron</code></pre><p><strong>Body</strong></p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;chain&quot;: [{
+        &quot;index&quot;: 1,
+        &quot;timeStamp&quot;: 1531924923856,
+        &quot;transactions&quot;: [],
+        &quot;nonce&quot;: 1,
+        &quot;hash&quot;: &quot;0&quot;,
+        &quot;previousHash&quot;: &quot;0&quot;
+    }],
+    &quot;pendingTransactions&quot;: [],
+    &quot;currentNodeUrl&quot;: &quot;http://127.0.0.1:3001&quot;,
+    &quot;networkNodes&quot;: []
+}</code></pre><p>By default every blocktron-node instance will respond with the very same blockchain. The <code>chain</code> array in the response is the blockchain data. Every blockchain will have an initial block with index <code>1</code>. This block is called the <strong>Genesis Block</strong>. Consecutive blocks mined will be attached to the chain in chronological order. Each block in the chain will have the following key-values:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Key</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Default</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Index</strong></td>
+<td>The chronological position of a block in the chain</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><strong>Timestamp</strong></td>
+<td>The unix epoch timestamp at the time of creation of the block</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>transactions</strong></td>
+<td>The array representing the list of transactions</td>
+<td><code>[]</code></td>
+</tr>
+<tr>
+<td><strong>nonce</strong></td>
+<td>The 'nonsense' number genearting the valid hash of the block data</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><strong>hash</strong></td>
+<td>The hash of the block's data</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><strong>previousHash</strong></td>
+<td>The hash of the previous block</td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> The default values apply only for <strong>Genesis Block</strong></p>
+</blockquote>
+<p>The <code>pendingTransactions</code> array will hold the list of transactions before being mined. <code>currentNodeUrl</code> represents the address of the current node instance.
+<code>networkNodes</code> array holds the addressess of all the blocktron-nodes in the network.</p>
+<h3>Route: POST /registerAndBroadcastNode</h3><p>This route is used to register a new node and then broadcasting it across the distributed system. This route uses the <code>HTTP POST</code> method. </p>
+<p><strong>Request header</strong></p>
+<pre class="prettyprint source"><code>Content-Type: application/json</code></pre><p><strong>Request body</strong></p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;newNodeUrl&quot;: &quot;http://127.0.0.1:300x&quot;
+}</code></pre><p>in your REST client you will get the following response:</p>
+<pre class="prettyprint source"><code>Status: 201 Created</code></pre><p><strong>Response headers</strong> </p>
+<pre class="prettyprint source"><code>x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron</code></pre><p><strong>Body</strong></p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;code&quot;: 201,
+    &quot;message&quot;: &quot;New nodes registered with the network&quot;
+}</code></pre><p>When a node registration is successful, then newly registered node's network url will be added to all the nodes in the network, and urls of all other nodes wil be added to the networkNodes array of the newly added node. The following would be a sample blockchain representaion:</p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;chain&quot;: [{
+        &quot;index&quot;: 1,
+        &quot;timeStamp&quot;: 1531929909041,
+        &quot;transactions&quot;: [],
+        &quot;nonce&quot;: 1,
+        &quot;hash&quot;: &quot;0&quot;,
+        &quot;previousHash&quot;: &quot;0&quot;
+    }],
+    &quot;pendingTransactions&quot;: [],
+    &quot;currentNodeUrl&quot;: &quot;http://127.0.0.1:3001&quot;,
+    &quot;networkNodes&quot;: [
+        &quot;http://127.0.0.1:3002&quot;,
+        &quot;http://127.0.0.1:3004&quot;,
+        &quot;http://127.0.0.1:3003&quot;
+    ]
+}</code></pre><p>If the same request is received more than once, then the following response can be expected:</p>
+<pre class="prettyprint source"><code>Status: 409 Conflict</code></pre><p><strong>Response headers</strong> </p>
+<pre class="prettyprint source"><code>x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron</code></pre><p><strong>Body</strong></p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;status&quot;: &quot;resource conflict&quot;,
+    &quot;code&quot;: 409,
+    &quot;message&quot;: &quot;Given node url: http://127.0.0.1:3002, is already present in registry or is a conflicting value&quot;
+}</code></pre><p>Also the application logs the following line to console:</p>
+<pre class="prettyprint source lang-sh"><code>[2018-07-18T16:07:15.506Z] ERROR (blocktron/3284 on Sandeep-HP): Given url: http://127.0.0.1:3002 rejected, it is already present or is a conflicting value</code></pre><p>If the network is unable to reach a particular node when registration happens, then the following response can be expected:</p>
+<pre class="prettyprint source"><code>Status: 409 Conflict</code></pre><p><strong>Response headers</strong> </p>
+<pre class="prettyprint source"><code>x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron</code></pre><p><strong>Body</strong></p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;status&quot;: &quot;resource conflict&quot;,
+    &quot;code&quot;: 409,
+    &quot;message&quot;: &quot;Given node url: http://127.0.0.1:300x, is a conflicting value&quot;
+}</code></pre><p>and the application logs the following line to the console:</p>
+<pre class="prettyprint source lang-sh"><code>[2018-07-18T16:18:48.488Z] ERROR (blocktron/6896 on Sandeep-HP): Nodes registration failed due to: RequestError: Error: connect ECONNREFUSED 127.0.0.1:300x</code></pre><blockquote>
+<p><strong>Note: ECONNREFUSED</strong> (Connection refused): No connection could be made because the target machine actively refused it. This usually results from trying to connect to a service that is inactive on the foreign host.</p>
+</blockquote>
+<h3>Route: POST /transaction/broadcast</h3><p>This route is used to register a transaction and broadcast it among other nodes.</p>
+<p><strong>Request header</strong></p>
+<pre class="prettyprint source"><code>Content-Type: application/json</code></pre><p><strong>Request body</strong></p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;amount&quot;: 50020,
+    &quot;sender&quot;: &quot;SANDEEP3J23NJ23N&quot;,
+    &quot;receiver&quot;: &quot;NEHANJK23NRJ2K3&quot;
+}</code></pre><p>Once the request is served successfully, the following response can be expected.</p>
+<pre class="prettyprint source"><code>Status: 201 Created</code></pre><p><strong>Response header</strong></p>
+<pre class="prettyprint source"><code>x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron</code></pre><p><strong>Body</strong></p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;code&quot;: 201,
+    &quot;message&quot;: &quot;Transaction created and broadcasted successfully&quot;
+}</code></pre><p>Now the blockchain data will look similar to the following:</p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;chain&quot;: [{
+        &quot;index&quot;: 1,
+        &quot;timeStamp&quot;: 1532012395307,
+        &quot;transactions&quot;: [],
+        &quot;nonce&quot;: 1,
+        &quot;hash&quot;: &quot;0&quot;,
+        &quot;previousHash&quot;: &quot;0&quot;
+    }],
+    &quot;pendingTransactions&quot;: [{
+        &quot;transactionId&quot;: &quot;c9918db08b6411e8956069c0a2ff1a04&quot;,
+        &quot;amount&quot;: 50020,
+        &quot;sender&quot;: &quot;SANDEEP3J23NJ23N&quot;,
+        &quot;receiver&quot;: &quot;NEHANJK23NRJ2K3&quot;
+    }],
+    &quot;currentNodeUrl&quot;: &quot;http://127.0.0.1:3001&quot;,
+    &quot;networkNodes&quot;: []
+}</code></pre><p>The newly added transaction will be added to the pendingTransactions array.</p>
+<h3>Route: GET /mine</h3><p>This route is used for mining the pending transactions and add them to the blockchain.</p>
+<p><strong>Request header</strong></p>
+<pre class="prettyprint source"><code>Content-Type: application/json</code></pre><p>Once the request is served successfully, the following response can be expected.</p>
+<pre class="prettyprint source"><code>Status: 201 Created</code></pre><p><strong>Response header</strong></p>
+<pre class="prettyprint source"><code>x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron</code></pre><p><strong>Body</strong></p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;code&quot;: 201,
+    &quot;message&quot;: &quot;New block mined and broadcasted successfully&quot;,
+    &quot;blockData&quot;: {
+        &quot;index&quot;: 2,
+        &quot;timeStamp&quot;: 1532015691848,
+        &quot;transactions&quot;: [{
+                &quot;transactionId&quot;: &quot;f3ab95308b6b11e890bc5d646af74329&quot;,
+                &quot;amount&quot;: 50020,
+                &quot;sender&quot;: &quot;SANDEEP3J23NJ23N&quot;,
+                &quot;receiver&quot;: &quot;NEHANJK23NRJ2K3&quot;
+            }
+        ],
+        &quot;nonce&quot;: 110885,
+        &quot;hash&quot;: &quot;000017200806c32e29841ffd7d7f563b129f5e18a38a3e8e4ef489482fdcf9bb&quot;,
+        &quot;previousHash&quot;: &quot;0&quot;
+    }
+}</code></pre><p>And the blockchain data will look similar to the following:</p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;chain&quot;: [{
+            &quot;index&quot;: 1,
+            &quot;timeStamp&quot;: 1532015588352,
+            &quot;transactions&quot;: [],
+            &quot;nonce&quot;: 1,
+            &quot;hash&quot;: &quot;0&quot;,
+            &quot;previousHash&quot;: &quot;0&quot;
+        },
+        {
+            &quot;index&quot;: 2,
+            &quot;timeStamp&quot;: 1532015691848,
+            &quot;transactions&quot;: [{
+                &quot;transactionId&quot;: &quot;f3ab95308b6b11e890bc5d646af74329&quot;,
+                &quot;amount&quot;: 50020,
+                &quot;sender&quot;: &quot;SANDEEP3J23NJ23N&quot;,
+                &quot;receiver&quot;: &quot;NEHANJK23NRJ2K3&quot;
+            }],
+            &quot;nonce&quot;: 110885,
+            &quot;hash&quot;: &quot;000017200806c32e29841ffd7d7f563b129f5e18a38a3e8e4ef489482fdcf9bb&quot;,
+            &quot;previousHash&quot;: &quot;0&quot;
+        }
+    ],
+    &quot;pendingTransactions&quot;: [{
+        &quot;transactionId&quot;: &quot;128a1c108b6c11e890bc5d646af74329&quot;,
+        &quot;amount&quot;: 12.5,
+        &quot;sender&quot;: &quot;00BLOCKTRON&quot;,
+        &quot;receiver&quot;: &quot;00BLOCKTRON&quot;
+    }],
+    &quot;currentNodeUrl&quot;: &quot;http://127.0.0.1:3001&quot;,
+    &quot;networkNodes&quot;: [
+        &quot;http://127.0.0.1:3002&quot;
+    ]
+}</code></pre><p>Now you can observe that the pendingTransactions array contains a transaction with amount <strong>12.5 units</strong>. This is the <strong>mining reward</strong> provided by the <strong>Blocktron-node</strong></p>
+<h3>Route: GET/consensus</h3><p>This route can be used to validate the entire blockchain against all the chains in the network and reach consensus based on the <strong>Longest rule algorithm</strong>.</p>
+<p><strong>Request header</strong></p>
+<pre class="prettyprint source"><code>Content-Type: application/json</code></pre><p><strong>Response header</strong></p>
+<pre class="prettyprint source"><code>x-blocktron-Accept-Charset: UTF-8
+x-blocktron-Accept-Language: en
+x-blocktron-host-uuid: cd2ac140880711e8b6608d43a43507f6
+x-blocktron-response-timestamp: 1531641455416
+x-powered-by: blocktron</code></pre><p>Assuming the consensus route is hit from a newly added node, The following response can be observed, if successful:</p>
+<p><strong>body</strong></p>
+<pre class="prettyprint source lang-js"><code>{
+    &quot;status&quot;: &quot;Chain replaced&quot;,
+    &quot;code&quot;: 201,
+    &quot;message&quot;: &quot;Current blockchain has been replaced&quot;,
+    &quot;blockchain&quot;: [
+        {
+            &quot;index&quot;: 1,
+            &quot;timeStamp&quot;: 1532099906418,
+            &quot;transactions&quot;: [],
+            &quot;nonce&quot;: 1,
+            &quot;hash&quot;: &quot;0&quot;,
+            &quot;previousHash&quot;: &quot;0&quot;
+        },
+        {
+            &quot;index&quot;: 2,
+            &quot;timeStamp&quot;: 1532099983752,
+            &quot;transactions&quot;: [],
+            &quot;nonce&quot;: 18140,
+            &quot;hash&quot;: &quot;0000b9135b054d1131392c9eb9d03b0111d4b516824a03c35639e12858912100&quot;,
+            &quot;previousHash&quot;: &quot;0&quot;
+        },
+        {
+            &quot;index&quot;: 3,
+            &quot;timeStamp&quot;: 1532099986120,
+            &quot;transactions&quot;: [
+                {
+                    &quot;transactionId&quot;: &quot;547ee0008c3011e88cf195a8aa7e7eda&quot;,
+                    &quot;amount&quot;: 12.5,
+                    &quot;sender&quot;: &quot;00BLOCKTRON&quot;,
+                    &quot;receiver&quot;: &quot;260b8c508c3011e88cf195a8aa7e7eda&quot;
+                }
+            ],
+            &quot;nonce&quot;: 31235,
+            &quot;hash&quot;: &quot;00004d2fc19892ed16733a986f7c3b8f4874a2a1a3aaf8cd0f927bbcd4593a29&quot;,
+            &quot;previousHash&quot;: &quot;0000b9135b054d1131392c9eb9d03b0111d4b516824a03c35639e12858912100&quot;
+        },
+        {
+            &quot;index&quot;: 4,
+            &quot;timeStamp&quot;: 1532099989254,
+            &quot;transactions&quot;: [
+                {
+                    &quot;transactionId&quot;: &quot;55d680c08c3011e88cf195a8aa7e7eda&quot;,
+                    &quot;amount&quot;: 12.5,
+                    &quot;sender&quot;: &quot;00BLOCKTRON&quot;,
+                    &quot;receiver&quot;: &quot;260b8c508c3011e88cf195a8aa7e7eda&quot;
+                }
+            ],
+            &quot;nonce&quot;: 117330,
+            &quot;hash&quot;: &quot;00006509a6dcdb11f5f7b08b6c9eacfdeeed2975b13152774d4c1cd9e0edfa75&quot;,
+            &quot;previousHash&quot;: &quot;00004d2fc19892ed16733a986f7c3b8f4874a2a1a3aaf8cd0f927bbcd4593a29&quot;
+        }
+    ]
+}</code></pre><p>As represented the response says <code>chain replaced</code>, which means the node has reached consensus with the distributed system. If the route is hit more than once, the response says <code>Not Modified</code>.</p>
+<h2>Tests</h2><p>This project follows a <strong>Test Driven Development (TDD)</strong>. Unit tests are written using <strong>Jest</strong>, an opensource testing and code coverage framework from facebook opensource. Test spec files can be found inside the test folder. Tests can be run by the command:</p>
+<pre class="prettyprint source lang-sh"><code>npm run test</code></pre><blockquote>
+<p><strong>Note:</strong> This includes code/test coverage report also</p>
+</blockquote>
+<h2>Continuous Integration</h2><p>Continuous Integration services monitor repositories for changes, then automatically run unit tests on your behalf, typically in a containerized environment. To test this setup works in a continuous integration environment, an integration was done with <a href="https://travis-ci.org/">Travis CI</a> &amp; <a href="https://circleci.com/">CircleCI</a>. According to the <a href="http://docs.travis-ci.com/user/languages/javascript-with-nodejs/">Travis Node.js Documentation</a>, Travis automatically runs <code>npm install</code> and <code>npm test</code>. The only additional thing I had to add to the Travis configuration was to run <code>npm run build</code> before running the tests. The working Travis config looks like this:</p>
 <pre class="prettyprint source lang-yml"><code>language: node_js
 
 node_js:
@@ -146,7 +606,7 @@ jobs:
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jul 12 2018 21:55:08 GMT+0530 (India Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 20 2018 21:06:05 GMT+0530 (India Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

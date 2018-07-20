@@ -22,6 +22,7 @@
 * [API Reference](#api-reference)
   * [Running blocktron-node](#running-blocktron-node)
   * [Route: GET /](#route-get-)
+  * [Route: GET /docs]()
   * [Route: GET /blockchain](#route-get-blockchain)
   * [Route: POST /registerAndBroadcastNode](#route-post-registerandbroadcastnode)
   * [Route: POST /transaction/broadcast](#route-post-transactionbroadcast)
@@ -240,6 +241,9 @@ x-powered-by: blocktron
 }
 ```
 This route gives the basic configuration information about the blocktron-node instance currently running on your machine. The response includes information like port on which the process is running, name of the process, process identifier, memory allocation and heap information, environment, operating system and platform information, and node.js information.
+
+### Route: GET /docs
+This route displays the code documentation. Detailed information about the blocktron-node codebase can be seen here.
 
 ### Route: GET /blockchain
 This route responds with the blockchain data on the current node instance. This route uses the `HTTP GET` method. 

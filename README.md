@@ -674,6 +674,16 @@ npm run test
 ```
 > **Note:** This includes code/test coverage report also
 
+## Adding Nodes
+The blocktron distributed system can have `n` number of nodes in its network. Further nodes can be added by the following steps:
+* Enter the new node to the package.json scripts object
+  * `"node_x": "nodemon ./dist/main.min.js 300x http://127.0.0.1:300x"`
+  * here `x` stands for the port number
+  * its not neccessary to use `300x` series. Any valid port number can be used.
+  * `nodemon` is not neccessary, but is helpful for development.
+* New node can be run by the command `npm run node_x`.
+* Then use the Route: POST /registerAndBroadcastNode to register the new node to the network.
+
 ## Continuous Integration
 Continuous Integration services monitor repositories for changes, then automatically run unit tests on your behalf, typically in a containerized environment. To test this setup works in a continuous integration environment, an integration was done with [Travis CI](https://travis-ci.org/) & [CircleCI](https://circleci.com/). According to the [Travis Node.js Documentation](http://docs.travis-ci.com/user/languages/javascript-with-nodejs/), Travis automatically runs `npm install` and `npm test`. The only additional thing I had to add to the Travis configuration was to run `npm run build` before running the tests. The working Travis config looks like this:
 

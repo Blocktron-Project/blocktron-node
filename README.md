@@ -26,6 +26,7 @@
   * [Route: POST /registerAndBroadcastNode](#route-post-registerandbroadcastnode)
   * [Route: POST /transaction/broadcast](#route-post-transactionbroadcast)
   * [Route: GET /mine](#route-post-transactionbroadcast)
+  * [Route: GET/consensus](#route-getconsensus)
 * [Tests](#tests)
 * [Continuous Integration](#continuous-integration)
 * [Contributing](#contributing)
@@ -661,8 +662,6 @@ Assuming the consensus route is hit from a newly added node, The following respo
 }
 ```
 As represented the response says `chain replaced`, which means the node has reached consensus with the distributed system. If the route is hit more than once, the response says `Not Modified`.
-
-`updating soon`
 
 ## Tests
 This project follows a **Test Driven Development (TDD)**. Unit tests are written using **Jest**, an opensource testing and code coverage framework from facebook opensource. Test spec files can be found inside the test folder. Tests can be run by the command:

@@ -80,24 +80,19 @@ class Blocktron extends BlocktronLib {
      * @returns {Object} - Returns the transaction object
      */
     createNewTransaction(amount, sender, receiver) {
+
         /**
          * Validate the parameters
          */
-        amount = amount ?
-            amount :
-            (function () {
-                throw new Error('Amount required');
-            })();
-        sender = sender ?
-            sender :
-            (function () {
-                throw new Error('Sender required');
-            })();
-        receiver = receiver ?
-            receiver :
-            (function () {
-                throw new Error('receiver required');
-            })();
+        amount = amount ? amount : (function () {
+            throw new Error('Amount required');
+        })();
+        sender = sender ? sender : (function () {
+            throw new Error('Sender required');
+        })();
+        receiver = receiver ? receiver : (function () {
+            throw new Error('receiver required');
+        })();
 
         /**
          * @type {Object}

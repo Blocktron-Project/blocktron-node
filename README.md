@@ -22,7 +22,7 @@
 * [API Reference](#api-reference)
   * [Running blocktron-node](#running-blocktron-node)
   * [Route: GET /](#route-get-)
-  * [Route: GET /docs]()
+  * [Route: GET /docs](#route-get-docs)
   * [Route: GET /blockchain](#route-get-blockchain)
   * [Route: POST /registerAndBroadcastNode](#route-post-registerandbroadcastnode)
   * [Route: POST /transaction/broadcast](#route-post-transactionbroadcast)

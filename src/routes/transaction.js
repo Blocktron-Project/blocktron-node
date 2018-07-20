@@ -1,6 +1,6 @@
 /**
  * blocktron transaction router and controller
- * @module routers:transactionRoute
+ * @module routers:transactionRouter
  */
 const express = require('express');
 const transactionRouter = express.Router();
@@ -9,7 +9,7 @@ const transactionRouter = express.Router();
  * POST a transaction
  * @function
  * @name post/transaction
- * @memberof routers:transactionRoute
+ * @memberof routers:transactionRouter
  * @param {String} path - Express route path
  * @param {Callback} middleware - Express middleware callback
  */
@@ -27,7 +27,7 @@ transactionRouter.post('/', (req, res, next) => {
          * Construct the response object and send it
          * @const response
          * @type {Object}
-         * @memberof routers:transactionRoute
+         * @memberof routers:transactionRouter
          * @param {String} status - The status of the operation
          * @param {Number} code - The HTTP response status code
          * @param {String} message - The message string

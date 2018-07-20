@@ -1,6 +1,6 @@
 /**
  * register and broadcast nodes router and controller
- * @module routers:registerAndBroadcastRoute
+ * @module routers:registerAndBroadcastRouter
  */
 const express = require('express');
 const registerAndBroadcastRouter = express.Router();
@@ -18,7 +18,7 @@ const request = require('request-promise');
  * POST a url to register and broadcast it to other nodes
  * @function
  * @name post/registerAndBroadcast
- * @memberof routers:registerAndBroadcastRoute
+ * @memberof routers:registerAndBroadcastRouter
  * @param {String} path - Express route path
  * @param {Callback} middleware - Express middleware callback
  */
@@ -60,7 +60,7 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
                    * Construct the options for request-promise
                    * @const requestOptions
                    * @type {Object}
-                   * @memberof routers:registerAndBroadcastRoute
+                   * @memberof routers:registerAndBroadcastRouter
                    * @param {String} uri - The uri to request to
                    * @param {String} method - The HTTP method to use
                    * @param {Object} body - The request body object
@@ -90,7 +90,7 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
                          * Construct the bulk registration request and send it
                          * @const bulkRegisterOptions
                          * @type {Object}
-                         * @memberof routers:registerAndBroadcastRoute
+                         * @memberof routers:registerAndBroadcastRouter
                          * @param {String} uri - The uri to request to
                          * @param {String} method - The HTTP method to use
                          * @param {Object} body - The request body object
@@ -120,7 +120,7 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
                          * Construct the reponse and send it
                          * @const response
                          * @type {Object}
-                         * @memberof routers:registerAndBroadcastRoute
+                         * @memberof routers:registerAndBroadcastRouter
                          * @param {String} status - The status of the operation
                          * @param {Number} code - The HTTP response status code
                          * @param {String} message - The message string
@@ -147,7 +147,7 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
                          * Construct response and send it
                          * @const response
                          * @type {Object}
-                         * @memberof routers:registerAndBroadcastRoute
+                         * @memberof routers:registerAndBroadcastRouter
                          * @param {String} status - The status of the operation
                          * @param {Number} code - The HTTP response status code
                          * @param {String} message - The message string
@@ -170,7 +170,7 @@ registerAndBroadcastRouter.post('/', (req, res, next) => {
              * Construct response and send it
              * @const response
              * @type {Object}
-             * @memberof routers:registerAndBroadcastRoute
+             * @memberof routers:registerAndBroadcastRouter
              * @param {String} status - The status of the operation
              * @param {Number} code - The HTTP response status code
              * @param {String} message - The message string

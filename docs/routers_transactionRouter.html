@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: routers:mineRouter</title>
+    <title>JSDoc: Module: routers:transactionRouter</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: routers:mineRouter</h1>
+    <h1 class="page-title">Module: routers:transactionRouter</h1>
 
     
 
@@ -34,7 +34,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>blocktron mine router and controller</p></div>
+            <div class="description"><p>blocktron transaction router and controller</p></div>
         
 
         
@@ -69,7 +69,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_mine.js.html">src/routes/mine.js</a>, <a href="src_routes_mine.js.html#line1">line 1</a>
+        <a href="src_routes_transaction.js.html">src/routes/transaction.js</a>, <a href="src_routes_transaction.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -102,18 +102,177 @@
 
         
             
-<h4 class="name" id="~request"><span class="type-signature">(inner, constant) </span>request<span class="type-signature"></span></h4>
+<h4 class="name" id=".response"><span class="type-signature">(static, constant) </span>response<span class="type-signature"> :Object</span></h4>
 
 
 
 
 <div class="description">
-    <p>The simplified HTTP request client 'request' with Promise support.
-Powered by Bluebird.
-<code>request-promise</code> returns regular Promises/A+ compliant promises
-and can be assimilated by any compatible promise library.</p>
+    <p>Construct the response object and send it</p>
 </div>
 
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_routes_transaction.js.html">src/routes/transaction.js</a>, <a href="src_routes_transaction.js.html#line26">line 26</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".post/transaction"><span class="type-signature">(static) </span>post/transaction<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>POST a transaction</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express route path</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>middleware</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Callback</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Express middleware callback</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -149,19 +308,12 @@ and can be assimilated by any compatible promise library.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_mine.js.html">src/routes/mine.js</a>, <a href="src_routes_mine.js.html#line15">line 15</a>
+        <a href="src_routes_transaction.js.html">src/routes/transaction.js</a>, <a href="src_routes_transaction.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
     
 
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="https://www.npmjs.com/package/request-promise">Request-Promise</a></li>
-        </ul>
-    </dd>
     
 
     
@@ -172,9 +324,19 @@ and can be assimilated by any compatible promise library.</p>
 
 
 
-        
-    
 
+
+
+
+
+
+
+
+
+
+
+
+        
     
 
     

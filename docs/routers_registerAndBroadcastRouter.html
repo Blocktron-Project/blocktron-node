@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: routers:consensusRouter</title>
+    <title>JSDoc: Module: routers:registerAndBroadcastRouter</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: routers:consensusRouter</h1>
+    <h1 class="page-title">Module: routers:registerAndBroadcastRouter</h1>
 
     
 
@@ -34,7 +34,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>Consensus router and controller</p></div>
+            <div class="description"><p>register and broadcast nodes router and controller</p></div>
         
 
         
@@ -69,7 +69,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line1">line 1</a>
+        <a href="src_routes_registerAndBroadcastNode.js.html">src/routes/registerAndBroadcastNode.js</a>, <a href="src_routes_registerAndBroadcastNode.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -102,13 +102,13 @@
 
         
             
-<h4 class="name" id=".response"><span class="type-signature">(static, constant) </span>response<span class="type-signature"> :Object</span></h4>
+<h4 class="name" id=".bulkRegisterOptions"><span class="type-signature">(static, constant) </span>bulkRegisterOptions<span class="type-signature"> :Object</span></h4>
 
 
 
 
 <div class="description">
-    <p>Construct the response object and send it</p>
+    <p>Construct the bulk registration request and send it</p>
 </div>
 
 
@@ -156,7 +156,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line122">line 122</a>
+        <a href="src_routes_registerAndBroadcastNode.js.html">src/routes/registerAndBroadcastNode.js</a>, <a href="src_routes_registerAndBroadcastNode.js.html#line89">line 89</a>
     </li></ul></dd>
     
 
@@ -174,13 +174,13 @@
 
         
             
-<h4 class="name" id=".response"><span class="type-signature">(static, constant) </span>response<span class="type-signature"> :Object</span></h4>
+<h4 class="name" id=".requestOptions"><span class="type-signature">(static, constant) </span>requestOptions<span class="type-signature"> :Object</span></h4>
 
 
 
 
 <div class="description">
-    <p>Construct the response object and send it</p>
+    <p>Construct the options for request-promise</p>
 </div>
 
 
@@ -228,7 +228,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line157">line 157</a>
+        <a href="src_routes_registerAndBroadcastNode.js.html">src/routes/registerAndBroadcastNode.js</a>, <a href="src_routes_registerAndBroadcastNode.js.html#line59">line 59</a>
     </li></ul></dd>
     
 
@@ -246,16 +246,26 @@
 
         
             
-<h4 class="name" id="~maximumChainLength"><span class="type-signature">(inner) </span>maximumChainLength<span class="type-signature"></span></h4>
+<h4 class="name" id=".response"><span class="type-signature">(static, constant) </span>response<span class="type-signature"> :Object</span></h4>
 
 
 
 
 <div class="description">
-    <p>Replace new maximum chain length with largest blockchain length</p>
+    <p>Construct the reponse and send it</p>
 </div>
 
 
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
 
 
 
@@ -290,7 +300,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line91">line 91</a>
+        <a href="src_routes_registerAndBroadcastNode.js.html">src/routes/registerAndBroadcastNode.js</a>, <a href="src_routes_registerAndBroadcastNode.js.html#line119">line 119</a>
     </li></ul></dd>
     
 
@@ -308,16 +318,26 @@
 
         
             
-<h4 class="name" id="~newLongestChain"><span class="type-signature">(inner) </span>newLongestChain<span class="type-signature"></span></h4>
+<h4 class="name" id=".response"><span class="type-signature">(static, constant) </span>response<span class="type-signature"> :Object</span></h4>
 
 
 
 
 <div class="description">
-    <p>Replace largest blockchain as the new longest chain</p>
+    <p>Construct response and send it</p>
 </div>
 
 
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
 
 
 
@@ -352,7 +372,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line96">line 96</a>
+        <a href="src_routes_registerAndBroadcastNode.js.html">src/routes/registerAndBroadcastNode.js</a>, <a href="src_routes_registerAndBroadcastNode.js.html#line146">line 146</a>
     </li></ul></dd>
     
 
@@ -370,16 +390,26 @@
 
         
             
-<h4 class="name" id="~newPendingTransactions"><span class="type-signature">(inner) </span>newPendingTransactions<span class="type-signature"></span></h4>
+<h4 class="name" id=".response"><span class="type-signature">(static, constant) </span>response<span class="type-signature"> :Object</span></h4>
 
 
 
 
 <div class="description">
-    <p>Replace pending transactions list with the largest blockchain's pending transactions list</p>
+    <p>Construct response and send it</p>
 </div>
 
 
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
 
 
 
@@ -414,7 +444,80 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line101">line 101</a>
+        <a href="src_routes_registerAndBroadcastNode.js.html">src/routes/registerAndBroadcastNode.js</a>, <a href="src_routes_registerAndBroadcastNode.js.html#line169">line 169</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="~notCurrentNode"><span class="type-signature">(inner, constant) </span>notCurrentNode<span class="type-signature"> :Boolean</span></h4>
+
+
+
+
+<div class="description">
+    <p>Check whether current node's url is equal to new node url
+if not equal, constant holds a 'true'</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Boolean</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="src_routes_registerAndBroadcastNode.js.html">src/routes/registerAndBroadcastNode.js</a>, <a href="src_routes_registerAndBroadcastNode.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -479,7 +582,7 @@ and can be assimilated by any compatible promise library.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line15">line 15</a>
+        <a href="src_routes_registerAndBroadcastNode.js.html">src/routes/registerAndBroadcastNode.js</a>, <a href="src_routes_registerAndBroadcastNode.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -514,7 +617,7 @@ and can be assimilated by any compatible promise library.</p>
     
 
     
-    <h4 class="name" id=".get/consensus"><span class="type-signature">(static) </span>get/consensus<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".post/registerAndBroadcast"><span class="type-signature">(static) </span>post/registerAndBroadcast<span class="signature">(path, middleware)</span><span class="type-signature"></span></h4>
     
 
     
@@ -522,8 +625,7 @@ and can be assimilated by any compatible promise library.</p>
 
 
 <div class="description">
-    <p>Check for consensus and update blockchains
-This implementation uses the popular 'Longest chain rule' algorithm.</p>
+    <p>POST a url to register and broadcast it to other nodes</p>
 </div>
 
 
@@ -639,7 +741,7 @@ This implementation uses the popular 'Longest chain rule' algorithm.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_routes_consensus.js.html">src/routes/consensus.js</a>, <a href="src_routes_consensus.js.html#line17">line 17</a>
+        <a href="src_routes_registerAndBroadcastNode.js.html">src/routes/registerAndBroadcastNode.js</a>, <a href="src_routes_registerAndBroadcastNode.js.html#line17">line 17</a>
     </li></ul></dd>
     
 

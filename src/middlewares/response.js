@@ -29,7 +29,7 @@ const enhanceResponse = (req, res, next) => {
             res.append('x-blocktron-Accept-Charset', 'UTF-8');
             res.append('x-blocktron-Accept-Language', 'en');
             res.append('x-blocktron-response-timestamp', `${Date.now()}`);
-            res.append('x-blocktron-host-uuid', `${_bt_config.blocktronNodeAddress}`);
+            res.append('x-blocktron-host-uuid', `${_bt_config.blocktronNodeId}`);
         } catch (error) {
             log.error(`Header appendage failed due to: ${error}`);
         }

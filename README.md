@@ -87,7 +87,30 @@ In order to create a secure consensus protocol, it must be fault tolerant.
 
 Blockchains are decentralized ledgers which, by definition, are not controlled by a central authority. Due to the value stored in these ledgers, bad actors have huge economic incentives to try and cause faults. That said, Byzantine Fault Tolerance, and thus a solution to the Byzantine Generals’ Problem for blockchains is much needed.
 
-In the absence of BFT, a peer is able to transmit and post false transactions effectively nullifying the blockchain’s reliability. To make things worse, there is no central authority to take over and repair the damage.
+In the absence of BFT, a peer is able to transmit and post false transactions effectively nullifying the blockchain’s reliability. To make things worse, there is no central authority to take over and repair the damage. Inorder to address this issue, blocktron follows the standard consensus protocol called **Proof Of Work (PoW)**. It's an  opinionated, standardized, and universally approved blockchain consensus method to validate random blocks added to the blockchain. The Proof of work algorithm used in this framework is implemented in the [blocktron-lib](https://github.com/Blocktron-Project/blocktron-lib) library as follows:
+
+* Repeatedly hash the block data until it reaches the difficulty format: '0000'.
+* Uses current block data as well as previous block hash.
+* Continuously change the nonce until the correct hash is obtained.
+* Return the nonce value which generates the correct hash. The proofOfWork algorithm runs to a complexity of **`O(n)`**.
+
+**Algorithm**
+
+```
+ProofOfWork()
+Input <previousBlockHash>, <currentBlockData>, DIFFICULTY
+Output <nonce>
+
+START
+SET nonce = 0
+GET hashString = hashBlock(previousBlockHash, currentBlockData, nonce)
+	DO nonce++
+	   hashString = hashBlock(previousBlockHash, currentBlockData, nonce)
+
+	WHILE hashString.substring(0, DIFFICULTY) !== REPEAT('0') x DIFFICULTY 
+END
+```
+The result of this proof of work method is a number which is the nonce which generates the correct hash of the format '0000<Hash>'. This nonce when used to generate a hash will generate the correctly formated hash, thus making it the proof we need. This is secure because, the algorithm has to run `xxxx` (large number) times to generate the correct hash, in this case. This is a time consuming and resource intensive process, Thus when someone tries to tamper the integrity of a blockchain, they have to rebuild the entire blockchain using this proof of work algorithm to generate correct hash and nonce combination for the entire blockchain, which is impossible.
 
 ## Getting Started
 You can grab a copy of blocktron-node from github either by cloning or downloading the zip. clones can be created using the command:

@@ -15,6 +15,7 @@
 * [Build Status](#build-status)
 * [Technology Stack](#technology-stack)
 * [Why JavaScript & Node.js](#why-javascript--nodejs)
+* [Blocktron & Byzantine Fault Tolerance (BFT)]()
 * [Getting Started](#getting-started)
 * [Installation](#installation)
 * [Dependency](#dependency)
@@ -39,7 +40,7 @@
 <!--te-->
 
 ## Motivation
-The **blockchain** is an undeniably ingenious invention – the brainchild of a person or group of people known by the pseudonym,  `Satoshi Nakamoto`. But since then, it has evolved into something greater, and the main question every single person is asking is: What is Blockchain? By allowing digital information to be distributed but not copied, blockchain technology created the backbone of a new type of internet. Originally devised for the digital currency, Bitcoin, the tech community is now finding other potential uses for the technology.
+The **blockchain** is an undeniably ingenious invention – the brainchild of a person or group of people known by the pseudonym,  **`Satoshi Nakamoto`**. But since then, it has evolved into something greater, and the main question every single person is asking is: **What is Blockchain?** By allowing digital information to be distributed but not copied, blockchain technology created the backbone of a new type of internet. Originally devised for the digital currency, Bitcoin, the tech community is now finding other potential uses for the technology.
 
 As a computer engineer, I am passionate about solving different problems the world is facing today, through softwares, computing and other digital systems, to enhance the world as a better place for humanity. And blockchain has got a lot of attention in the recent years through the rise of certain Dapps platforms and obviously due to the hike in the value of bitcoins. Now the mission of **Blocktron project** is to contribute to that situation by developing blockchain technology to its next level and make it available to the world in its most simple and efficient form, so that the world can make the most of it.
 
@@ -67,10 +68,26 @@ Blocktron project is built with the following technologies:
 Read more about blocktron stack from [here](https://stackshare.io/blocktron/blocktron)
 
 ## Why JavaScript & Node.js
-**Javascript**, often refered as **js**, is a high level, multi-paradigm, Object-based, event-driven, interpreted programming language. It first appeared in 4th december 1995, 22 years ago. It's also charecterized as dynamic, weakly-typed and prototypal inheritance based language. It was exclusivley created for the web. Its one of the three core technologies which makes the world wide web. Javascript contributes to the interactions on the web pages. Node.js is the opensource, cross-platform javascript runtime environment that can execute javascript code outside the browser environment. It helps developers to build systems for the server side and command line applications using the regular javascript language. Unlike other programming languages Node.js (Javascript) is a lot different. Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world. Every browser has a JavaSript engine built in it to process JavaScript files contained in websites. Google Chrome uses V8 engine which is built using C++. 
+**Javascript**, often refered as **js**, is a high level, multi-paradigm, Object-based, event-driven, interpreted programming language. It first appeared in 4th december 1995, 22 years ago. It's also charecterized as dynamic, weakly-typed and prototypal inheritance based language. It was exclusivley created for the web. Its one of the three core technologies which makes the world wide web. Javascript contributes to the interactions on the web pages. Node.js is the opensource, cross-platform javascript runtime environment that can execute javascript code outside the browser environment. It helps developers to build systems for the server side and command line applications using the regular javascript language. Unlike other programming languages Node.js (Javascript) is a lot different. Node.js is a JavaScript runtime built on **Chrome’s V8 JavaScript engine**. Node.js uses an **event-driven, non-blocking I/O model that makes it lightweight and efficient**. Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world. Every browser has a JavaSript engine built in it to process JavaScript files contained in websites. Google Chrome uses V8 engine which is **built using C++**. 
+
 <img src="https://cdn-images-1.medium.com/max/1600/1*AKKvE3QmN_ZQmEzSj16oXg.png" height=300 alt="v8logo">
 
-Node.js also uses this super-fast engine to interpret JavaScript files. Node.js uses an event-driven model. This means that Node.js waits for certain events to take place. It then acts on those events. Events can be anything from a click to a HTTP request. We can also declare our own custom events and make node.js listen for those events. Node.js uses a non-blocking I/O model. We know that I/O tasks take much longer than processing tasks. Node.js uses callback functions to handle such requests. V8 was first designed to increase the performance of JavaScript execution inside web browsers. In order to obtain speed, V8 translates JavaScript code into more efficient machine code instead of using an interpreter. It compiles JavaScript code into machine code at execution by implementing a JIT (Just-In-Time) compiler like a lot of modern JavaScript engines do such as SpiderMonkey or Rhino (Mozilla). The main difference here is that V8 doesn’t produce bytecode or any intermediate code. You can read more about V8 and its internals from the medium post by [sessionstack](https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e)
+Node.js also uses this super-fast engine to interpret JavaScript files. Node.js uses an event-driven model. This means that Node.js waits for certain events to take place. It then acts on those events. Events can be anything from a click to a HTTP request. We can also declare our own custom events and make node.js listen for those events. Node.js uses a non-blocking I/O model. We know that I/O tasks take much longer than processing tasks. Node.js uses callback functions to handle such requests. V8 was first designed to increase the performance of JavaScript execution inside web browsers. In order to obtain speed, **V8 translates JavaScript code into more efficient machine code instead of using an interpreter**. It compiles JavaScript code into machine code at execution by implementing a **JIT (Just-In-Time) compiler** like a lot of modern JavaScript engines do such as SpiderMonkey or Rhino (Mozilla). The main difference here is that **V8 doesn’t produce bytecode or any intermediate code**. You can read more about V8 and its internals from the medium post by [sessionstack](https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e).
+
+## Blocktron & Byzantine Fault Tolerance (BFT)
+Blockchains are inherently **decentralized, distributed systems** which consist of different actors (nodes) who act depending on their incentives and on the information that is available to them. Whenever a new transaction gets broadcasted across the network, nodes have the option to include that transaction to their copy of their [ledger](https://en.wikipedia.org/wiki/Ledger) (blockchain) or to ignore it. When the majority of the actors which comprise the network decide on a single state, **consensus** is achieved.
+
+A **fundamental problem in distributed computing** and multi-agent systems is to achieve overall system reliability in the presence of a number of faulty processes. This often requires processes to agree on some data value that is needed during computation. These processes are described as consensus. Now the questions arises:
+* What happens when an actor decides to not follow the rules and to tamper with the state of his ledger?
+* What happens when these actors are a large part of the network, but not the majority?
+
+In order to create a secure consensus protocol, it must be fault tolerant.
+
+**Byzantine Fault Tolerance (BFT)** is the characteristic which defines a system that tolerates the class of failures that belong to the `Byzantine Generals’ Problem`. Byzantine Failure is the most difficult class of failure modes. It implies no restrictions, and makes no assumptions about the kind of behavior a node can have (e.g. a node can generate any kind of arbitrary data while posing as an honest actor). Byzantine Faults are the most severe and difficult to deal with. Byzantine Fault Tolerance has been needed in airplane engine systems, nuclear power plants and pretty much any system whose actions depend on the results of a large amount of sensors. 
+
+Blockchains are decentralized ledgers which, by definition, are not controlled by a central authority. Due to the value stored in these ledgers, bad actors have huge economic incentives to try and cause faults. That said, Byzantine Fault Tolerance, and thus a solution to the Byzantine Generals’ Problem for blockchains is much needed.
+
+In the absence of BFT, a peer is able to transmit and post false transactions effectively nullifying the blockchain’s reliability. To make things worse, there is no central authority to take over and repair the damage.
 
 ## Getting Started
 You can grab a copy of blocktron-node from github either by cloning or downloading the zip. clones can be created using the command:
@@ -590,7 +607,7 @@ And the blockchain data will look similar to the following:
 Now you can observe that the pendingTransactions array contains a transaction with amount **12.5 units**. This is the **mining reward** provided by the **Blocktron-node**
 
 ### Route: GET/consensus
-This route can be used to validate the entire blockchain against all the chains in the network and reach consensus based on the **Longest rule algorithm**.
+This route can be used to validate the entire blockchain against all the chains in the network and reach consensus based on the **Longest rule algorithm**. This consensus approach is essential for a blockchain system or generally any distributed system to ensure **Byzantine fault tolerance**.
 
 **Request header**
 

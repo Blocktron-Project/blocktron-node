@@ -629,7 +629,7 @@ And the blockchain data will look similar to the following:
 ```
 Now you can observe that the pendingTransactions array contains a transaction with amount **12.5 units**. This is the **mining reward** provided by the **Blocktron-node**
 
-### Route: GET/consensus
+### Route: GET /consensus
 This route can be used to validate the entire blockchain against all the chains in the network and reach consensus based on the **Longest rule algorithm**. This consensus approach is essential for a blockchain system or generally any distributed system to ensure **Byzantine fault tolerance**.
 
 **Request header**
@@ -717,7 +717,7 @@ The blocktron distributed system can have `n` number of nodes in its network. Fu
   * `nodemon` is not neccessary, but is helpful for development.
 * New node can be run by the command `npm run node_x`.
 * Then use the [Route: POST /registerAndBroadcastNode](#route-post-registerandbroadcastnode) to register the new node to the network.
-
+> **Note: ** You must follow a consistent naming pattern for the nodes url, otherwise url conflicts could arise.
 
 ## Tests
 This project follows a **Test Driven Development (TDD)**. Unit tests are written using **Jest**, an opensource testing and code coverage framework from facebook opensource. Test spec files can be found inside the test folder. Tests can be run by the command:

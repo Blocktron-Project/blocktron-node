@@ -26,6 +26,11 @@ let currentNodeUrl;
 currentNodeUrl = process.argv[3] ? process.argv[3] : '';
 
 /**
+ * Import global blocktron configuration
+ */
+let _bt_config = require('../../config/blocktron');
+
+/**
  * The blocktron-lib class enhanced
  * @class Blocktron
  * @classdesc A module to enhance the blocktron-lib data structure library

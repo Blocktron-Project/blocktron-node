@@ -5,3 +5,4 @@
 4. Blockchain explorer
 5. Dynamic difficulty
 6. Timestamp dependent PoW. 
+7. Wallet support

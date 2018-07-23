@@ -29,13 +29,17 @@ const blocktronNodeId = uuid()
  * @param {String} blocktronNodeId - The unique identifier for a single instance of this app
  * @param {String} rewardSenderAddress - The address label for this particular instance for reward process
  * @param {Number} rewardValue - The default global reward value
+ * @param {Number} difficulty - The default 'DIFFICULTY' value
+ * @param {Number} mineRate - The default mine rate in milli seconds
  */
 const _bt_config = {
    appTitle: 'Blocktron Node',
    defaultAppPort: 3000,
    blocktronNodeId: blocktronNodeId,
    rewardSenderAddress: '00BLOCKTRON',
-   rewardValue: 12.5
+   rewardValue: 12.5,
+   difficulty: 4,
+   mineRate: 4000
 };
 
 module.exports = _bt_config;

@@ -189,9 +189,9 @@ class Blocktron extends BlocktronLib {
                 );
 
                 /**
-                 * Check the generated hash for '0000' substring pattern
+                 * Check the generated hash for substring difficulty pattern (default is '0000')
                  */
-                if (blockHash.substring(0, 4) !== '0000') {
+                if (blockHash.substring(0, _bt_config.difficulty) !== '0'.repeat(_bt_config.difficulty)) {
                     /**
                      * If not, then chain is invalid
                      */

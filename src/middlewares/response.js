@@ -28,7 +28,7 @@ const enhanceResponse = (req, res, next) => {
      * @function enableCORS
      * @inner
      */
-    (enableCORS = () => {
+    (function enableCORS(){
         try {
             res.header('Access-Control-Allow-Origin', '*');
             res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -45,7 +45,7 @@ const enhanceResponse = (req, res, next) => {
      * @function appendHeader
      * @inner
      */
-    (appendHeader = () => {
+    (function appendHeader(){
         try {
             res.append('x-powered-by', 'blocktron');
             res.append('x-blocktron-Accept-Charset', 'UTF-8');

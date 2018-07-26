@@ -124,7 +124,7 @@ log.info('Blocktron custom middlewares initialized');
  * Add routes to the middleware chain
  * @memberof blocktronNode
  */
-blocktronNode.use(icon(path.join('docs', 'favicon.ico')));
+blocktronNode.use(icon(path.join(__dirname, '..', 'docs', 'favicon.ico')));
 blocktronNode.use('/', indexRouter);
 blocktronNode.use('/docs', express.static('docs'));
 blocktronNode.use('/blockchain', blocktronRouter);

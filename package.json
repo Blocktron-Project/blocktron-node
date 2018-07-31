@@ -14,6 +14,7 @@
     "build-docs": "jsdoc -c .jsdocrc -R README.md",
     "debug": "node --nolazy --inspect-brk=9229 ./bin/server.js",
     "run-dev": "nodemon ./bin/server.js",
+    "node": "nodemon ./bin/server.js 3001 http://192.168.0.101:3001",
     "node_1": "nodemon ./bin/server.js 3001 http://127.0.0.1:3001",
     "node_2": "nodemon ./bin/server.js 3002 http://127.0.0.1:3002",
     "node_3": "nodemon ./bin/server.js 3003 http://127.0.0.1:3003",

@@ -39,7 +39,7 @@ indexRouter.get('/', (req, res, next) => {
                 external: ((process.memoryUsage().external / 1024 / 1024) * 100) / 100 + ' MB'
             },
             node_id: _bt_config.blocktronNodeId,
-            node_address: 'http://127.0.0.1:' + port,
+            node_address: process.argv[3] ? process.argv[3] : 'http://127.0.0.1:' + port,
             environment: env,
             os: process.platform,
             cpu_arch: process.arch,

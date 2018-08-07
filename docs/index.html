@@ -43,7 +43,7 @@
 
 
     <section>
-        <article><p><img src="blocktron.png" alt="logo"></p>
+        <article><p><img src="logo-node.png" alt="logo"></p>
 <h1>Blocktron</h1><p><a href="https://github.com/Blocktron-Project/blocktron-node/blob/master/LICENSE"><img src="https://img.shields.io/github/license/Blocktron-Project/blocktron-node.svg" alt="GitHub license"></a> <img src="https://img.shields.io/badge/made%20with-JavaScript-green.svg" alt="made with"> <img src="https://david-dm.org/Blocktron-Project/blocktron-node.svg" alt="dependencies"> <img src="https://img.shields.io/badge/blocktron--lib-0.0.1-green.svg" alt="blocktron-lib"> <a href="https://snyk.io/test/github/Blocktron-Project/blocktron-node?targetFile=package.json"><img src="https://snyk.io/test/github/Blocktron-Project/blocktron-node/badge.svg?targetFile=package.json" alt="Known Vulnerabilities"></a> <img src="https://www.codefactor.io/Content/badges/A.svg" alt="codefactor"> <img src="https://circleci.com/gh/Blocktron-Project/blocktron-node.svg?style=svg" alt="CircleCI"> <img src="https://travis-ci.org/Blocktron-Project/blocktron-node.svg?branch=master" alt="TravisCI"> <a href="https://stackshare.io/blocktron/blocktron"><img src="https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat" alt="StackShare"></a> <a href="https://github.com/Blocktron-Project/blocktron-node/issues"><img src="https://img.shields.io/github/issues/Blocktron-Project/blocktron-node.svg" alt="GitHub issues"></a> <a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/Blocktron-Project/blocktron-node.svg" alt="Greenkeeper badge"></a> <img src="https://img.shields.io/github/forks/Blocktron-Project/blocktron-node.svg" alt="GitHub forks"> <img src="https://img.shields.io/github/stars/Blocktron-Project/blocktron-node.svg" alt="GitHub stars"> <img src="https://img.shields.io/twitter/url/https/github.com/Blocktron-Project/blocktron-node.svg?style=social" alt="Twitter"></p>
 <p><strong>Blocktron</strong> is a simple yet elegant and efficient <strong>blockchain framework</strong> written in <strong>Javascript</strong> for <strong>Node.js</strong> environment. Blocktron is aimed at developing generic, multipurpose blockchain platforms and softwares for various application use-cases, and also for educational and awareness purposes. This framework is built from the ground up using only <strong>opensource</strong> technologies.</p>
 <h1>blocktron-node v0.0.1</h1><p><strong>blocktron-node</strong> is the single server node of the entire <strong>distributed blocktron system</strong>. A single node of the entire distributed system utilizes the blocktron-lib js blockchain library internally to build the blockchain core data structures and functionalities.</p>
@@ -54,6 +54,7 @@
 <li><a href="#build-status">Build Status</a></li>
 <li><a href="#technology-stack">Technology Stack</a></li>
 <li><a href="#why-javascript--nodejs">Why JavaScript &amp; Node.js</a></li>
+<li><a href="">Blocktron &amp; Byzantine Fault Tolerance (BFT)</a></li>
 <li><a href="#getting-started">Getting Started</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#dependency">Dependency</a></li>
@@ -65,10 +66,11 @@
 <li><a href="#route-get-blockchain">Route: GET /blockchain</a></li>
 <li><a href="#route-post-registerandbroadcastnode">Route: POST /registerAndBroadcastNode</a></li>
 <li><a href="#route-post-transactionbroadcast">Route: POST /transaction/broadcast</a></li>
-<li><a href="#route-post-transactionbroadcast">Route: GET /mine</a></li>
-<li><a href="#route-getconsensus">Route: GET/consensus</a></li>
+<li><a href="#route-get-mine">Route: GET /mine</a></li>
+<li><a href="#route-get-consensus">Route: GET/consensus</a></li>
 </ul>
 </li>
+<li><a href="#adding-nodes">Adding Nodes</a></li>
 <li><a href="#tests">Tests</a></li>
 <li><a href="#continuous-integration">Continuous Integration</a></li>
 <li><a href="#contributing">Contributing</a></li>
@@ -78,7 +80,7 @@
 <li><a href="#acknowledgements">Acknowledgements</a><!--te-->
 </li>
 </ul>
-<h2>Motivation</h2><p>The <strong>blockchain</strong> is an undeniably ingenious invention – the brainchild of a person or group of people known by the pseudonym,  <code>Satoshi Nakamoto</code>. But since then, it has evolved into something greater, and the main question every single person is asking is: What is Blockchain? By allowing digital information to be distributed but not copied, blockchain technology created the backbone of a new type of internet. Originally devised for the digital currency, Bitcoin, the tech community is now finding other potential uses for the technology.</p>
+<h2>Motivation</h2><p>The <strong>blockchain</strong> is an undeniably ingenious invention – the brainchild of a person or group of people known by the pseudonym,  <strong><code>Satoshi Nakamoto</code></strong>. But since then, it has evolved into something greater, and the main question every single person is asking is: <strong>What is Blockchain?</strong> By allowing digital information to be distributed but not copied, blockchain technology created the backbone of a new type of internet. Originally devised for the digital currency, Bitcoin, the tech community is now finding other potential uses for the technology.</p>
 <p>As a computer engineer, I am passionate about solving different problems the world is facing today, through softwares, computing and other digital systems, to enhance the world as a better place for humanity. And blockchain has got a lot of attention in the recent years through the rise of certain Dapps platforms and obviously due to the hike in the value of bitcoins. Now the mission of <strong>Blocktron project</strong> is to contribute to that situation by developing blockchain technology to its next level and make it available to the world in its most simple and efficient form, so that the world can make the most of it.</p>
 <h2>Build status</h2><p>This project has been set up with Travis-CI and Circle-CI where the continuous integration and continuous deployment tests are being run on every code commits to ensure code quality and code integrity. These badges shows the tests and builds passing or failing.</p>
 <ul>
@@ -100,9 +102,38 @@
 </ul>
 <p><img src="techstack.png" alt="techstack"></p>
 <p>Read more about blocktron stack from <a href="https://stackshare.io/blocktron/blocktron">here</a></p>
-<h2>Why JavaScript &amp; Node.js</h2><p><strong>Javascript</strong>, often refered as <strong>js</strong>, is a high level, multi-paradigm, Object-based, event-driven, interpreted programming language. It first appeared in 4th december 1995, 22 years ago. It's also charecterized as dynamic, weakly-typed and prototypal inheritance based language. It was exclusivley created for the web. Its one of the three core technologies which makes the world wide web. Javascript contributes to the interactions on the web pages. Node.js is the opensource, cross-platform javascript runtime environment that can execute javascript code outside the browser environment. It helps developers to build systems for the server side and command line applications using the regular javascript language. Unlike other programming languages Node.js (Javascript) is a lot different. Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world. Every browser has a JavaSript engine built in it to process JavaScript files contained in websites. Google Chrome uses V8 engine which is built using C++. 
-<img src="https://cdn-images-1.medium.com/max/1600/1*AKKvE3QmN_ZQmEzSj16oXg.png" height=300 alt="v8logo"></p>
-<p>Node.js also uses this super-fast engine to interpret JavaScript files. Node.js uses an event-driven model. This means that Node.js waits for certain events to take place. It then acts on those events. Events can be anything from a click to a HTTP request. We can also declare our own custom events and make node.js listen for those events. Node.js uses a non-blocking I/O model. We know that I/O tasks take much longer than processing tasks. Node.js uses callback functions to handle such requests. V8 was first designed to increase the performance of JavaScript execution inside web browsers. In order to obtain speed, V8 translates JavaScript code into more efficient machine code instead of using an interpreter. It compiles JavaScript code into machine code at execution by implementing a JIT (Just-In-Time) compiler like a lot of modern JavaScript engines do such as SpiderMonkey or Rhino (Mozilla). The main difference here is that V8 doesn’t produce bytecode or any intermediate code. You can read more about V8 and its internals from the medium post by <a href="https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e">sessionstack</a></p>
+<h2>Why JavaScript &amp; Node.js</h2><p><strong>Javascript</strong>, often refered as <strong>js</strong>, is a high level, multi-paradigm, Object-based, event-driven, interpreted programming language. It first appeared in 4th december 1995, 22 years ago. It's also charecterized as dynamic, weakly-typed and prototypal inheritance based language. It was exclusivley created for the web. Its one of the three core technologies which makes the world wide web. Javascript contributes to the interactions on the web pages. Node.js is the opensource, cross-platform javascript runtime environment that can execute javascript code outside the browser environment. It helps developers to build systems for the server side and command line applications using the regular javascript language. Unlike other programming languages Node.js (Javascript) is a lot different. Node.js is a JavaScript runtime built on <strong>Chrome’s V8 JavaScript engine</strong>. Node.js uses an <strong>event-driven, non-blocking I/O model that makes it lightweight and efficient</strong>. Node.js’ package ecosystem, npm, is the largest ecosystem of open source libraries in the world. Every browser has a JavaSript engine built in it to process JavaScript files contained in websites. Google Chrome uses V8 engine which is <strong>built using C++</strong>. </p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*AKKvE3QmN_ZQmEzSj16oXg.png" height=300 alt="v8logo"></p>
+<p>Node.js also uses this super-fast engine to interpret JavaScript files. Node.js uses an event-driven model. This means that Node.js waits for certain events to take place. It then acts on those events. Events can be anything from a click to a HTTP request. We can also declare our own custom events and make node.js listen for those events. Node.js uses a non-blocking I/O model. We know that I/O tasks take much longer than processing tasks. Node.js uses callback functions to handle such requests. V8 was first designed to increase the performance of JavaScript execution inside web browsers. In order to obtain speed, <strong>V8 translates JavaScript code into more efficient machine code instead of using an interpreter</strong>. It compiles JavaScript code into machine code at execution by implementing a <strong>JIT (Just-In-Time) compiler</strong> like a lot of modern JavaScript engines do such as SpiderMonkey or Rhino (Mozilla). The main difference here is that <strong>V8 doesn’t produce bytecode or any intermediate code</strong>. You can read more about V8 and its internals from the medium post by <a href="https://blog.sessionstack.com/how-javascript-works-inside-the-v8-engine-5-tips-on-how-to-write-optimized-code-ac089e62b12e">sessionstack</a>.</p>
+<h2>Blocktron &amp; Byzantine Fault Tolerance (BFT)</h2><p>Blockchains are inherently <strong>decentralized, distributed systems</strong> which consist of different actors (nodes) who act depending on their incentives and on the information that is available to them. Whenever a new transaction gets broadcasted across the network, nodes have the option to include that transaction to their copy of their <a href="https://en.wikipedia.org/wiki/Ledger">ledger</a> (blockchain) or to ignore it. When the majority of the actors which comprise the network decide on a single state, <strong>consensus</strong> is achieved.</p>
+<p>A <strong>fundamental problem in distributed computing</strong> and multi-agent systems is to achieve overall system reliability in the presence of a number of faulty processes. This often requires processes to agree on some data value that is needed during computation. These processes are described as consensus. Now the questions arises:</p>
+<ul>
+<li>What happens when an actor decides to not follow the rules and to tamper with the state of his ledger?</li>
+<li>What happens when these actors are a large part of the network, but not the majority?</li>
+</ul>
+<p>In order to create a secure consensus protocol, it must be fault tolerant.</p>
+<p><strong>Byzantine Fault Tolerance (BFT)</strong> is the characteristic which defines a system that tolerates the class of failures that belong to the <code>Byzantine Generals’ Problem</code>. Byzantine Failure is the most difficult class of failure modes. It implies no restrictions, and makes no assumptions about the kind of behavior a node can have (e.g. a node can generate any kind of arbitrary data while posing as an honest actor). Byzantine Faults are the most severe and difficult to deal with. Byzantine Fault Tolerance has been needed in airplane engine systems, nuclear power plants and pretty much any system whose actions depend on the results of a large amount of sensors. </p>
+<p>Blockchains are decentralized ledgers which, by definition, are not controlled by a central authority. Due to the value stored in these ledgers, bad actors have huge economic incentives to try and cause faults. That said, Byzantine Fault Tolerance, and thus a solution to the Byzantine Generals’ Problem for blockchains is much needed.</p>
+<p>In the absence of BFT, a peer is able to transmit and post false transactions effectively nullifying the blockchain’s reliability. To make things worse, there is no central authority to take over and repair the damage. Inorder to address this issue, blocktron follows the standard consensus protocol called <strong>Proof Of Work (PoW)</strong>. It's an  opinionated, standardized, and universally approved blockchain consensus method to validate random blocks added to the blockchain. The Proof of work algorithm used in this framework is implemented in the <a href="https://github.com/Blocktron-Project/blocktron-lib">blocktron-lib</a> library as follows:</p>
+<ul>
+<li>Repeatedly hash the block data until it reaches the difficulty format: '0000'.</li>
+<li>Uses current block data as well as previous block hash.</li>
+<li>Continuously change the nonce until the correct hash is obtained.</li>
+<li>Return the nonce value which generates the correct hash. The proofOfWork algorithm runs to a complexity of <strong><code>O(n)</code></strong>.</li>
+</ul>
+<p><strong>Algorithm</strong></p>
+<pre class="prettyprint source"><code>ProofOfWork()
+Input &lt;previousBlockHash>, &lt;currentBlockData>, DIFFICULTY
+Output &lt;nonce>
+
+START
+SET nonce = 0
+GET hashString = hashBlock(previousBlockHash, currentBlockData, nonce)
+    DO nonce++
+       hashString = hashBlock(previousBlockHash, currentBlockData, nonce)
+
+    WHILE hashString.substring(0, DIFFICULTY) !== REPEAT('0') x DIFFICULTY 
+END</code></pre><p>The result of this proof of work method is a number which is the nonce which generates the correct hash of the format '0000<Hash>'. This nonce when used to generate a hash will generate the correctly formated hash, thus making it the proof we need. This is secure because, the algorithm has to run <code>xxxx</code> (large number) times to generate the correct hash, in this case. This is a time consuming and resource intensive process, Thus when someone tries to tamper the integrity of a blockchain, they have to rebuild the entire blockchain using this proof of work algorithm to generate correct hash and nonce combination for the entire blockchain, which is impossible.</p>
 <h2>Getting Started</h2><p>You can grab a copy of blocktron-node from github either by cloning or downloading the zip. clones can be created using the command:</p>
 <pre class="prettyprint source lang-sh"><code>git clone https://github.com/Blocktron-Project/blocktron-node.git</code></pre><p>or using ssh as:</p>
 <pre class="prettyprint source lang-sh"><code>git clone ssh://git@github.com:Blocktron-Project/blocktron-node.git</code></pre><h2>Installation</h2><p>You can install the project dependencies by running the following command inside the project folder:</p>
@@ -463,7 +494,7 @@ x-powered-by: blocktron</code></pre><p><strong>Body</strong></p>
         &quot;http://127.0.0.1:3002&quot;
     ]
 }</code></pre><p>Now you can observe that the pendingTransactions array contains a transaction with amount <strong>12.5 units</strong>. This is the <strong>mining reward</strong> provided by the <strong>Blocktron-node</strong></p>
-<h3>Route: GET/consensus</h3><p>This route can be used to validate the entire blockchain against all the chains in the network and reach consensus based on the <strong>Longest rule algorithm</strong>.</p>
+<h3>Route: GET /consensus</h3><p>This route can be used to validate the entire blockchain against all the chains in the network and reach consensus based on the <strong>Longest rule algorithm</strong>. This consensus approach is essential for a blockchain system or generally any distributed system to ensure <strong>Byzantine fault tolerance</strong>.</p>
 <p><strong>Request header</strong></p>
 <pre class="prettyprint source"><code>Content-Type: application/json</code></pre><p><strong>Response header</strong></p>
 <pre class="prettyprint source"><code>x-blocktron-Accept-Charset: UTF-8
@@ -525,6 +556,21 @@ x-powered-by: blocktron</code></pre><p>Assuming the consensus route is hit from 
         }
     ]
 }</code></pre><p>As represented the response says <code>chain replaced</code>, which means the node has reached consensus with the distributed system. If the route is hit more than once, the response says <code>Not Modified</code>.</p>
+<h2>Adding Nodes</h2><p>The blocktron distributed system can have <code>n</code> number of nodes in its network. Further nodes can be added by the following steps:</p>
+<ul>
+<li>Enter the new node to the <code>package.json</code> scripts object<ul>
+<li><code>&quot;node_x&quot;: &quot;nodemon ./dist/main.min.js 300x http://127.0.0.1:300x&quot;</code></li>
+<li>here <code>x</code> stands for the port number</li>
+<li>its not neccessary to use <code>300x</code> series. Any valid port number can be used.</li>
+<li><code>nodemon</code> is not neccessary, but is helpful for development.</li>
+</ul>
+</li>
+<li>New node can be run by the command <code>npm run node_x</code>.</li>
+<li>Then use the <a href="#route-post-registerandbroadcastnode">Route: POST /registerAndBroadcastNode</a> to register the new node to the network.<blockquote>
+<p><strong>Note: </strong> You must follow a consistent naming pattern for the nodes url, otherwise url conflicts could arise.</p>
+</blockquote>
+</li>
+</ul>
 <h2>Tests</h2><p>This project follows a <strong>Test Driven Development (TDD)</strong>. Unit tests are written using <strong>Jest</strong>, an opensource testing and code coverage framework from facebook opensource. Test spec files can be found inside the test folder. Tests can be run by the command:</p>
 <pre class="prettyprint source lang-sh"><code>npm run test</code></pre><blockquote>
 <p><strong>Note:</strong> This includes code/test coverage report also</p>
@@ -608,7 +654,7 @@ jobs:
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Jul 20 2018 21:15:41 GMT+0530 (India Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Aug 07 2018 11:50:03 GMT+0530 (India Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

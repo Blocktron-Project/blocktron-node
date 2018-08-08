@@ -45,7 +45,7 @@ const pinoConfig = {
     * extreme (boolean): Enables extreme mode, yields an additional 60% performance (from 250ms down to 100ms per
     * 10000 ops). There are trade-off's should be understood before usage. See Extreme mode explained. Default: false.
     */
-   extreme: false,
+   //extreme: false,
 
    /**
     * level (string): one of 'fatal', 'error', 'warn', 'info', 'debug', 'trace'; also 'silent' is supported to disable

@@ -42,7 +42,7 @@
   },
   "homepage": "https://github.com/Blocktron-Project/blocktron-node#readme",
   "dependencies": {
-    "blocktron-lib": "0.0.1",
+    "blocktron-lib": "0.0.2",
     "debug": "^3.1.0",
     "express": "^4.16.3",
     "http-errors": "^1.6.3",

@@ -59,16 +59,6 @@ global.log = log;
 const Blocktron = require('./lib/blocktron');
 
 /**
- * Node.js path module
- */
-const path = require('path');
-
-/**
- * Serve favicon
- */
-const icon = require('serve-favicon');
-
-/**
  * Create an instance of the Blocktron class and globalize it.
  * @global
  */
@@ -124,7 +114,6 @@ log.info('Blocktron custom middlewares initialized');
  * Add routes to the middleware chain
  * @memberof blocktronNode
  */
-blocktronNode.use(icon(path.join(__dirname, '..', 'docs/favicon.ico')));
 blocktronNode.use('/', indexRouter);
 blocktronNode.use('/docs', express.static('docs'));
 blocktronNode.use('/blockchain', blocktronRouter);

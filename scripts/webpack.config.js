@@ -51,7 +51,7 @@ module.exports = (env) => {
         entry: path.resolve(__dirname, '../', 'bin/server.js'),
         //set webpack bundle output
         output: {
-            //set output target for UMD
+            //set output target for common js 2
             library: 'blocktron-node',
             libraryTarget: 'commonjs2',
             path: path.resolve(__dirname, '../', 'dist'),

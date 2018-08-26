@@ -18,6 +18,7 @@ module.exports = (env) => {
         node: {
             process: true
         },
+        target: 'node',
         //add a banner
         plugins: [
             new webpack.BannerPlugin({
@@ -51,11 +52,9 @@ module.exports = (env) => {
         output: {
             //set output target for UMD
             library: 'blocktron-node',
-            libraryTarget: 'umd',
+            libraryTarget: 'commonjs2',
             path: path.resolve(__dirname, '../', 'dist'),
-            filename: env && env.production === true ? 'blocktron_node.min.js' : 'blocktron_node.js',
-            umdNamedDefine: true,
-            globalObject: 'typeof self !== \'undefined\' ? self : this'
+            filename: env && env.production === true ? 'blocktron_node.min.js' : 'blocktron_node.js'
         },
         //set up babel transpiler
         module: {

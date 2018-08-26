@@ -2,16 +2,17 @@
   "name": "blocktron-node",
   "version": "0.0.1",
   "description": "blocktron node of the distributed blocktron system",
-  "main": "dist/main.js",
+  "main": "dist/blocktron_node.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "precommit": "pretty-quick --staged",
     "test": "jest test --coverage --forceExit",
-    "build-dev": "webpack --config=webpack.dev.config.js",
-    "build-prod": "webpack --config=webpack.config.js",
+    "build-dev": "webpack --config=scripts/webpack.config.js",
+    "build-prod": "webpack --config=scripts/webpack.config.js --env.production",
     "build-docs": "jsdoc -c .jsdocrc -R README.md",
+    "build": "npm run build-dev && npm run build-prod",
     "debug": "node --nolazy --inspect-brk=9229 ./bin/server.js",
     "run-dev": "nodemon ./bin/server.js",
     "node": "nodemon ./bin/server.js 3001 http://192.168.0.100:3001",
@@ -20,7 +21,7 @@
     "node_3": "nodemon ./bin/server.js 3003 http://127.0.0.1:3003",
     "node_4": "nodemon ./bin/server.js 3004 http://127.0.0.1:3004",
     "node_5": "nodemon ./bin/server.js 3005 http://127.0.0.1:3005",
-    "start": "node ./dist/main.min.js"
+    "start": "node ./dist/blocktron_node.min.js"
   },
   "repository": {
     "type": "git",
@@ -67,6 +68,7 @@
     "prettier-webpack-plugin": "^1.0.0",
     "supertest": "^3.1.0",
     "webpack": "^4.12.1",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.0.8",
+    "webpack-node-externals": "^1.7.2"
   }
 }

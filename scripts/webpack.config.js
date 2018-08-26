@@ -18,6 +18,7 @@ module.exports = (env) => {
         node: {
             process: true
         },
+        //Set target environment
         target: 'node',
         //add a banner
         plugins: [

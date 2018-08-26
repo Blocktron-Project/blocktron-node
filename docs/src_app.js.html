@@ -87,16 +87,6 @@ global.log = log;
 const Blocktron = require('./lib/blocktron');
 
 /**
- * Node.js path module
- */
-const path = require('path');
-
-/**
- * Serve favicon
- */
-const icon = require('serve-favicon');
-
-/**
  * Create an instance of the Blocktron class and globalize it.
  * @global
  */
@@ -135,9 +125,9 @@ blocktronNode.disable('x-powered-by');
  */
 blocktronNode.use(express.json());
 blocktronNode.use(
-    express.urlencoded({
-        extended: false
-    })
+   express.urlencoded({
+      extended: false
+   })
 );
 log.info('Blocktron application middlewares initialized');
 
@@ -152,7 +142,6 @@ log.info('Blocktron custom middlewares initialized');
  * Add routes to the middleware chain
  * @memberof blocktronNode
  */
-blocktronNode.use(icon(path.join(__dirname, '..', 'docs', 'favicon.ico')));
 blocktronNode.use('/', indexRouter);
 blocktronNode.use('/docs', express.static('docs'));
 blocktronNode.use('/blockchain', blocktronRouter);
@@ -173,8 +162,8 @@ log.info('Blocktron routes chained to middlewares');
  * @param {Callback} middleware - Callback to catch 404 error
  */
 blocktronNode.use((req, res, next) => {
-    log.error('Error caught');
-    next(createError(404));
+   log.error('Error caught');
+   next(createError(404));
 });
 
 /**
@@ -184,20 +173,19 @@ blocktronNode.use((req, res, next) => {
  * @param {Callback} middleware - Callback to render the error
  */
 blocktronNode.use((err, req, res, next) => {
-
-    /**
-     * render the error
-     */
-    res.status(err.status || 500);
-    let errorData = {
-        status: err.status || 500,
-        message: err.message
-    };
-    if (env === 'development') {
-        errorData.stack = err.stack;
-    }
-    log.error(req, res);
-    res.json(errorData);
+   /**
+    * render the error
+    */
+   res.status(err.status || 500);
+   let errorData = {
+      status: err.status || 500,
+      message: err.message
+   };
+   if (env === 'development') {
+      errorData.stack = err.stack;
+   }
+   log.error(req, res);
+   res.json(errorData);
 });
 
 module.exports = blocktronNode;
@@ -211,13 +199,13 @@ module.exports = blocktronNode;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_bt_config.html">_bt_config</a></li><li><a href="module-blocktronNode.html">blocktronNode</a></li><li><a href="module-enhanceResponse.html">enhanceResponse</a></li><li><a href="module-middlewareRouter.html">middlewareRouter</a></li><li><a href="module-pinoConfig.html">pinoConfig</a></li><li><a href="module-Server.html">Server</a></li><li><a href="routers_blocktronRouter.html">routers:blocktronRouter</a></li><li><a href="routers_broadcastTransactionRouter.html">routers:broadcastTransactionRouter</a></li><li><a href="routers_consensusRouter.html">routers:consensusRouter</a></li><li><a href="routers_indexRouter.html">routers:indexRouter</a></li><li><a href="routers_mineRouter.html">routers:mineRouter</a></li><li><a href="routers_receiveNewBlockRouter.html">routers:receiveNewBlockRouter</a></li><li><a href="routers_registerAndBroadcastRouter.html">routers:registerAndBroadcastRouter</a></li><li><a href="routers_registerNodeRouter.html">routers:registerNodeRouter</a></li><li><a href="routers_registerNodesBulkRouter.html">routers:registerNodesBulkRouter</a></li><li><a href="routers_transactionRouter.html">routers:transactionRouter</a></li></ul><h3>Classes</h3><ul><li><a href="Blocktron.html">Blocktron</a></li></ul><h3>Namespaces</h3><ul><li><a href="res.html">res</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_bt_config">_bt_config</a></li><li><a href="global.html#blocktron">blocktron</a></li><li><a href="global.html#BlocktronLib">BlocktronLib</a></li><li><a href="global.html#currentNodeUrl">currentNodeUrl</a></li><li><a href="global.html#env">env</a></li><li><a href="global.html#log">log</a></li><li><a href="global.html#newTransactions">newTransactions</a></li><li><a href="global.html#uuid">uuid</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_bt_config.html">_bt_config</a></li><li><a href="module-blocktronNode.html">blocktronNode</a></li><li><a href="module-enhanceResponse.html">enhanceResponse</a></li><li><a href="module-middlewareRouter.html">middlewareRouter</a></li><li><a href="module-pinoConfig.html">pinoConfig</a></li><li><a href="module-Server.html">Server</a></li><li><a href="routers_blocktronRouter.html">routers:blocktronRouter</a></li><li><a href="routers_broadcastTransactionRouter.html">routers:broadcastTransactionRouter</a></li><li><a href="routers_consensusRouter.html">routers:consensusRouter</a></li><li><a href="routers_indexRouter.html">routers:indexRouter</a></li><li><a href="routers_mineRouter.html">routers:mineRouter</a></li><li><a href="routers_receiveNewBlockRouter.html">routers:receiveNewBlockRouter</a></li><li><a href="routers_registerAndBroadcastRouter.html">routers:registerAndBroadcastRouter</a></li><li><a href="routers_registerNodeRouter.html">routers:registerNodeRouter</a></li><li><a href="routers_registerNodesBulkRouter.html">routers:registerNodesBulkRouter</a></li><li><a href="routers_transactionRouter.html">routers:transactionRouter</a></li></ul><h3>Classes</h3><ul><li><a href="Blocktron.html">Blocktron</a></li></ul><h3>Namespaces</h3><ul><li><a href="res.html">res</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_bt_config">_bt_config</a></li><li><a href="global.html#blocktron">blocktron</a></li><li><a href="global.html#BlocktronLib">BlocktronLib</a></li><li><a href="global.html#currentNodeUrl">currentNodeUrl</a></li><li><a href="global.html#env">env</a></li><li><a href="global.html#log">log</a></li><li><a href="global.html#newTransactions">newTransactions</a></li><li><a href="global.html#options">options</a></li><li><a href="global.html#uuid">uuid</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Aug 07 2018 11:50:03 GMT+0530 (India Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Aug 26 2018 22:24:32 GMT+0530 (India Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

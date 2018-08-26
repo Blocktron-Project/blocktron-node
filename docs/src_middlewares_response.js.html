@@ -43,48 +43,47 @@
  * @param {function} next - The next function in the middleware chain
  */
 const enhanceResponse = (req, res, next) => {
+   /**
+    * Helper function to append the CORS headers to enable CORS.
+    * Cross-Origin Resource Sharing (CORS) is a mechanism that uses additional
+    * HTTP headers to tell a browser to let a web application running at one
+    * origin (domain) have permission to access selected resources from a server
+    * at a different origin. A web application makes a cross-origin HTTP request
+    * when it requests a resource that has a different origin (domain, protocol, and port)
+    * than its own origin.
+    * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS|Cross-Origin Resource Sharing (CORS)}
+    * @function enableCORS
+    * @inner
+    */
+   (function enableCORS() {
+      try {
+         res.header('Access-Control-Allow-Origin', '*');
+         res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+         res.header('Access-Control-Allow-Headers', 'Content-Type');
+      } catch (error) {
+         log.error(`CORS setup failed due to: ${error}`);
+      }
+   })();
 
-    /**
-     * Helper function to append the CORS headers to enable CORS.
-     * Cross-Origin Resource Sharing (CORS) is a mechanism that uses additional 
-     * HTTP headers to tell a browser to let a web application running at one 
-     * origin (domain) have permission to access selected resources from a server 
-     * at a different origin. A web application makes a cross-origin HTTP request 
-     * when it requests a resource that has a different origin (domain, protocol, and port) 
-     * than its own origin.
-     * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS|Cross-Origin Resource Sharing (CORS)}
-     * @function enableCORS
-     * @inner
-     */
-    (function enableCORS(){
-        try {
-            res.header('Access-Control-Allow-Origin', '*');
-            res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-            res.header('Access-Control-Allow-Headers', 'Content-Type');
-        } catch (error) {
-            log.error(`CORS setup failed due to: ${error}`);
-        }
-    })();
-
-    /**
-     * Helper function to append the specified value to the HTTP response header field.
-     * If the header is not already set, it creates the header with the specified value.
-     * The value parameter can be a string or an array.
-     * @function appendHeader
-     * @inner
-     */
-    (function appendHeader(){
-        try {
-            res.append('x-powered-by', 'blocktron');
-            res.append('x-blocktron-Accept-Charset', 'UTF-8');
-            res.append('x-blocktron-Accept-Language', 'en');
-            res.append('x-blocktron-response-timestamp', `${Date.now()}`);
-            res.append('x-blocktron-host-uuid', `${_bt_config.blocktronNodeId}`);
-        } catch (error) {
-            log.error(`Header appendage failed due to: ${error}`);
-        }
-    })();
-    next();
+   /**
+    * Helper function to append the specified value to the HTTP response header field.
+    * If the header is not already set, it creates the header with the specified value.
+    * The value parameter can be a string or an array.
+    * @function appendHeader
+    * @inner
+    */
+   (function appendHeader() {
+      try {
+         res.append('x-powered-by', 'blocktron');
+         res.append('x-blocktron-Accept-Charset', 'UTF-8');
+         res.append('x-blocktron-Accept-Language', 'en');
+         res.append('x-blocktron-response-timestamp', `${Date.now()}`);
+         res.append('x-blocktron-host-uuid', `${_bt_config.blocktronNodeId}`);
+      } catch (error) {
+         log.error(`Header appendage failed due to: ${error}`);
+      }
+   })();
+   next();
 };
 
 module.exports = enhanceResponse;
@@ -98,13 +97,13 @@ module.exports = enhanceResponse;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_bt_config.html">_bt_config</a></li><li><a href="module-blocktronNode.html">blocktronNode</a></li><li><a href="module-enhanceResponse.html">enhanceResponse</a></li><li><a href="module-middlewareRouter.html">middlewareRouter</a></li><li><a href="module-pinoConfig.html">pinoConfig</a></li><li><a href="module-Server.html">Server</a></li><li><a href="routers_blocktronRouter.html">routers:blocktronRouter</a></li><li><a href="routers_broadcastTransactionRouter.html">routers:broadcastTransactionRouter</a></li><li><a href="routers_consensusRouter.html">routers:consensusRouter</a></li><li><a href="routers_indexRouter.html">routers:indexRouter</a></li><li><a href="routers_mineRouter.html">routers:mineRouter</a></li><li><a href="routers_receiveNewBlockRouter.html">routers:receiveNewBlockRouter</a></li><li><a href="routers_registerAndBroadcastRouter.html">routers:registerAndBroadcastRouter</a></li><li><a href="routers_registerNodeRouter.html">routers:registerNodeRouter</a></li><li><a href="routers_registerNodesBulkRouter.html">routers:registerNodesBulkRouter</a></li><li><a href="routers_transactionRouter.html">routers:transactionRouter</a></li></ul><h3>Classes</h3><ul><li><a href="Blocktron.html">Blocktron</a></li></ul><h3>Namespaces</h3><ul><li><a href="res.html">res</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_bt_config">_bt_config</a></li><li><a href="global.html#blocktron">blocktron</a></li><li><a href="global.html#BlocktronLib">BlocktronLib</a></li><li><a href="global.html#currentNodeUrl">currentNodeUrl</a></li><li><a href="global.html#env">env</a></li><li><a href="global.html#log">log</a></li><li><a href="global.html#newTransactions">newTransactions</a></li><li><a href="global.html#uuid">uuid</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-_bt_config.html">_bt_config</a></li><li><a href="module-blocktronNode.html">blocktronNode</a></li><li><a href="module-enhanceResponse.html">enhanceResponse</a></li><li><a href="module-middlewareRouter.html">middlewareRouter</a></li><li><a href="module-pinoConfig.html">pinoConfig</a></li><li><a href="module-Server.html">Server</a></li><li><a href="routers_blocktronRouter.html">routers:blocktronRouter</a></li><li><a href="routers_broadcastTransactionRouter.html">routers:broadcastTransactionRouter</a></li><li><a href="routers_consensusRouter.html">routers:consensusRouter</a></li><li><a href="routers_indexRouter.html">routers:indexRouter</a></li><li><a href="routers_mineRouter.html">routers:mineRouter</a></li><li><a href="routers_receiveNewBlockRouter.html">routers:receiveNewBlockRouter</a></li><li><a href="routers_registerAndBroadcastRouter.html">routers:registerAndBroadcastRouter</a></li><li><a href="routers_registerNodeRouter.html">routers:registerNodeRouter</a></li><li><a href="routers_registerNodesBulkRouter.html">routers:registerNodesBulkRouter</a></li><li><a href="routers_transactionRouter.html">routers:transactionRouter</a></li></ul><h3>Classes</h3><ul><li><a href="Blocktron.html">Blocktron</a></li></ul><h3>Namespaces</h3><ul><li><a href="res.html">res</a></li></ul><h3>Global</h3><ul><li><a href="global.html#_bt_config">_bt_config</a></li><li><a href="global.html#blocktron">blocktron</a></li><li><a href="global.html#BlocktronLib">BlocktronLib</a></li><li><a href="global.html#currentNodeUrl">currentNodeUrl</a></li><li><a href="global.html#env">env</a></li><li><a href="global.html#log">log</a></li><li><a href="global.html#newTransactions">newTransactions</a></li><li><a href="global.html#options">options</a></li><li><a href="global.html#uuid">uuid</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Aug 07 2018 11:50:03 GMT+0530 (India Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Aug 26 2018 22:24:32 GMT+0530 (India Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

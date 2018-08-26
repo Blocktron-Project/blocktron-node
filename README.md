@@ -158,9 +158,6 @@ This project is internally dependent on the following npm modules and packages:
 - **[request-promise](https://www.npmjs.com/package/request-promise)**
 
   The simplified HTTP request client 'request' with Promise support. Powered by Bluebird.
-- **[serve-favicon](https://www.npmjs.com/package/serve-favicon)**
-
-  Node.js middleware for serving a favicon. A favicon is a visual cue that client software, like browsers, use to identify a site
 - **[uuid](https://www.npmjs.com/package/uuid)**
 
   Simple, fast generation of RFC4122 UUIDS

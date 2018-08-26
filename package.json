@@ -21,7 +21,7 @@
     "node_3": "nodemon ./bin/server.js 3003 http://127.0.0.1:3003",
     "node_4": "nodemon ./bin/server.js 3004 http://127.0.0.1:3004",
     "node_5": "nodemon ./bin/server.js 3005 http://127.0.0.1:3005",
-    "start": "node ./dist/blocktron_node.js"
+    "start": "node ./dist/blocktron_node.min.js"
   },
   "repository": {
     "type": "git",

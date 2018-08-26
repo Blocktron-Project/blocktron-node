@@ -107,9 +107,9 @@ blocktronNode.disable('x-powered-by');
  */
 blocktronNode.use(express.json());
 blocktronNode.use(
-    express.urlencoded({
-        extended: false
-    })
+   express.urlencoded({
+      extended: false
+   })
 );
 log.info('Blocktron application middlewares initialized');
 
@@ -124,7 +124,7 @@ log.info('Blocktron custom middlewares initialized');
  * Add routes to the middleware chain
  * @memberof blocktronNode
  */
-blocktronNode.use(icon(path.join(__dirname, '..', 'docs', 'favicon.ico')));
+blocktronNode.use(icon(path.join(__dirname, '..', 'docs/favicon.ico')));
 blocktronNode.use('/', indexRouter);
 blocktronNode.use('/docs', express.static('docs'));
 blocktronNode.use('/blockchain', blocktronRouter);
@@ -145,8 +145,8 @@ log.info('Blocktron routes chained to middlewares');
  * @param {Callback} middleware - Callback to catch 404 error
  */
 blocktronNode.use((req, res, next) => {
-    log.error('Error caught');
-    next(createError(404));
+   log.error('Error caught');
+   next(createError(404));
 });
 
 /**
@@ -156,20 +156,19 @@ blocktronNode.use((req, res, next) => {
  * @param {Callback} middleware - Callback to render the error
  */
 blocktronNode.use((err, req, res, next) => {
-
-    /**
-     * render the error
-     */
-    res.status(err.status || 500);
-    let errorData = {
-        status: err.status || 500,
-        message: err.message
-    };
-    if (env === 'development') {
-        errorData.stack = err.stack;
-    }
-    log.error(req, res);
-    res.json(errorData);
+   /**
+    * render the error
+    */
+   res.status(err.status || 500);
+   let errorData = {
+      status: err.status || 500,
+      message: err.message
+   };
+   if (env === 'development') {
+      errorData.stack = err.stack;
+   }
+   log.error(req, res);
+   res.json(errorData);
 });
 
 module.exports = blocktronNode;

@@ -5,7 +5,7 @@
  * @see {@link https://github.com/pinojs/pino/blob/master/docs/API.md|Pino Config}
  */
 
-const pinoPrettyConfig = require('./pinoPretty'); 
+const pinoPrettyConfig = require('./pinoPretty');
 
 const pinoConfig = {
    /**

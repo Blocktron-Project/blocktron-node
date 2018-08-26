@@ -14,10 +14,10 @@ const blocktronRouter = express.Router();
  * @param {Callback} middleware - Express middleware callback
  */
 blocktronRouter.get('/', (req, res, next) => {
-    /**
-     * Send the JSON representation of blockchain to the client.
-     */
-    res.json(blocktron);
+   /**
+    * Send the JSON representation of blockchain to the client.
+    */
+   res.json(blocktron);
 });
 
 module.exports = blocktronRouter;

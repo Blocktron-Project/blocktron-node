@@ -1,4 +1,4 @@
-![logo](logo-node.png)
+![logo](public/logo-node.png)
 # Blocktron
 
 [![GitHub license](https://img.shields.io/github/license/Blocktron-Project/blocktron-node.svg)](https://github.com/Blocktron-Project/blocktron-node/blob/master/LICENSE) ![made with](https://img.shields.io/badge/made%20with-JavaScript-green.svg) ![dependencies](https://david-dm.org/Blocktron-Project/blocktron-node.svg) ![blocktron-lib](https://img.shields.io/badge/blocktron--lib-0.0.1-green.svg) [![Known Vulnerabilities](https://snyk.io/test/github/Blocktron-Project/blocktron-node/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Blocktron-Project/blocktron-node?targetFile=package.json) ![codefactor](https://www.codefactor.io/Content/badges/A.svg) ![CircleCI](https://circleci.com/gh/Blocktron-Project/blocktron-node.svg?style=svg) ![TravisCI](https://travis-ci.org/Blocktron-Project/blocktron-node.svg?branch=master) [![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/blocktron/blocktron) [![GitHub issues](https://img.shields.io/github/issues/Blocktron-Project/blocktron-node.svg)](https://github.com/Blocktron-Project/blocktron-node/issues) [![Greenkeeper badge](https://badges.greenkeeper.io/Blocktron-Project/blocktron-node.svg)](https://greenkeeper.io/) ![GitHub forks](https://img.shields.io/github/forks/Blocktron-Project/blocktron-node.svg) ![GitHub stars](https://img.shields.io/github/stars/Blocktron-Project/blocktron-node.svg) ![Twitter](https://img.shields.io/twitter/url/https/github.com/Blocktron-Project/blocktron-node.svg?style=social)
@@ -63,7 +63,7 @@ Blocktron project is built with the following technologies:
 - [Codacy](https://www.codacy.com/)
 - [Jest](https://jestjs.io/)
 
-![techstack](techstack.png)
+![techstack](public/techstack.png)
 
 Read more about blocktron stack from [here](https://stackshare.io/blocktron/blocktron)
 

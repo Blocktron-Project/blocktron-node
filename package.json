@@ -1,6 +1,7 @@
 {
   "name": "blocktron-node",
   "version": "0.0.1",
+  "private": false,
   "description": "blocktron node of the distributed blocktron system",
   "main": "dist/blocktron_node.js",
   "directories": {

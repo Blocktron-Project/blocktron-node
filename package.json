@@ -21,7 +21,7 @@
     "node_3": "nodemon ./bin/server.js 3003 http://127.0.0.1:3003",
     "node_4": "nodemon ./bin/server.js 3004 http://127.0.0.1:3004",
     "node_5": "nodemon ./bin/server.js 3005 http://127.0.0.1:3005",
-    "start": "node ./dist/blocktron_node.min.js"
+    "start": "node ./dist/blocktron_node.js"
   },
   "repository": {
     "type": "git",
@@ -47,11 +47,11 @@
     "debug": "^3.1.0",
     "express": "^4.16.3",
     "http-errors": "^1.6.3",
+    "nodemon": "^1.18.3",
     "path": "^0.12.7",
     "pino": "^5.0.0",
     "pino-pretty": "^2.0.0",
     "request-promise": "^4.2.2",
-    "serve-favicon": "^2.5.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

@@ -114,6 +114,8 @@ log.info('Blocktron custom middlewares initialized');
  * Add routes to the middleware chain
  * @memberof blocktronNode
  */
+//Ignore favicon requests
+blocktronNode.get('/favicon.ico', (req, res) => res.status(204));
 blocktronNode.use('/', indexRouter);
 blocktronNode.use('/docs', express.static('docs'));
 blocktronNode.use('/blockchain', blocktronRouter);

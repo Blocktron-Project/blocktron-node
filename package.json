@@ -68,7 +68,7 @@
     "prettier": "^1.13.6",
     "prettier-webpack-plugin": "^1.0.0",
     "supertest": "^3.1.0",
-    "webpack": "^4.12.1",
+    "webpack": "^4.38.0",
     "webpack-cli": "^3.0.8",
     "webpack-node-externals": "^1.7.2"
   }
